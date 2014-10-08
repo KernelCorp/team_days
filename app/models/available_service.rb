@@ -11,6 +11,7 @@ class AvailableService
   delegate :name, :description, to: :service
 
   validates_presence_of :service
+  validates_uniqueness_of :service
 
   def price
     attributes['price'] || service.price
