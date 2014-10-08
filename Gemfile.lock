@@ -39,6 +39,7 @@ GEM
     bcrypt (3.1.7)
     bson (2.3.0)
     builder (3.1.4)
+    cancancan (1.9.2)
     capistrano (2.15.5)
       highline
       net-scp (>= 1.0.0)
@@ -273,6 +274,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  cancancan
   capistrano
   capybara (~> 2.3.0)
   coffee-rails (~> 4.0.0)

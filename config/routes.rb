@@ -1,4 +1,6 @@
 TeamDays::Application.routes.draw do
+  resources :available_services
+
   devise_for :partners, class_name: 'User::Partner'
 
   resource :partner

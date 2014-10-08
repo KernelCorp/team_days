@@ -7,6 +7,8 @@ gem 'mongoid', '~>4.0.0'
 
 gem 'devise'
 
+gem 'cancancan'
+
 gem 'semantic-ui-sass'
 
 gem 'slim-rails'
