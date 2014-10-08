@@ -7,5 +7,15 @@ html
     = javascript_include_tag "partners"
     = csrf_meta_tags
   body
+    = render partial: 'layouts/partners/header'
     .container
-      = yield
+      .ui.grid
+        .five.wide.column
+          .ui.vertical.inverted.green.menu
+            / ember nav menu here
+            a.item href='#/services'
+              | Управление Услугами
+              i.briefcase.icon
+
+        .eleven.wide.column
+          = yield
