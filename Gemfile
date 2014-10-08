@@ -30,7 +30,9 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+# gem 'jbuilder', '~> 1.2'
+
+gem 'active_model_serializers'
 
 #ember js
 gem 'ember-rails'

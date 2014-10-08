@@ -21,4 +21,30 @@ RSpec.describe PartnersController, :type => :controller do
     end
   end
 
+  describe 'PUT update' do
+    let(:partner) {FactoryGirl.create :partner}
+
+    before :each do
+      sign_in partner
+      request.accept = 'application/json'
+    end
+
+    context 'valid attributes' do
+      let(:attributes) { {email: 'new@email.com'} }
+
+      it 'returns status updated' do
+        put :update, partner: attributes
+        expect(response).to have_http_status(:ok)
+      end
+    end
+
+    context 'invalid attributes' do
+      let(:attributes) { {email: 'newemail.com'} }
+      it 'returns status unprocessable_entity' do
+        put :update, partner: attributes
+        expect(response).to have_http_status(:unprocessable_entity)
+      end
+    end
+  end
+
 end
