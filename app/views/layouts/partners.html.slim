@@ -1,0 +1,11 @@
+doctype html
+html
+  head
+    title
+      | TeamDays
+    = stylesheet_link_tag    "partners"
+    = javascript_include_tag "partners"
+    = csrf_meta_tags
+  body
+    .container
+      = yield

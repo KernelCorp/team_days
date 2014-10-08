@@ -5,6 +5,11 @@ gem 'rails', '~>4.0.8'
 
 gem 'mongoid', '~>4.0.0'
 
+gem 'devise'
+
+gem 'semantic-ui-sass'
+
+gem 'slim-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
