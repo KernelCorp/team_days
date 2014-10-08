@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :service do
-    name "new service"
+    sequence(:name) { |n| "service-#{n}" }
     price 1.5
     description "MyText"
   end

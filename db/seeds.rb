@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+#Test data
+service = Service.create name: 'Выпить чаю', price: 20.0, description: 'с малиной'
+
+partner = User::Partner.find_or_create_by email: 'partner@example.com', password: 'password'
+partner.available_services.build service: service
+partner.save

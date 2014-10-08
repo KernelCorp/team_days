@@ -8,6 +8,8 @@ class AvailableService
   belongs_to :service
   embedded_in :partner, class_name: 'User::Partner'
 
+  delegate :name, :description, to: :service
+
   validates_presence_of :service
 
   def price

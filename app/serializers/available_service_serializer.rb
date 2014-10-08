@@ -1,3 +1,7 @@
 class AvailableServiceSerializer < ActiveModel::Serializer
-  attributes :id, :is_active, :price
+  attributes :id, :name, :description, :is_active, :price, :banned
+
+  def id
+    object.id.to_s
+  end
 end
