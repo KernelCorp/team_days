@@ -1,0 +1,18 @@
+h3.ui.header Услуги
+table.ui.table.segment
+  thead
+    tr
+      th
+        | Наименование
+      th
+        | Цена
+      th
+        | Описание
+  = each
+    tr
+      td
+        = name
+      td
+        = price
+      td
+        = desciption

@@ -5,6 +5,7 @@ class PartnersController < ApplicationController
 
   def show
     @partner = current_partner
+    respond_with @partner
   end
 
   def update
