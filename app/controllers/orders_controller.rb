@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  include Sortable
   before_action :authenticate_partner!
 
   load_and_authorize_resource through: :current_partner
@@ -6,7 +7,8 @@ class OrdersController < ApplicationController
   respond_to :json
 
   def index
-    respond_with @orders.paginate(per_page: 2, page: params[:page])
+    @orders = @orders.order(order_option).paginate(per_page: 10, page: params[:page])
+    respond_with @orders
   end
 
   def show

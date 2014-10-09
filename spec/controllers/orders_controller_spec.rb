@@ -15,6 +15,24 @@ RSpec.describe OrdersController, :type => :controller do
         get :index
         expect(assigns(:orders)).to eq([order])
       end
+
+      describe 'sorting' do
+        before :each do
+          FactoryGirl.create :order, partner: order.partner, created_at: DateTime.now
+          FactoryGirl.create :order, partner: order.partner, created_at: Date.yesterday
+        end
+
+        it 'sorts asc' do
+          get :index, {order: 'created_at_asc'}
+          expect(assigns(:orders).to_a).to eq(Order.order('created_at asc').to_a)
+        end
+        it 'sorts desc' do
+          get :index, {order: 'created_at_desc'}
+          expect(assigns(:orders).to_a).to eq(Order.order('created_at desc').to_a)
+        end
+
+
+      end
     end
 
     describe "GET show" do
