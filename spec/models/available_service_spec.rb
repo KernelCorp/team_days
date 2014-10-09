@@ -16,7 +16,7 @@ RSpec.describe AvailableService, :type => :model do
     end
 
     context 'available service has not price' do
-      let(:partner) {FactoryGirl.create :partner}
+      let(:partner) {FactoryGirl.create :partner, available_services: [FactoryGirl.build(:available_service, price: nil)]}
       subject {available_service.price}
 
       it { expect(subject).to eq(available_service.service.price) }
