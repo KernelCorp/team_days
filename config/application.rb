@@ -25,7 +25,7 @@ module TeamDays
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.ember.ember_path = "#{Rails.root}/app/assets/javascripts/partners"
-    config.handlebars.templates_root = "#{Rails.root}/app/assets/javascripts/templates"
+    config.handlebars.templates_root = "partners/templates"
     config.autoload_paths << Rails.root.join('lib')
   end
 end
