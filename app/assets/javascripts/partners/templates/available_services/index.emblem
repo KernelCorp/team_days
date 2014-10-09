@@ -8,11 +8,33 @@ table.ui.table.segment
         | Цена
       th
         | Описание
-  = each
-    tr
-      td
-        = name
-      td
-        = price
-      td
-        = desciption
+      th
+        | Активность
+      th
+        | Ативировать/деактивировать
+      th
+        | Редактировать
+  tbody
+    = each
+      tr
+        td
+          = name
+        td
+          = price
+        td
+          = description
+        td
+          = if is_active
+            | Активна
+          = else
+            | Неактивна
+        td
+          = if is_active
+            button.ui.green.submit.button{action 'update' this false }
+              | Деактивировать услугу
+          = else
+            button.ui.green.submit.button{action 'update' this true}
+              | Активировать услугу
+        td
+          a.ui.green.submit.button href="#/available_service/edit/#{this.id}"
+            | Редактировать

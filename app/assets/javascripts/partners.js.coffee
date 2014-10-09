@@ -8,4 +8,4 @@
 # for more details see: http://emberjs.com/guides/application/
 window.TeamDays = Ember.Application.create( {
   rootElement: '#partners'
-});
+})
