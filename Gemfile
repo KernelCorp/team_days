@@ -9,6 +9,8 @@ gem 'devise'
 
 gem 'cancancan'
 
+gem 'will_paginate_mongoid'
+
 gem 'semantic-ui-sass'
 
 gem 'slim-rails'

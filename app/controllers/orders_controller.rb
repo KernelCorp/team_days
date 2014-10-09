@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
   respond_to :json
 
   def index
-    respond_with @orders
+    respond_with @orders.paginate(per_page: 30, page: params[:page])
   end
 
   def show
