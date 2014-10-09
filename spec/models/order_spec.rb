@@ -15,4 +15,28 @@ RSpec.describe Order, :type => :model do
       expect(order.valid?).to be_truthy
     end
   end
+
+  describe '#update_cost' do
+
+    it 'runs before create' do
+      order = FactoryGirl.build :order
+      expect(order.cost).not_to be_nil
+    end
+
+    context 'partners present' do
+      let(:order) { FactoryGirl.create :order }
+
+      it 'sets available_service price' do
+        expect(order.cost).to eq(order.partner.available_services.where(service: order.service).first.price)
+      end
+    end
+
+    context 'partners is nil' do
+      let(:order) { FactoryGirl.create :order, partner: nil, service: FactoryGirl.create(:service) }
+
+      it 'sets service price' do
+        expect(order.cost).to eq(order.service.price)
+      end
+    end
+  end
 end

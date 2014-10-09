@@ -4,6 +4,7 @@ module User
 
     embeds_many :available_services
 
+    has_many :orders
     has_and_belongs_to_many :services_boxes, after_add: :add_new_services, before_remove: :remove_services
 
     accepts_nested_attributes_for :available_services

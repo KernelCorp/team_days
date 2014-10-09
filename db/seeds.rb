@@ -12,3 +12,4 @@ service = Service.create name: 'Выпить чаю', price: 20.0, description: 
 partner = User::Partner.find_or_create_by email: 'partner@example.com', password: 'password'
 partner.available_services.build service: service
 partner.save
+

@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :available_service, class: 'AvailableService' do
+    price 12.0
     service {create :service}
   end
 end
