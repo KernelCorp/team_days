@@ -3,8 +3,9 @@
 #= require ember
 #= require ember-data
 #= require_self
-#= require team_days
+#= require ./partners/team_days
 
 # for more details see: http://emberjs.com/guides/application/
-window.TeamDays = Ember.Application.create()
-
+window.TeamDays = Ember.Application.create( {
+  rootElement: '#partners'
+});
