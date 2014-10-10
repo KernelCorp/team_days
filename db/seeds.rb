@@ -13,3 +13,8 @@ partner = User::Partner.find_or_create_by email: 'partner@example.com', password
 partner.available_services.build service: service
 partner.save
 
+
+
+order = Order.new partner: partner, service: partner.available_services.first.service, cost: '100500', status: 'new'
+order.build_client_info email: 'client@example.com', name: 'Vasya', phone: '1234567890'
+order.save

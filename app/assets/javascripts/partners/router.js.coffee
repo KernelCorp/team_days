@@ -10,3 +10,8 @@ TeamDays.Router.map ()->
     @route 'update'
     @route 'show'
 
+  @resource 'orders', ->
+    @route 'edit'
+    @route 'update'
+    @route 'show'
+    @route 'delete'

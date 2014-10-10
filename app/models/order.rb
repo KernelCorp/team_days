@@ -13,6 +13,7 @@ class Order
 
   has_many :payments
 
+  delegate :name, to: :service, prefix: :service
   delegate :name, :email, :phone, to: :client_info, prefix: :client
 
   validates_presence_of :service, :client_info

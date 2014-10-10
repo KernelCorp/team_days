@@ -1,0 +1,23 @@
+h3.ui.header Заказы
+table.ui.table.segment
+  thead
+    tr
+      th
+        | Наименование
+      th
+        | Цена
+      th
+        | Статус
+      th
+        | Редактировать
+  tbody
+    = each
+      tr class={statusClass}
+        td
+          = service_name
+        td
+          = cost
+        td
+          = status
+        td
+          /link-to 'order.edit' id class='ui submit button'| Редактировать
