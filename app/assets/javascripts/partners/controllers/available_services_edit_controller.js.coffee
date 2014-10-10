@@ -1,4 +1,4 @@
-TeamDays.AvailableServicesEditController = Ember.Controller.extend({
+TeamDays.AvailableServicesEditController = Ember.ObjectController.extend({
   actions: {
     update: (service)->
 #      service = @store.find('available_service', @get('id'))
