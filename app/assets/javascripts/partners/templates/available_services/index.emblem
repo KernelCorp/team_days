@@ -16,7 +16,7 @@ table.ui.table.segment
         | Редактировать
   tbody
     = each
-      tr class=is_active:positive:warning
+      tr class={statusClass}
         td
           = name
         td

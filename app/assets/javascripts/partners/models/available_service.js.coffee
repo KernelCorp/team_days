@@ -6,5 +6,11 @@ TeamDays.AvailableService = DS.Model.extend(
   original_price: DS.attr 'number'
   description:    DS.attr 'string'
   is_active:      DS.attr 'boolean'
+  banned:         DS.attr 'boolean'
 
+
+  statusClass: ( ->
+    return 'error' if @get('banned')
+    if @get('is_active') then 'positive' else 'warning'
+  ).property('is_active')
 )
