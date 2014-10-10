@@ -1,4 +1,13 @@
 #partners
 script type='text/x-handlebars'
-  | {{ outlet }}
+  .container
+    .ui.grid
+      .five.wide.column
+        .ui.vertical.green.menu
+          | {{partial 'navigation'}}
+
+
+      .eleven.wide.column
+        | {{ outlet }}
+
 
