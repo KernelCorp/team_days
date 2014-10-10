@@ -8,14 +8,4 @@ html
     = csrf_meta_tags
   body
     = render partial: 'layouts/partners/header'
-    .container
-      .ui.grid
-        .five.wide.column
-          .ui.vertical.inverted.green.menu
-            / ember nav menu here
-            a.item href='#/available_services'
-              | Управление Услугами
-              i.briefcase.icon
-
-        .eleven.wide.column
-          = yield
+    = yield
