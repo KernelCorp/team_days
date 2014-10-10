@@ -36,5 +36,4 @@ table.ui.table.segment
             button.ui.green.submit.button{action 'update' this true}
               | Активировать услугу
         td
-          a.ui.green.submit.button href="#/available_service/edit/#{this.id}"
-            | Редактировать
+          link-to 'available_services.edit' id class='ui green submit button'| Редактировать

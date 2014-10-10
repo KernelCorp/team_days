@@ -1,0 +1,13 @@
+h3.ui.header Редактировать услугу
+= name
+.ui.form.segment
+  form
+    .field
+      label
+        | Цена
+      .ui.left.labeled.icon.input
+        = view Ember.TextField valueBinding='price' name='price' viewName='price'
+        .ui.corner.label
+          i.icon.asterisk
+    button.ui.green.submit.button{action 'update' this}
+      | Обновить
