@@ -7,5 +7,6 @@ TeamDays.Router.map ()->
 
   @resource 'available_services', ->
     @route 'edit'
+    @route 'update'
     @route 'show'
 
