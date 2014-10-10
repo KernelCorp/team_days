@@ -13,6 +13,11 @@ module User
       available_services.where(service: service).count != 0
     end
 
+    def payments
+      orders_ids = orders.only(:_id).map(&:_id)
+      Payment.where :order_id.in => orders_ids
+    end
+
     private
     def add_new_services(services_box)
       services_box.services.each do |service|

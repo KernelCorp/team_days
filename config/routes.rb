@@ -1,4 +1,6 @@
 TeamDays::Application.routes.draw do
+  resources :payments
+
   resources :orders
 
   resources :available_services
