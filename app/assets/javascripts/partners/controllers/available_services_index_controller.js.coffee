@@ -4,7 +4,7 @@ TeamDays.AvailableServicesIndexController = Ember.ArrayController.extend({
   actions: {
     update:  (service, is_active)->
       service.set 'is_active', is_active
-      return
+      service.save()
   }
 })
 

@@ -7,33 +7,28 @@ table.ui.table.segment
       th
         | Цена
       th
+        | Оригинальная цена
+      th
         | Описание
       th
         | Активность
       th
-        | Ативировать/деактивировать
-      th
         | Редактировать
   tbody
     = each
-      tr
+      tr class=is_active:positive:warning
         td
           = name
         td
           = price
         td
+          = original_price
+        td
           = description
         td
           = if is_active
-            | Активна
+            i.icon.checked.checkbox.icon{action 'update' this false }
           = else
-            | Неактивна
+            i.icon.empty.checkbox.icon{action 'update' this true}
         td
-          = if is_active
-            button.ui.green.submit.button{action 'update' this false }
-              | Деактивировать услугу
-          = else
-            button.ui.green.submit.button{action 'update' this true}
-              | Активировать услугу
-        td
-          link-to 'available_services.edit' id class='ui green submit button'| Редактировать
+          link-to 'available_services.edit' id class='ui submit button'| Редактировать
