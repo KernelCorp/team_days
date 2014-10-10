@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
+    @order = Order.new(order_public_params)
 
     if @order.save
       redirect_to @order, notice: 'Order was successfully created.'

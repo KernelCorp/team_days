@@ -11,6 +11,8 @@ class Order
   belongs_to :service
   belongs_to :partner, class_name: 'User::Partner'
 
+  has_many :payments
+
   delegate :name, :email, :phone, to: :client_info, prefix: :client
 
   validates_presence_of :service, :client_info

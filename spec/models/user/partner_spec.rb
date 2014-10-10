@@ -14,6 +14,21 @@ RSpec.describe User::Partner, type: :model do
     end
   end
 
+  describe '#payments' do
+    let(:partner)          { FactoryGirl.create :partner }
+    let(:partners_payment) { FactoryGirl.create :payment, order:  FactoryGirl.create(:order, partner: partner)}
+    let(:other_payment)    { FactoryGirl.create :payment }
+
+    before(:each) do
+      partners_payment && other_payment
+    end
+
+    subject{partner.payments}
+
+    it {expect(subject).to     include(partners_payment)}
+    it {expect(subject).not_to include(other_payment)}
+  end
+
   describe 'HABTM callbacks' do
     let(:services_box) {FactoryGirl.create :services_box}
     let(:partner) {

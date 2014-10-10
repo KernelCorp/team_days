@@ -10,4 +10,5 @@ FactoryGirl.define do
       order.service ||= order.partner.available_services.first.try :service unless order.partner.nil?
     end
   end
+
 end
