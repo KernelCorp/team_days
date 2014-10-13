@@ -40,7 +40,7 @@ gem 'active_model_serializers'
 
 #ember js
 gem 'ember-rails'
-gem 'ember-source', '~>1.5.0'
+gem 'ember-source'
 gem 'emblem-rails'
 
 group :doc do
@@ -72,6 +72,7 @@ group :development do
   gem 'net-ssh', '~> 2.7.0'
 end
 
+gem 'geocoder'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -3,7 +3,6 @@
 TeamDays.Router.map ()->
   @resource 'partners', ->
     @route 'edit'
-    @route 'show'
 
   @resource 'available_services', ->
     @route 'edit', {path: ':id'}

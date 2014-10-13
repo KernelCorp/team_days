@@ -1,0 +1,11 @@
+h3.ui.header Редактировать профиль
+.ui.form.segment
+  form
+    .field
+      label
+        | E-mail
+      .ui.icon.input
+
+        = view Ember.TextField valueBinding='email' name='email' viewName='email'
+    button.ui.green.submit.button{action 'update' this}
+      | Обновить

@@ -8,8 +8,9 @@
 
 #Test data
 service = Service.find_or_create_by name: 'Выпить чаю', price: 20.0, description: 'с малиной'
+city = City.create name: 'Новосибирск'
 
-partner = User::Partner.find_or_create_by email: 'partner@example.com', password: 'password'
+partner = User::Partner.find_or_create_by email: 'partner@example.com', password: 'password', city: city
 partner.available_services.build service: service
 partner.save
 
