@@ -72,6 +72,7 @@ group :development do
   gem 'net-ssh', '~> 2.7.0'
 end
 
+gem 'geocoder'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
