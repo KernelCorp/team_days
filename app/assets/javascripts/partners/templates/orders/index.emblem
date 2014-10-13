@@ -7,7 +7,17 @@ table.ui.table.segment
       th
         | Цена
       th
-        | Статус
+        .row.middle.aligned
+          .content.column Статус
+          .updown.column
+            link-to (query-params order="status_asc") tagName='i' class='ui icon triangle up link'
+            link-to (query-params order="status_desc") tagName='i' class='ui icon triangle down link'
+      th
+        .row.middle.aligned
+          .content.column Создан
+          .updown.column
+            link-to (query-params order="created_at_asc") tagName='i' class='ui icon triangle up link'
+            link-to (query-params order="created_at_desc") tagName='i' class='ui icon triangle down link'
       th
         | Редактировать
       th
@@ -22,6 +32,10 @@ table.ui.table.segment
         td
           = status
         td
+          = created_at
+        td
           link-to 'orders.edit' id class='ui submit button'| Редактировать
         td
           a.ui.button{action 'delete' this} Удалить
+.paginate
+  a{action showMore} Далее

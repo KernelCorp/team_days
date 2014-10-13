@@ -2,7 +2,8 @@
 # http://emberjs.com/guides/models/pushing-records-into-the-store/
 
 TeamDays.Store = DS.Store.extend({
-
+  revision: 11
+  adapter: 'Em.PaginationAdapter'
 })
 
 # Override the default adapter with the `DS.ActiveModelAdapter` which

@@ -1,10 +1,15 @@
 TeamDays.OrdersRoute = Ember.Route.extend({
   queryParams: {
-    category: {
+    order: {
       refreshModel: true
     }
   }
-  model: ->
-    @store.findAll('order')
+  model: (params) ->
+    queryParams = {}
+    if params['order']
+      queryParams['order'] = params['order']
+    if params['page']
+      queryParams['page'] = params['page']
+    @store.find('order', queryParams)
 
 })

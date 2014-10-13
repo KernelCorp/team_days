@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
 
   def index
     @orders = @orders.order(order_option).paginate(per_page: 10, page: params[:page])
-    respond_with @orders
+    respond_with @orders, :meta => {:total_pages => @orders.total_pages, :page => (params[:page] || 1).to_i}
   end
 
   def show
