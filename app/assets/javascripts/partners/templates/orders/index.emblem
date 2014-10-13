@@ -3,7 +3,7 @@ table.ui.table.segment
   thead
     tr
       th
-        | Наименование
+        | Услуга
       th
         | Цена
       th
@@ -26,7 +26,8 @@ table.ui.table.segment
     = each
       tr class={statusClass}
         td
-          = service_name
+          link-to "available_services.show" available_service
+            = available_service.name
         td
           = cost
         td

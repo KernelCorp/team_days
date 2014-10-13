@@ -16,9 +16,11 @@ table.ui.table.segment
         | Редактировать
   tbody
     = each
+
       tr class={statusClass}
         td
-          = name
+          = link-to 'available_services.show' id
+            = name
         td
           = price
         td

@@ -1,4 +1,6 @@
 TeamDays::Application.routes.draw do
+  get "main/index"
+  get "main/show"
   resources :payments
 
   resources :orders
