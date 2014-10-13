@@ -22,6 +22,11 @@ module User
       Payment.where :order_id.in => orders_ids
     end
 
+    def services
+      services_ids = available_services.only(:service_id).map(&:service_id)
+      Service.where :id.in => services_ids
+    end
+
     private
     def add_new_services(services_box)
       services_box.services.each do |service|

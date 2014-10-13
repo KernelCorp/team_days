@@ -14,6 +14,17 @@ RSpec.describe User::Partner, type: :model do
     end
   end
 
+  describe '#services' do
+    let(:not_supported_service) {FactoryGirl.create :service}
+    let(:partner) { FactoryGirl.create :partner }
+
+    before(:each) {not_supported_service}
+    subject{partner.services}
+
+    it {expect(subject).to include(partner.available_services.first.service)}
+    it {expect(subject).not_to include(not_supported_service)}
+  end
+
   describe '#payments' do
     let(:partner)          { FactoryGirl.create :partner }
     let(:partners_payment) { FactoryGirl.create :payment, order:  FactoryGirl.create(:order, partner: partner)}
