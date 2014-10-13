@@ -1,0 +1,10 @@
+h3.ui.header Редактировать статус заказа
+.ui.form.segment
+  form
+    .field
+      label
+        | Статус
+      .ui.icon.input
+        = view Ember.Select content=statuses value=status
+    button.ui.green.submit.button{action 'update' this}
+      | Обновить

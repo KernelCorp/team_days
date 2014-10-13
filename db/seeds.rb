@@ -7,14 +7,15 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 #Test data
-service = Service.create name: 'Выпить чаю', price: 20.0, description: 'с малиной'
+service = Service.find_or_create_by name: 'Выпить чаю', price: 20.0, description: 'с малиной'
 
 partner = User::Partner.find_or_create_by email: 'partner@example.com', password: 'password'
 partner.available_services.build service: service
 partner.save
 
 
-
-order = Order.new partner: partner, service: partner.available_services.first.service, cost: '100500', status: 'new'
-order.build_client_info email: 'client@example.com', name: 'Vasya', phone: '1234567890'
-order.save
+1.upto(10) do |i|
+  order = Order.new partner: partner, service: partner.available_services.first.service, cost: '100500', status: 'new'
+  order.build_client_info email: "client@example#{i}.com", name: 'Vasya', phone: '1234567890'
+  order.save
+end
