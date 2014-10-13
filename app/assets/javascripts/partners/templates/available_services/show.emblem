@@ -1,0 +1,39 @@
+.ui.orange.segment
+  .ui.vertical.segment style='margin-bottom:10px'
+    h3.ui.left.floated.header
+      = name
+    .ui.right.floated.header
+      = link-to 'available_services.edit' id
+        i.circular.inverted.orange.pencil.icon
+
+  = if banned
+    .ui.ribbon.red.label
+      i.icon.ban.circle.icon
+      | Услуга забанена
+    p
+      | Свяжитесть с администратором
+
+  .ui.ribbon.green.label
+    | Описание
+  p
+    = description
+
+  .ui.ribbon.green.label
+    | Моя Цена
+  p
+    = price
+
+
+  .ui.ribbon.green.label
+    | Оригинальная Цена
+  p
+    = original_price
+
+  .ui.ribbon.green.label
+    | Активная?
+  p
+    = if is_active
+      i.icon.checkmark.icon
+    = else
+      i.icon.minus.sign.icon
+
