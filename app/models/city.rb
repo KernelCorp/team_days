@@ -5,6 +5,8 @@ class City
   field :domain
   field :geo_name
 
+  has_one :partner, class_name: 'User::Partner'
+
   before_validation :set_geocode
   after_validation :apply_geocode
   validate :check_geocode
