@@ -7,8 +7,8 @@ TeamDays::Application.routes.draw do
 
   devise_for :partners, class_name: 'User::Partner'
 
-  resource :partner
-  get '/partners' => 'partners#show'
+  resources :partners, only: [:show, :update]
+  resource :partner, only: [:show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

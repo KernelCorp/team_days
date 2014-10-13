@@ -33,7 +33,7 @@ RSpec.describe PartnersController, :type => :controller do
       let(:attributes) { {email: 'new@email.com'} }
 
       it 'returns status updated' do
-        put :update, partner: attributes
+        put :update, id: partner.to_param, partner: attributes
         expect(response).to have_http_status(:ok)
       end
     end
@@ -41,7 +41,7 @@ RSpec.describe PartnersController, :type => :controller do
     context 'invalid attributes' do
       let(:attributes) { {email: 'newemail.com'} }
       it 'returns status unprocessable_entity' do
-        put :update, partner: attributes
+        put :update, id: partner.to_param, partner: attributes
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
