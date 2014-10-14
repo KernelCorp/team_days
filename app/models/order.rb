@@ -25,6 +25,15 @@ class Order
     self.cost = partner.present? ? partner.available_services.where(service: service).first.price : service.price
   end
 
+  def payment_status
+    return :without_payment if payments.empty?
+    payment_success? ? :payment_success : :payment_in_progress
+  end
+
+  def payment_success?
+    payments.paid.sum(:sum) >= cost
+  end
+
   protected
   def ordered_services_is_supported_by_partner
     if partner.present? && !partner.support_service?(service)

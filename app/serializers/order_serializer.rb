@@ -2,7 +2,7 @@ class OrderSerializer < ActiveModel::Serializer
   include MongoIdSerializer
 
   attributes :id, :cost, :client_email, :client_name, :client_phone, :service_name, :status, :available_service_id,
-             :created_at, :updated_at, :payment_ids
+             :created_at, :updated_at, :payment_ids, :payment_status
 
   def payment_ids
     object.payments.only(:_id).map {|p| p.id.to_s}

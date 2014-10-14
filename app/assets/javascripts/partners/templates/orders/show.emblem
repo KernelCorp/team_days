@@ -24,6 +24,12 @@
     p
       = status
 
+    .ui.ribbon.green.label
+      | Оплата
+    p
+      = payment_status
+
+
   .ui.ribbon.green.label
     | Платежи
   p

@@ -16,6 +16,58 @@ RSpec.describe Order, :type => :model do
     end
   end
 
+  describe '#payment_status' do
+    subject{order.payment_status}
+    context 'without payments' do
+      let(:order) {FactoryGirl.create :order}
+      it {expect(subject).to eq(:without_payment)}
+    end
+    context 'payments in progress' do
+      let (:order) {
+        order = FactoryGirl.create :order
+        order.payments << Payment.new(sum: 10, status: 'new')
+        order
+      }
+      it {expect(subject).to eq(:payment_in_progress)}
+    end
+    context 'payments success' do
+      let (:order) {
+        order = FactoryGirl.create :order
+        order.payments << Payment.new(sum: order.cost, status: 'paid')
+        order
+      }
+      it {expect(subject).to eq(:payment_success)}
+    end
+  end
+
+  describe '#payment_success?' do
+    subject{order.payment_success?}
+    context 'without paid payment' do
+      let (:order) {
+        order = FactoryGirl.create :order
+        order.payments << Payment.new(sum: 10, status: 'new')
+        order
+      }
+      it {expect(subject).to be_falsey}
+    end
+    context 'with paid payment, but sum is less' do
+      let (:order) {
+        order = FactoryGirl.create :order
+        order.payments << Payment.new(sum: order.cost - 1, status: 'paid')
+        order
+      }
+      it {expect(subject).to be_falsey}
+    end
+    context 'with paid payment' do
+      let (:order) {
+        order = FactoryGirl.create :order
+        order.payments << Payment.new(sum: order.cost, status: 'paid')
+        order
+      }
+      it {expect(subject).to be_truthy}
+    end
+  end
+
   describe '#update_cost' do
 
     it 'runs before create' do
