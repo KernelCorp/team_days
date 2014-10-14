@@ -2,6 +2,7 @@ h1 Это главная страница
 p
   | Ваш город -
   = @item.city
+a href="//nsk.#{Rails.application.config.host}" Посмотреть в новосибирске
 .ui.items
   - @item.services.each do |service|
     .item

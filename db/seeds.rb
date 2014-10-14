@@ -7,13 +7,18 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 #Test data
-service = Service.find_or_create_by name: 'Выпить чаю', price: 20.0, description: 'с малиной'
-city = City.create name: 'Новосибирск'
+Service.create name: 'Выпить чаю', price: 20.0, description: 'с малиной'
+Service.create name: 'Поработить мир', price: 1.0, description: 'без малины'
+Service.create name: 'Коллапсировать сверхновую звезду в черную дыру', price: 200.0, description: 'Очень увлекательно. Рекомендуется с бокалом красного вина'
+Service.create name: 'Шутки за 300', price: 300.0, description: 'Шутки смешные и неочень.'
 
-partner = User::Partner.find_or_create_by email: 'partner@example.com', password: 'password', city: city
-partner.available_services.build service: service
-partner.save
+sb = ServicesBox.find_or_create_by name: 'all inclusive'
+Service.all.each {|s| sb.services << s}
+city = City.find_or_create_by name: 'Новосибирск', subdomain: 'nsk'
 
+User::Partner.create email: 'partner@example.com', password: 'password', city: city
+partner = User::Partner.find_by  email: 'partner@example.com'
+partner.services_boxes << sb
 
 1.upto(10) do |i|
   order = Order.new partner: partner, service: partner.available_services.first.service, cost: '100500', status: 'new'
