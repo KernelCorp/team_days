@@ -32,17 +32,17 @@ TeamDays._PaginatedRouteMixin = Ember.Mixin.create(
 
     nextPage: ->
       cur = @get("controller.content.pagination.current_page") or 0
-      @transitionTo @paginationRoute, cur + 1
+      @transitionTo @paginationRoute, queryParams: {page: (cur + 1)}
       return
 
     previousPage: ->
       cur = @get("controller.content.pagination.current_page") or 2
-      @transitionTo @paginationRoute, cur - 1
+      @transitionTo @paginationRoute, queryParams: {page: (cur - 1)}
       return
 
     lastPage: ->
       last = @get("controller.content.pagination.total_pages") or 1
-      @transitionTo @paginationRoute, last
+      @transitionTo @paginationRoute, queryParams: {page: last}
       return
 
     firstPage: ->
