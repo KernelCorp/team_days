@@ -1,5 +1,6 @@
 TeamDays::Application.routes.draw do
-  get "main/index"
+
+  root "main#index"
   get "main/show"
   resources :payments
 

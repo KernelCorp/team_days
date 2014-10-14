@@ -2,7 +2,7 @@ class City
   include Mongoid::Document
 
   field :name
-  field :domain
+  field :subdomain
   field :geo_name
 
   has_one :partner, class_name: 'User::Partner'

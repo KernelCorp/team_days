@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :city do
     name "New York"
-    domain 'ny'
+    subdomain 'ny'
   end
 end

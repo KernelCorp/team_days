@@ -10,6 +10,8 @@ class AvailableService
 
   delegate :name, :description, to: :service
 
+  scope :active, -> {where is_active: true, banned: false}
+
   validates_presence_of :service
   validates_uniqueness_of :service
 

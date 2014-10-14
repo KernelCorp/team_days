@@ -1,0 +1,15 @@
+h1 Это главная страница
+p
+  | Ваш город -
+  = @item.city
+.ui.items
+  - @item.services.each do |service|
+    .item
+      .content
+        .name
+          = service.name
+        p.description
+          = service.description
+
+      .extra
+        = "Цена: #{service.price}"
