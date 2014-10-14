@@ -27,9 +27,9 @@ Feature: Payment managing
      But I shouldn't see payment from "client3@exmaple.com"
 
 
-  Scenario: filter by service
-    When I go to "partner"
-    And I click on "платежи"
-    And I select filter by "service:'Коллапсировать сверхновую звезду в черную дыру'"
-    Then I should see payment from "client1@exmaple.com"
-    But I shouldn't see payment from "client3@exmaple.com"
+#  Scenario: filter by service
+#    When I go to "partner"
+#    And I click on "платежи"
+#    And I select filter by "service:'Коллапсировать сверхновую звезду в черную дыру'"
+#    Then I should see payment from "client1@exmaple.com"
+#    But I shouldn't see payment from "client3@exmaple.com"

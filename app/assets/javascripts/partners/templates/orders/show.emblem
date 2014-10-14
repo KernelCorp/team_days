@@ -34,6 +34,10 @@
             | Сумма
           th
             | Статус
+          th
+            | Создан
+          th
+            | Обнавлен
       tbody
         = each payments
           tr class=statusClass
@@ -41,6 +45,10 @@
               = sum
             td
               = status
+            td
+              = formattedCreatedAt
+            td
+              = formattedUpdatedAt
 
   .ui.ribbon.green.label
     | Создан
