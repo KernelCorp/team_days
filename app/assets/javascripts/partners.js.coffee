@@ -1,4 +1,6 @@
 #= require jquery
+#= require moment
+#= require moment/ru.js
 #= require handlebars
 #= require ember
 #= require ember-data

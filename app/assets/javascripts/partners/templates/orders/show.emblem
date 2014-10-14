@@ -1,0 +1,41 @@
+.ui.orange.segment
+  .ui.vertical.segment style='margin-bottom:10px'
+    h3.ui.left.floated.header
+      | Заказ №
+      = model.id
+    .ui.right.floated.header
+      = link-to 'orders.edit' id class='wrapper'
+        i.circular.inverted.orange.pencil.icon
+
+  .ui.ribbon.green.label
+    | Услуга
+  p
+    link-to "available_services.show" available_service
+      = available_service.name
+
+
+  .ui.ribbon.green.label
+    | Сумма
+  p
+    = cost
+
+    .ui.ribbon.green.label
+      | Статус
+    p
+      = status
+
+  .ui.ribbon.green.label
+    | Платежи
+  p
+    | Здесь будет таблица с платежами
+
+  .ui.ribbon.green.label
+    | Создан
+  p
+    = formattedCreatedAt
+
+  .ui.ribbon.green.label
+    | Обновлен
+  p
+    = formattedUpdatedAt
+

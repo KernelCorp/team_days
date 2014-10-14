@@ -42,6 +42,7 @@ gem 'active_model_serializers'
 gem 'ember-rails'
 gem 'ember-source'
 gem 'emblem-rails'
+gem 'momentjs-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

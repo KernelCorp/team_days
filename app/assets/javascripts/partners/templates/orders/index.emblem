@@ -32,8 +32,10 @@ table.ui.table.segment
         td
           = status
         td
-          = created_at
+          = formattedCreatedAt
         td
+          link-to 'orders.show' id class='wrapper' title='Посмотреть'
+            i.unhide.icon
           link-to 'orders.edit' id class='wrapper' title='Редактировать'
             i.pencil.icon
           a.wrapper title='Удалить'
