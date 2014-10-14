@@ -1,0 +1,5 @@
+.ui.pagination.menu
+  = each content.pages
+    a.item{action 'gotoPage' num} class=class
+      = num
+

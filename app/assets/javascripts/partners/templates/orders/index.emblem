@@ -38,9 +38,5 @@ table.ui.table.segment
             i.pencil.icon
           a.wrapper title='Удалить'
             i.remove.icon{action 'delete' this}
-.ui.pagination.menu
 
-  = each content.pages
-    a.item{action 'gotoPage' num} class=class
-      = num
-
+= partial 'pagination'
