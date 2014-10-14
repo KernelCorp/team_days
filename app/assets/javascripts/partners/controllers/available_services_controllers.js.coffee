@@ -7,3 +7,12 @@ TeamDays.AvailableServicesEditController = Ember.ObjectController.extend({
         @transitionToRoute('available_services')
   }
 })
+
+TeamDays.AvailableServicesIndexController = Ember.ArrayController.extend({
+  actions: {
+    update:  (service, is_active)->
+      service.set 'is_active', is_active
+      service.save()
+  }
+})
+

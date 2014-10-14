@@ -14,3 +14,8 @@ TeamDays.OrdersRoute = Ember.Route.extend(TeamDays._PaginatedRouteMixin, {
     @store.find('order', queryParams).then(@_includePagination);
 
 })
+
+TeamDays.OrdersEditRoute = Ember.Route.extend({
+  model: (params)->
+    @store.find('order', params.id)
+})

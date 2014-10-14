@@ -5,3 +5,10 @@ TeamDays.OrdersController = Ember.ArrayController.extend({
     class: TeamDays.Order
   }
 })
+TeamDays.OrdersIndexController = Ember.ArrayController.extend({
+  actions: {
+    delete: (order)->
+      order.deleteRecord()
+      order.save()
+  }
+})
