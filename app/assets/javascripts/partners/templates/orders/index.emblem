@@ -38,5 +38,9 @@ table.ui.table.segment
           link-to 'orders.edit' id class='ui submit button'| Редактировать
         td
           a.ui.button{action 'delete' this} Удалить
-.paginate
-  a{action showMore} Далее
+.ui.pagination.menu
+
+  = each content.pages
+    a.item{action 'gotoPage' num} class=class
+      = num
+
