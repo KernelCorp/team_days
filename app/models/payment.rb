@@ -5,7 +5,7 @@ class Payment
   STATUSES = %w(new paid)
 
   field :sum,    type: Float
-  field :status, type: String
+  field :status, type: String, default: 'new'
 
   belongs_to :order
 

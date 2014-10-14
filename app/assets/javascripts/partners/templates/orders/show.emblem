@@ -27,7 +27,20 @@
   .ui.ribbon.green.label
     | Платежи
   p
-    | Здесь будет таблица с платежами
+    table.ui.table.segment
+      thead
+        tr
+          th
+            | Сумма
+          th
+            | Статус
+      tbody
+        = each payments
+          tr class=statusClass
+            td
+              = sum
+            td
+              = status
 
   .ui.ribbon.green.label
     | Создан

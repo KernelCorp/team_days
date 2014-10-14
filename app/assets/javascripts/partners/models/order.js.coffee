@@ -7,3 +7,4 @@ TeamDays.Order = DS.Model.extend TeamDays.FormattedTimestampMixin,
   created_at: DS.attr 'date'
   updated_at: DS.attr 'date'
   available_service: DS.belongsTo 'availableService'
+  payments: DS.hasMany 'payments', async: true
