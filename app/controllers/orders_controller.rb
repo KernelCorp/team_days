@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
   respond_to :json
 
   def index
-    @orders = @orders.order(order_option).paginate(per_page: 2, page: params[:page])
+    @orders = @orders.order(order_option).paginate(per_page: 10, page: params[:page])
     respond_with @orders, serializer: PaginationSerializer
   end
 

@@ -19,9 +19,8 @@ table.ui.table.segment
             link-to (query-params order="created_at_asc") tagName='i' class='ui icon triangle up link'
             link-to (query-params order="created_at_desc") tagName='i' class='ui icon triangle down link'
       th
-        | Редактировать
-      th
-        | Удалить
+        | Дейтсвия
+
   tbody
     = each
       tr class={statusClass}
@@ -35,9 +34,10 @@ table.ui.table.segment
         td
           = created_at
         td
-          link-to 'orders.edit' id class='ui submit button'| Редактировать
-        td
-          a.ui.button{action 'delete' this} Удалить
+          link-to 'orders.edit' id class='wrapper' title='Редактировать'
+            i.pencil.icon
+          a.wrapper title='Удалить'
+            i.remove.icon{action 'delete' this}
 .ui.pagination.menu
 
   = each content.pages

@@ -3,7 +3,7 @@
     h3.ui.left.floated.header
       = name
     .ui.right.floated.header
-      = link-to 'available_services.edit' id
+      = link-to 'available_services.edit' id class='wrapper'
         i.circular.inverted.orange.pencil.icon
 
   = if banned
