@@ -5,6 +5,7 @@ TeamDays.Payment = DS.Model.extend TeamDays.FormattedTimestampMixin,
   status: DS.attr 'string'
   created_at: DS.attr 'date'
   updated_at: DS.attr 'date'
+  order: DS.belongsTo 'order'
 
   statusClass: ( ->
     if @get('status') == 'paid' then 'positive' else 'warning'

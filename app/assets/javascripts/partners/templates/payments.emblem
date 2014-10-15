@@ -1,0 +1,34 @@
+h3.ui.header Платежи
+table.ui.table.segment
+  thead
+    tr
+      th
+        | Заказ
+      th
+        | Сумма
+      th
+        .row.middle.aligned
+          .content.column Статус
+          .updown.column
+            link-to (query-params s="status asc") tagName='i' class='ui icon triangle up link'
+            link-to (query-params s="status desc") tagName='i' class='ui icon triangle down link'
+      th
+        .row.middle.aligned
+          .content.column Создан
+          .updown.column
+            link-to (query-params s="created_at asc") tagName='i' class='ui icon triangle up link'
+            link-to (query-params s="created_at desc") tagName='i' class='ui icon triangle down link'
+
+  tbody
+    = each
+      tr class={statusClass}
+        td
+          link-to "orders.show" order
+            = order.id
+        td
+          = sum
+        td
+          = status
+        td
+          = formattedCreatedAt
+= partial 'pagination'

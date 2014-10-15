@@ -1,5 +1,4 @@
 class PaymentsController < ApplicationController
-  include Sortable
   before_action :authenticate_partner!
 
   load_and_authorize_resource through: :current_partner
@@ -7,8 +6,8 @@ class PaymentsController < ApplicationController
   respond_to :json
 
   def index
-    @payments = @payments.order(order_option).paginate(per_page: 10, page: params[:page])
-    respond_with @payments
+    @payments = @payments.search(params[:q]).result.paginate(per_page: 10, page: params[:page])
+    respond_with @payments, serializer: PaginationSerializer
   end
 
   def show
