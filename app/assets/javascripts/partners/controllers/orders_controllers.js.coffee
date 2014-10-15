@@ -1,5 +1,5 @@
 TeamDays.OrdersController = Ember.ArrayController.extend({
-  queryParams: ['order', 'page']
+  queryParams: ['s', 'page']
   modelInfo: {
     store: 'order',
     class: TeamDays.Order

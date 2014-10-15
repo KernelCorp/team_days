@@ -3,15 +3,16 @@ TeamDays.OrdersRoute = Ember.Route.extend(TeamDays._PaginatedRouteMixin, {
     page: {
       refreshModel: true
     }
-    order: {
+    s: {
       refreshModel: true
     }
   },
 
   model: (params) ->
     queryParams = {}
-    if params['order']
-      queryParams['order'] = params['order']
+    if params['s']
+      queryParams['q'] = {}
+      queryParams['q']['s'] = params['s']
     if params['page']
       queryParams['page'] = params['page']
     @store.find('order', queryParams).then(@_includePagination);

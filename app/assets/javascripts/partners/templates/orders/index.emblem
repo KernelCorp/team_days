@@ -10,14 +10,14 @@ table.ui.table.segment
         .row.middle.aligned
           .content.column Статус
           .updown.column
-            link-to (query-params order="status_asc") tagName='i' class='ui icon triangle up link'
-            link-to (query-params order="status_desc") tagName='i' class='ui icon triangle down link'
+            link-to (query-params s="status asc") tagName='i' class='ui icon triangle up link'
+            link-to (query-params s="status desc") tagName='i' class='ui icon triangle down link'
       th
         .row.middle.aligned
           .content.column Создан
           .updown.column
-            link-to (query-params order="created_at_asc") tagName='i' class='ui icon triangle up link'
-            link-to (query-params order="created_at_desc") tagName='i' class='ui icon triangle down link'
+            link-to (query-params s="created_at asc") tagName='i' class='ui icon triangle up link'
+            link-to (query-params s="created_at desc") tagName='i' class='ui icon triangle down link'
       th
         | Дейтсвия
 
