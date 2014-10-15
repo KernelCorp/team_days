@@ -7,5 +7,10 @@ TeamDays.Order = DS.Model.extend TeamDays.FormattedTimestampMixin,
   payment_status: DS.attr 'string'
   created_at: DS.attr 'date'
   updated_at: DS.attr 'date'
+
+  client_name:  DS.attr 'string'
+  client_phone: DS.attr 'string'
+  client_email: DS.attr 'string'
+
   available_service: DS.belongsTo 'availableService'
   payments: DS.hasMany 'payments', async: true

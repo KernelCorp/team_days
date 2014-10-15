@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-  include Sortable
   include Subdomainable
 
   before_action :authenticate_partner!

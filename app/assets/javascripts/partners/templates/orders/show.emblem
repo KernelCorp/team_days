@@ -19,15 +19,39 @@
   p
     = cost
 
-    .ui.ribbon.green.label
-      | Статус
-    p
-      = status
+  .ui.ribbon.green.label
+    | Информация о клиенте
+  .ui.celled.list
+    .item
+      i.user.icon
+      .content
+        .header
+          | Имя
+        .description
+          = client_name
+    .item
+      i.mail.icon
+      .content
+        .header
+          | Email
+        .description
+          = client_email
+    .item
+      i.phone.icon
+      .content
+        .header
+          | Телефон
+        .description
+          = client_phone
+  .ui.ribbon.green.label
+    | Статус
+  p
+    = status
 
-    .ui.ribbon.green.label
-      | Оплата
-    p
-      = payment_status
+  .ui.ribbon.green.label
+    | Оплата
+  p
+    = payment_status
 
 
   .ui.ribbon.green.label
