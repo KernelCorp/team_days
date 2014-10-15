@@ -5,7 +5,7 @@ p
 a href="//nsk.#{Rails.application.config.host}" Посмотреть в новосибирске
 .ui.items
   - @item.services.each do |service|
-    .item
+    a.item href="#"
       .content
         .name
           = service.name

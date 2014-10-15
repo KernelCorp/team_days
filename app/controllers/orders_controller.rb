@@ -1,10 +1,19 @@
 class OrdersController < ApplicationController
   include Sortable
+  include Subdomainable
+
   before_action :authenticate_partner!
 
   load_and_authorize_resource through: :current_partner
 
   respond_to :json
+  respond_to :html, only: :show
+
+  def new
+    partner = get_partner
+    service = Service.find params[:service_id]
+    @order = Order.new service: service, partner: partner
+  end
 
   def index
     @orders = @orders.order(order_option).paginate(per_page: 10, page: params[:page])
@@ -46,7 +55,7 @@ class OrdersController < ApplicationController
     end
 
     def order_private_params
-      params.require(:order).permit(:cost, :status)
+      params.require(:order).permit(:service_id, :partner_id)
     end
 
     def order_public_params
