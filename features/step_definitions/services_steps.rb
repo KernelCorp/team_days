@@ -10,7 +10,8 @@ And(/^a services box "(.*?)" with services: "(.*?)", "(.*?)"$/) do |name, servic
 end
 
 And(/^a partner from "(.*?)" with email: "(.*?)"$/) do |town, email|
-  User::Partner.create! email: email, password: 'password'
+  city = FactoryGirl.create :city, name: town
+  FactoryGirl.create :partner, email: email, password: 'password', city: city
 end
 
 And(/^a services box "(.*?)" available for partner "(.*?)"$/) do |sb_name, partner_email|

@@ -42,3 +42,27 @@ table.ui.table.segment
             i.remove.icon{action 'delete' this}
 
 = partial 'pagination'
+h3.ui Фильтры
+form
+  .field
+    label
+      | E-mail клиента
+    .ui.icon.input
+      = view Ember.TextField valueBinding='client_email_cont' name='client_email_cont' viewName='client_email_cont'
+    br
+    label
+      | Имя клиента
+    .ui.icon.input
+      = view Ember.TextField valueBinding='client_name_cont' name='client_name_cont' viewName='client_name_cont'
+    br
+      label
+        | Имя клиента
+      .ui.icon.input
+        = view Ember.Select valueBinding='status_eq' content=statuses value=''
+    br
+      label
+        | Услуга
+      .ui.icon.input
+        = view Ember.Select valueBinding='service_id' content=services value='s'
+  button.ui.green.submit.button{action 'filter'}
+    | Поиск
