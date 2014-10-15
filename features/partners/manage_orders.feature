@@ -24,8 +24,6 @@ Feature: Orders managing
      But I shouldn't see orders from: <unvisible_orders>
   Examples:
     | filter | visible_orders                          | visible_orders                         |
-    | paid   | client1@exmaple.com client3@exmaple.com | client2@exmaple.com client4@exmaple.com|
-    | unpaid | client2@exmaple.com client4@exmaple.com | client1@exmaple.com client3@exmaple.com|
     | service:'Поизлучать излучение Хоккинга' | client3@exmaple.com client4@exmaple.com | client1@exmaple.com client2@exmaple.com|
     | status:'close'                          | client5@exmaple.com                     |  client1@exmaple.com client2@exmaple.com client3@exmaple.com client4@exmaple.com |
     | emails:'client4@exmaple.com'            |  client4@exmaple.com                    |  client1@exmaple.com client2@exmaple.com client3@exmaple.com client5@exmaple.com |
