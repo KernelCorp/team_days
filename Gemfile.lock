@@ -1,3 +1,15 @@
+GIT
+  remote: git://github.com/Zhomart/ransack.git
+  revision: b81bf44dc1b66497969f1fa01995d5e8952367c3
+  branch: mongoid
+  specs:
+    ransack (1.4.1)
+      actionpack (>= 3.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      i18n
+      polyamorous (~> 1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -167,6 +179,8 @@ GEM
     optionable (0.2.0)
     origin (2.1.1)
     orm_adapter (0.5.0)
+    polyamorous (1.1.0)
+      activerecord (>= 3.0)
     polyglot (0.3.5)
     quiet_assets (1.0.3)
       railties (>= 3.1, < 5.0)
@@ -310,6 +324,7 @@ DEPENDENCIES
   quiet_assets
   rack
   rails (~> 4.0.8)
+  ransack!
   rspec-mocks
   rspec-rails (~> 3.0.0)
   rvm-capistrano

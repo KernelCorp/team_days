@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @orders = @orders.order(order_option).paginate(per_page: 10, page: params[:page])
+    @orders = @orders.search(params[:q]).result.paginate(per_page: 10, page: params[:page])
     respond_with @orders, serializer: PaginationSerializer
   end
 
@@ -55,10 +55,10 @@ class OrdersController < ApplicationController
     end
 
     def order_private_params
-      params.require(:order).permit(:service_id, :partner_id)
+      params.require(:order).permit(:status)
     end
 
     def order_public_params
-      params.require(:order).permit()
+      params.require(:order).permit(:service_id, :partner_id)
     end
 end

@@ -5,6 +5,8 @@ gem 'rails', '~>4.0.8'
 
 gem 'mongoid', '~>4.0.0'
 
+gem 'ransack', github: 'Zhomart/ransack', branch: 'mongoid'
+
 gem 'devise'
 
 gem 'cancancan'
