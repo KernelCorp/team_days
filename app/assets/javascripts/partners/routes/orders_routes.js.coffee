@@ -6,30 +6,25 @@ TeamDays.OrdersRoute = Ember.Route.extend(TeamDays._PaginatedRouteMixin, {
     s: {
       refreshModel: true
     }
-    client_email_cont: {
-      refreshModel: true
-    }
-    client_name_cont: {
-      refreshModel: true
-    }
-    status_eq: {
+    q: {
       refreshModel: true
     }
   },
 
   model: (params) ->
+    console.log 'route'
     queryParams = {}
+    queryParams['q'] = {}
     if params['s']
-      queryParams['q'] = {}
       queryParams['q']['s'] = params['s']
-    if params['client_email_cont']
-      queryParams['q']['client_email_eq'] = params['client_email_cont']
-    if params['client_name_cont']
-      queryParams['q']['client_name_eq'] = params['client_name_cont']
-    if params['status_eq']
-      queryParams['q']['status_eq'] = params['status_eq']
     if params['page']
       queryParams['page'] = params['page']
+    if params['q']
+      Text = params['q']
+      regexKey = new RegExp("^(.+?)=>", 'gi')
+      regexValue = new RegExp("=>(.+?)&", 'gi')
+      while (result = regexKey.exec(Text)) != null
+        queryParams['q'][result[1]] =  regexValue.exec(Text)[1]
     @store.find('order', queryParams).then(@_includePagination);
 
 })
