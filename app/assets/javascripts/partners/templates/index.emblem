@@ -1,0 +1,21 @@
+.ui.orange.segment
+  .ui.vertical.segment style='margin-bottom:10px'
+    h3.ui.left.floated.header
+      | Личные данные
+    .ui.right.floated.header
+      = link-to 'partners.edit' class='wrapper'
+        i.circular.inverted.orange.pencil.icon
+
+  .ui.ribbon.green.label
+    | Email
+  p
+    = email
+
+  .ui.ribbon.green.label
+    | Мой город
+  p
+    = city_name
+  .ui.ribbon.green.label
+    | Домен
+  p
+    = city_subdomain

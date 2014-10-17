@@ -11,6 +11,8 @@ module User
 
     accepts_nested_attributes_for :available_services
 
+    delegate :name, :subdomain, to: :city, prefix: true
+
     validates_presence_of :city, uniqueness: true
 
     def support_service?(service)
