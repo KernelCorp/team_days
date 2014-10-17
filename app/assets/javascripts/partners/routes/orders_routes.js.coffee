@@ -1,4 +1,5 @@
-TeamDays.OrdersRoute = Ember.Route.extend(TeamDays._PaginatedRouteMixin, {
+TeamDays.OrdersIndexRoute = Ember.Route.extend(TeamDays._PaginatedRouteMixin, {
+
   queryParams: {
     page: {
       refreshModel: true
@@ -21,14 +22,20 @@ TeamDays.OrdersRoute = Ember.Route.extend(TeamDays._PaginatedRouteMixin, {
       queryParams['page'] = params['page']
     if params['q']
       Text = params['q']
-      regexKey = new RegExp("^(.+?)=>", 'gi')
-      regexValue = new RegExp("=>(.+?)&", 'gi')
+      regexKey = /&(.+?)=>/gi
+      regexValue = /\=>(.+?)&/gi
       while (result = regexKey.exec(Text)) != null
         queryParams['q'][result[1]] =  regexValue.exec(Text)[1]
     @store.find('order', queryParams).then(@_includePagination);
 
-})
+  available_services: ->
+    @store.findAll('available_service')
 
+  setupController: (controller, model) ->
+    controller.set 'available_services', [{name: 'Drink tea', id: 100500}]
+    controller.set 'model', model
+
+})
 TeamDays.OrdersShowRoute = Ember.Route.extend({
   model: (params)->
     @store.find('order', params.id)
