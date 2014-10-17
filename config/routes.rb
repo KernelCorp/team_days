@@ -1,5 +1,6 @@
 TeamDays::Application.routes.draw do
 
+
   root "main#index"
   get "main/show"
   resources :payments
@@ -9,6 +10,8 @@ TeamDays::Application.routes.draw do
   resources :available_services
 
   devise_for :partners, class_name: 'User::Partner'
+  devise_for :admin, class_name: 'User::Admin'
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   resources :partners, only: [:show, :update]
   resource :partner, only: [:show]

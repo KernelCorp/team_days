@@ -16,7 +16,7 @@ class AvailableService
   validates_uniqueness_of :service
 
   def price
-    attributes['price'] || service.price
+    attributes['price'] || service.try(:price)
   end
 
   def original_price
