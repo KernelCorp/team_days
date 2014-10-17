@@ -4,13 +4,13 @@ TeamDays.OrdersIndexController = Ember.ArrayController.extend({
       store: 'order',
       class: TeamDays.Order
   }
-  statuses: <%= Order.statuses_4_ember%>
+  statuses: <%= Order::STATUSES%>
   params: {}
   actions: {
     search: (item) ->
       query = '&'
       for key, value of this.params
-        if value != ''
+        if value != '' && value != null
             query += "#{key}=>#{value}&"
       @transitionToRoute 'orders', queryParams: {q: query}
     delete: (order)->

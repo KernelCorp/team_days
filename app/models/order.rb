@@ -34,10 +34,6 @@ class Order
     payments.paid.sum(:sum) >= cost
   end
 
-  def self.statuses_4_ember
-    Order::STATUSES.unshift ''
-  end
-
   protected
   def ordered_services_is_supported_by_partner
     if partner.present? && !partner.support_service?(service)
