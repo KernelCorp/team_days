@@ -1,5 +1,6 @@
 TeamDays.OrdersEditController = Ember.ObjectController.extend({
   statuses: <%= Order::STATUSES%>
+
   actions: {
     update: (order)->
       order.set 'status', @get('status')
