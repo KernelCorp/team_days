@@ -1,68 +1,73 @@
-h3.ui.header Заказы
-table.ui.table.segment
-  thead
-    tr
-      th
-        | Услуга
-      th
-        | Цена
-      th
-        .row.middle.aligned
-          .content.column Статус
-          .updown.column
-            link-to (query-params s="status asc") tagName='i' class='ui icon triangle up link'
-            link-to (query-params s="status desc") tagName='i' class='ui icon triangle down link'
-      th
-        .row.middle.aligned
-          .content.column Создан
-          .updown.column
-            link-to (query-params s="created_at asc") tagName='i' class='ui icon triangle up link'
-            link-to (query-params s="created_at desc") tagName='i' class='ui icon triangle down link'
-      th
-        | Дейтсвия
+.ui.grid
+  .twelve.wide.column
+    h3.ui.header Заказы
+    table.ui.table.segment
+      thead
+        tr
+          th
+            | Услуга
+          th
+            | Цена
+          th
+            .row.middle.aligned
+              .content.column Статус
+              .updown.column
+                link-to (query-params s="status asc") tagName='i' class='ui icon triangle up link'
+                link-to (query-params s="status desc") tagName='i' class='ui icon triangle down link'
+          th
+            .row.middle.aligned
+              .content.column Создан
+              .updown.column
+                link-to (query-params s="created_at asc") tagName='i' class='ui icon triangle up link'
+                link-to (query-params s="created_at desc") tagName='i' class='ui icon triangle down link'
+          th
+            | Дейтсвия
 
-  tbody
-    = each
-      tr class={statusClass}
-        td
-          link-to "available_services.show" available_service
-            = available_service.name
-        td
-          = cost
-        td
-          = status
-        td
-          = formattedCreatedAt
-        td
-          link-to 'orders.show' id class='wrapper' title='Посмотреть'
-            i.unhide.icon
-          link-to 'orders.edit' id class='wrapper' title='Редактировать'
-            i.pencil.icon
-          a.wrapper title='Удалить'
-            i.remove.icon{action 'delete' this}
+      tbody
+        = each
+          tr class={statusClass}
+            td
+              link-to "available_services.show" available_service
+                = available_service.name
+            td
+              = cost
+            td
+              = status
+            td
+              = formattedCreatedAt
+            td
+              link-to 'orders.show' id class='wrapper' title='Посмотреть'
+                i.unhide.icon
+              link-to 'orders.edit' id class='wrapper' title='Редактировать'
+                i.pencil.icon
+              a.wrapper title='Удалить'
+                i.remove.icon{action 'delete' this}
 
-= partial 'pagination'
-h3.ui Фильтры
-form
-  .field
-    label
-      | E-mail клиента
-    .ui.icon.input
-      = view Ember.TextField valueBinding='params.client_email_cont' name='client_email_cont' viewName='client_email_cont'
-    br
-    label
-      | Имя клиента
-    .ui.icon.input
-      = view Ember.TextField valueBinding='params.client_name_cont' name='client_name_cont' viewName='client_name_cont'
-    br
-      label
-        | Статус
-      .ui.icon.input
-        = view Ember.Select valueBinding='params.status_eq' content=statuses
-    br
-      label
-        | Услуга
-      .ui.icon.input
-        = view Ember.Select valueBinding='params.service_id_eq' content=available_services optionLabelPath="content.name" optionValuePath="content.id"
-  button{action 'search' this}
-    | Поиск
+    = partial 'pagination'
+  .four.wide.column
+    h3.ui Фильтры
+    .ui.orange.segment
+      form.ui.form.filters
+        .inline.field
+          label
+            | Статус
+          = view Ember.Select valueBinding='params.status_eq' content=statuses
+        .inline.field
+          label
+            | Услуга
+          = view Ember.Select valueBinding='params.service_id_eq' content=available_services optionLabelPath='content.name' optionValuePath='content.id'
+        .ui.green.button{action 'search' this}
+          i.filter.icon
+          | Поиск
+
+
+/label
+/  | E-mail клиента
+/.ui.icon.input
+/  = view Ember.TextField valueBinding='params.client_email_cont' name='client_email_cont' viewName='client_email_cont'
+/br
+/label
+/  | Имя клиента
+/.ui.icon.input
+/  = view Ember.TextField valueBinding='params.client_name_cont' name='client_name_cont' viewName='client_name_cont'
+/br

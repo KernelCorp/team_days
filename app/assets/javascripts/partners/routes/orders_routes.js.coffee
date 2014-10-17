@@ -28,11 +28,9 @@ TeamDays.OrdersIndexRoute = Ember.Route.extend(TeamDays._PaginatedRouteMixin, {
         queryParams['q'][result[1]] =  regexValue.exec(Text)[1]
     @store.find('order', queryParams).then(@_includePagination);
 
-  available_services: ->
-    @store.findAll('available_service')
 
   setupController: (controller, model) ->
-    controller.set 'available_services', [{name: 'Drink tea', id: 100500}]
+    controller.set 'available_services', @store.find('available_service')
     controller.set 'model', model
 
 })
