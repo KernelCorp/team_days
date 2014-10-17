@@ -64,8 +64,31 @@ RSpec.describe User::Partner, type: :model do
       it 'remove available services from partners' do
         expect{subject}.to change{partner.reload.available_services.count}.by(-1)
       end
-
     end
+
+
+    describe 'update attributes' do
+      let(:services_box) {FactoryGirl.create :services_box}
+      describe 'add' do
+        let(:partner) { FactoryGirl.create :partner }
+        subject{partner.update_attributes(services_box_ids: [services_box.id])}
+
+        it 'creates new available_services if service not supported by partner' do
+          expect{subject}.to change{partner.reload.available_services.count}.by(3)
+        end
+      end
+
+      describe 'remove' do
+        let(:partner) { FactoryGirl.create :partner }
+        before(:each) { partner.services_boxes << services_box}
+        subject{partner.update_attributes(services_box_ids: [])}
+
+        it 'creates new available_services if service not supported by partner' do
+          expect{subject}.to change{partner.reload.available_services.count}.by(-3)
+        end
+      end
+    end
+
   end
 
 

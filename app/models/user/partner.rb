@@ -14,6 +14,7 @@ module User
     delegate :name, :subdomain, to: :city, prefix: true
 
     validates_presence_of :city, uniqueness: true
+    before_update :services_boxes_update
 
     def support_service?(service)
       available_services.where(service: service).count != 0
@@ -30,15 +31,38 @@ module User
     end
 
     private
+    def services_boxes_update
+      if services_box_ids_changed?
+        actual = services_box_ids     || []
+        was    = services_box_ids_was || []
+        if actual.count > was.count
+          new_services_box_ids = actual - was
+          new_services_box_ids.each {|id| apply_service_box(ServicesBox.find(id))}
+        else
+          old_services_box_ids = was - actual
+          old_services_box_ids.each {|id| remove_service_box(ServicesBox.find(id))}
+        end
+      end
+    end
+
     def add_new_services(services_box)
+      apply_service_box services_box
+      save!
+    end
+    def remove_services(services_box)
+      remove services_box
+      save!
+    end
+
+    def apply_service_box(services_box)
       services_box.services.each do |service|
         available_services.build service: service unless support_service?(service)
       end
-      self.save!
     end
-    def remove_services(services_box)
+
+    def remove_service_box(services_box)
       services_box.services.each do |service|
-        available_services.where(service: service).destroy
+        available_services.where(service: service).delete
       end
     end
   end
