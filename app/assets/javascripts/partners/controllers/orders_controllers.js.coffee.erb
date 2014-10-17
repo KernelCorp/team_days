@@ -1,0 +1,33 @@
+TeamDays.OrdersController = Ember.ArrayController.extend({
+  queryParams: ['s', 'page', 'q']
+  modelInfo: {
+    store: 'order',
+    class: TeamDays.Order
+  }
+})
+TeamDays.OrdersIndexController = Ember.ArrayController.extend({
+  statuses: <%= Order::STATUSES%>
+  params: {}
+#  services: @store.find('available_service')
+
+  actions: {
+    search: (item) ->
+
+#      @orders = @store.find 'order', {q: this.params}
+#      @orders.reload()
+#
+#      this.get('content').set('model', @orders)
+      query = ''
+      for key, value of this.params
+        query += "#{key}=>#{value}&"
+      @transitionToRoute 'orders', queryParams: {q: query}
+    delete: (order)->
+      order.deleteRecord()
+      order.save()
+    filter: (params)->
+      params = {
+        q: {}
+      }
+      @transitionToRoute('orders', queryParams:{ 'client_email_cont': @get('client_email_cont'), client_name_cont: @get('client_name_cont'), status_eq: @get('status_eq')})
+  }
+})

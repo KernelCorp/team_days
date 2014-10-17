@@ -14,6 +14,7 @@ TeamDays.Router.map ()->
     @route 'edit', {path: ':id/edit'}
     @route 'update'
     @route 'show', {path: ':id'}
+    @route 'filter'
     @route 'delete'
 
   @resource 'payments'
