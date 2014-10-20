@@ -59,7 +59,7 @@
         .inline.field.service
           label
             | Услуга
-          = view Ember.Select valueBinding='params.service_id_eq' content=available_services optionLabelPath='content.name' optionValuePath='content.id' prompt='-'
+          = view Ember.Select valueBinding='params.service_id_eq' content=available_services optionLabelPath='content.name' optionValuePath='content.service_id' prompt='-'
         .inline.field
           label
             | Дата от
