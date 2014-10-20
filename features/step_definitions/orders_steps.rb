@@ -36,12 +36,14 @@ But(/^I shouldn't see orders from: "(.*?)"$/) do |emails|
 end
 
 And(/^I change status on order "(.*?)" to "(.*?)"$/) do |client_email, status|
-  order = Order.where(client_email: client_email).first
-  visit "/partner/#/orders/#{order.id}"
+  order = Order.all.select{|order| order.client_email == client_email}.first
+  visit "/partner/#/orders/#{order.id}/edit"
   page.find("select").find('option', text: status).select_option
   page.find('form .button').click
+  sleep(1)
 end
 
 Then(/^order from "(.*?)" has status "(.*?)"$/) do |client_email, status|
-  expect(Order.where(client_email: client_email).first.status).to eq(status)
+  order = Order.all.select{|order| order.client_email == client_email}.first
+  expect(order.status).to eq(status)
 end

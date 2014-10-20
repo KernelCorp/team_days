@@ -31,7 +31,6 @@ Feature: Orders managing
   @javascript
   Scenario: Change status
     When I go to "/partner"
-    And I click on "Управление заказами"
     And I change status on order "client3@exmaple.com" to "close"
     Then order from "client3@exmaple.com" has status "close"
 
