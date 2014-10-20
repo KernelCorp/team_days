@@ -7,6 +7,7 @@ TeamDays.AvailableService = DS.Model.extend(
   description:    DS.attr 'string'
   is_active:      DS.attr 'boolean'
   banned:         DS.attr 'boolean'
+  service_id:     DS.attr 'string'
 
 
   statusClass: ( ->
