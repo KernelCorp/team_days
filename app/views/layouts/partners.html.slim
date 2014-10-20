@@ -7,5 +7,9 @@ html
     = javascript_include_tag "partners"
     = csrf_meta_tags
   body
-    = render partial: 'layouts/partners/header'
-    = yield
+    #wrap
+      = render partial: 'layouts/partners/header'
+      #main.clearfix
+        = yield
+    footer
+      = render partial: 'layouts/partners/footer'

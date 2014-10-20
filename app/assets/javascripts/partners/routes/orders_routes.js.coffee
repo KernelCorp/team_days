@@ -34,6 +34,7 @@ TeamDays.OrdersIndexRoute = Ember.Route.extend(TeamDays._PaginatedRouteMixin, {
     controller.set 'model', model
 
 })
+
 TeamDays.OrdersShowRoute = Ember.Route.extend({
   model: (params)->
     @store.find('order', params.id)
