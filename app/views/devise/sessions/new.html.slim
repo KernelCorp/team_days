@@ -1,6 +1,6 @@
 h2
   | Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'ui error form segment'}) do |f|
+= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'ui error form green segment'}) do |f|
   -unless resource.errors.empty?
     .ui.error.message
       = devise_error_messages!
@@ -18,5 +18,6 @@ h2
         = f.check_box :remember_me
         = f.label :remember_me
   /.ui.blue.submit.button
-  = f.submit "Log in", class: 'ui blue submit button'
-= render "devise/shared/links"
+  = f.submit "Log in", class: 'ui orange submit button'
+  p
+    = render "devise/shared/links"
