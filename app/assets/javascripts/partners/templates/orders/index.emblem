@@ -7,6 +7,8 @@
           th
             | Услуга
           th
+            | Email клиента
+          th
             | Цена
           th
             .row.middle.aligned
@@ -30,6 +32,8 @@
               link-to "available_services.show" available_service
                 = available_service.name
             td
+              = client_email
+            td
               = cost
             td
               = status
@@ -48,26 +52,26 @@
     h3.ui Фильтры
     .ui.orange.segment
       form.ui.form.filters
-        .inline.field
+        .inline.field.status
           label
             | Статус
           = view Ember.Select valueBinding='params.status_eq' content=statuses prompt='-'
-        .inline.field
+        .inline.field.service
           label
             | Услуга
           = view Ember.Select valueBinding='params.service_id_eq' content=available_services optionLabelPath='content.name' optionValuePath='content.service_id' prompt='-'
+        .inline.field
+          label
+            | Дата от
+        .field.date_begin
+          date-picker-input controls="my-datepicker-gt" valueBinding='params.created_at_gt'
+          date-picker-controls id="my-datepicker-gt" i18n=translation_params
+        .inline.date_end
+          label
+            | Дата до
+        .field
+          date-picker-input controls="my-datepicker-lt" valueBinding='params.created_at_lt' class='ui input'
+          date-picker-controls id="my-datepicker-lt" i18n=translation_params
         .ui.green.button{action 'search' this}
           i.filter.icon
           | Поиск
-
-
-/label
-/  | E-mail клиента
-/.ui.icon.input
-/  = view Ember.TextField valueBinding='params.client_email_cont' name='client_email_cont' viewName='client_email_cont'
-/br
-/label
-/  | Имя клиента
-/.ui.icon.input
-/  = view Ember.TextField valueBinding='params.client_name_cont' name='client_name_cont' viewName='client_name_cont'
-/br

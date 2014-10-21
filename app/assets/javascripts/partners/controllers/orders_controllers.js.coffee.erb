@@ -5,6 +5,15 @@ TeamDays.OrdersIndexController = Ember.ArrayController.extend({
       class: TeamDays.Order
   }
   statuses: <%= Order::STATUSES%>
+  translation_params: {
+      done: "Готово",
+      clear: "Очистить",
+      today: "Сегодня",
+      monthNames: [
+          "Января", "Февраля", "Марта", "Апреля", "Мая", "Июня",
+          "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря"
+      ]
+  }
   params: {}
   actions: {
     search: (item) ->

@@ -36,7 +36,8 @@ When(/^I go to "(.*?)"$/) do |url|
 end
 
 And(/^I click on "(.*?)"$/) do |elem|
-  page.find('a', text: elem)
+  page.find('span', text: elem).click
+  sleep(2)
 end
 
 And(/^I disable service "(.*?)"$/) do |service_name|

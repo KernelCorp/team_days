@@ -346,6 +346,7 @@ DEPENDENCIES
   factory_girl_rails
   geocoder
   jquery-rails
+  jquery-ui-rails (~> 4.2.1)
   momentjs-rails
   mongoid (~> 4.0.0)
   net-ssh (~> 2.7.0)
