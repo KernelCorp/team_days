@@ -1,0 +1,25 @@
+# for more details see: http://emberjs.com/guides/controllers/
+
+TeamDays.PaymentsController = Ember.ArrayController.extend({
+  queryParams: ['s', 'page', 'q']
+  statuses: <%= Payment::STATUSES%>
+  translation_params: {
+      done: "Готово",
+      clear: "Очистить",
+      today: "Сегодня",
+      monthNames: [
+          "Января", "Февраля", "Марта", "Апреля", "Мая", "Июня",
+          "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря"
+      ]
+  }
+  params: {}
+  actions: {
+    search: (item) ->
+      query = '&'
+      for key, value of this.params
+        if value != '' && value != null
+          query += "#{key}=>#{value}&"
+      @transitionToRoute 'payments', queryParams: {q: query}
+    }
+})
+

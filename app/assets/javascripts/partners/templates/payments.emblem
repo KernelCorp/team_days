@@ -1,34 +1,59 @@
 h3.ui.header Платежи
-table.ui.table.segment
-  thead
-    tr
-      th
-        | Заказ
-      th
-        | Сумма
-      th
-        .row.middle.aligned
-          .content.column Статус
-          .updown.column
-            link-to (query-params s="status asc") tagName='i' class='ui icon triangle up link'
-            link-to (query-params s="status desc") tagName='i' class='ui icon triangle down link'
-      th
-        .row.middle.aligned
-          .content.column Создан
-          .updown.column
-            link-to (query-params s="created_at asc") tagName='i' class='ui icon triangle up link'
-            link-to (query-params s="created_at desc") tagName='i' class='ui icon triangle down link'
+.ui.grid
+  .twelve.wide.column
+    table.ui.table.segment
+      thead
+        tr
+          th
+            | Заказ
+          th
+            | Сумма
+          th
+            .row.middle.aligned
+              .content.column Статус
+              .updown.column
+                link-to (query-params s="status asc") tagName='i' class='ui icon triangle up link'
+                link-to (query-params s="status desc") tagName='i' class='ui icon triangle down link'
+          th
+            .row.middle.aligned
+              .content.column Создан
+              .updown.column
+                link-to (query-params s="created_at asc") tagName='i' class='ui icon triangle up link'
+                link-to (query-params s="created_at desc") tagName='i' class='ui icon triangle down link'
 
-  tbody
-    = each
-      tr class={statusClass}
-        td
-          link-to "orders.show" order
-            = order.id
-        td
-          = sum
-        td
-          = status
-        td
-          = formattedCreatedAt
-= partial 'pagination'
+      tbody
+        = each
+          tr class={statusClass}
+            td
+              link-to "orders.show" order
+                = order.id
+            td
+              = sum
+            td
+              = status
+            td
+              = formattedCreatedAt
+    = partial 'pagination'
+  .four.wide.column
+    h3.ui Фильтры
+    .ui.orange.segment
+      form.ui.form.filters
+        .inline.field.status
+          label
+            | Статус
+          = view Ember.Select valueBinding='params.status_eq' content=statuses prompt='-'
+        .inline.field
+          label
+            | Дата от
+        .field.date_begin
+          date-picker-input controls="my-datepicker-gt" valueBinding='params.created_at_gt'
+          date-picker-controls id="my-datepicker-gt" i18n=translation_params
+        .inline.date_end
+          label
+            | Дата до
+        .field
+          date-picker-input controls="my-datepicker-lt" valueBinding='params.created_at_lt' class='ui input'
+          date-picker-controls id="my-datepicker-lt" i18n=translation_params
+        .ui.green.button{action 'search' this}
+          i.filter.icon
+          | Поиск
