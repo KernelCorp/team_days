@@ -57,15 +57,6 @@ RSpec.describe User::Partner, type: :model do
       end
 
     end
-    describe 'remove services box' do
-
-      subject{partner.services_boxes.delete services_box}
-
-      it 'remove available services from partners' do
-        expect{subject}.to change{partner.reload.available_services.count}.by(-1)
-      end
-    end
-
 
     describe 'update attributes' do
       let(:services_box) {FactoryGirl.create :services_box}
