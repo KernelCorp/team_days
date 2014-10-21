@@ -21,7 +21,8 @@ partner = User::Partner.find_by  email: 'partner@example.com'
 partner.services_boxes << sb
 
 1.upto(10) do |i|
-  order = Order.new partner: partner, service: partner.available_services.first.service, cost: '100500', status: 'new'
+  payment = Payment.create status: 'new', sum: 100
+  order = Order.new partner: partner, service: partner.available_services.first.service, cost: '100500', status: 'new', payment: payment
   order.build_client_info email: "client@example#{i}.com", name: 'Vasya', phone: '1234567890'
   order.save
 end
