@@ -10,7 +10,7 @@ And(/^a services box "(.*?)" with services: "(.*?)", "(.*?)"$/) do |name, servic
 end
 
 And(/^a partner from "(.*?)" with email: "(.*?)"$/) do |town, email|
-  city = FactoryGirl.create :city, name: town
+  city = FactoryGirl.create :city, name: town, subdomain: 'skol'
   FactoryGirl.create :partner, email: email, password: 'password', city: city
 end
 
@@ -45,10 +45,10 @@ And(/^I disable service "(.*?)"$/) do |service_name|
   User::Partner.first.available_services.where(service: service).first.update_attribute :is_active, false
 end
 
-Then(/^I should see service "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then(/^I should see service "(.*?)"$/) do |name|
+  expect(page).to have_css('.name', text: name)
 end
 
-But(/^I shouldn't see service "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+But(/^I shouldn't see service "(.*?)"$/) do |name|
+  expect(page).not_to have_css('.name', text: name)
 end
