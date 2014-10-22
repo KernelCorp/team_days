@@ -14,6 +14,10 @@ require 'database_cleaner'
 # option on the command line or in ~/.rspec, .rspec or `.rspec-local`.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
+require 'coveralls'
+Coveralls.wear_merged!
+
+
 RSpec.configure do |config|
   config.include Devise::TestHelpers, type: :controller
   config.include FactoryGirl::Syntax::Methods
