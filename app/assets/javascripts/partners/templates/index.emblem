@@ -3,7 +3,7 @@
     h3.ui.left.floated.header
       | Личные данные
     .ui.right.floated.header
-      = link-to 'partners.edit' class='wrapper'
+      = link-to 'partners.edit' class='wrapper edit_profile'
         i.circular.inverted.orange.pencil.icon
 
   .ui.ribbon.green.label

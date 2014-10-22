@@ -57,3 +57,4 @@ end
 But(/^I shouldn't see service "(.*?)"$/) do |name|
   expect(page).not_to have_css('.name', text: name)
 end
+
