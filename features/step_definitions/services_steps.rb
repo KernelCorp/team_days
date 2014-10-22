@@ -10,7 +10,7 @@ And(/^a services box "(.*?)" with services: "(.*?)", "(.*?)"$/) do |name, servic
 end
 
 And(/^a partner from "(.*?)" with email: "(.*?)"$/) do |town, email|
-  city = FactoryGirl.create :city, name: town
+  city = FactoryGirl.create :city, name: town, subdomain: 'skol'
   FactoryGirl.create :partner, email: email, password: 'password', city: city
 end
 
@@ -35,6 +35,11 @@ When(/^I go to "(.*?)"$/) do |url|
   visit url
 end
 
+When(/^I go to subdomain to "(.*?)"$/) do |url|
+  MainController.any_instance.stub(:subdomain) { "skol" }
+  visit url
+end
+
 And(/^I click on "(.*?)"$/) do |elem|
   page.find('span', text: elem).click
   sleep(2)
@@ -45,10 +50,10 @@ And(/^I disable service "(.*?)"$/) do |service_name|
   User::Partner.first.available_services.where(service: service).first.update_attribute :is_active, false
 end
 
-Then(/^I should see service "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then(/^I should see service "(.*?)"$/) do |name|
+  expect(page).to have_css('.name', text: name)
 end
 
-But(/^I shouldn't see service "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+But(/^I shouldn't see service "(.*?)"$/) do |name|
+  expect(page).not_to have_css('.name', text: name)
 end
