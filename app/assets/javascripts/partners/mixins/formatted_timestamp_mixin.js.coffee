@@ -1,5 +1,5 @@
 TeamDays.FormattedTimestampMixin = Ember.Mixin.create(
-  format: 'd/M/YYYY в hh:mm',
+  format: 'DD/M/YYYY в hh:mm',
   formattedCreatedAt: (->
     date = @.get 'created_at'
     format = @.get 'format'
