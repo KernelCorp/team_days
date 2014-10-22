@@ -11,6 +11,6 @@ Feature: Service managing
     When I go to "/partner"
      And I click on "Управление услугами"
      And I disable service "Поизлучать излучение Хоккинга"
-     And I go to "/"
+     And I go to subdomain to "/"
     Then I should see service "Коллапсировать сверхновую звезду в черную дыру"
      But I shouldn't see service "Поизлучать излучение Хоккинга"

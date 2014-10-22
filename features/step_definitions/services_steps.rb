@@ -35,6 +35,11 @@ When(/^I go to "(.*?)"$/) do |url|
   visit url
 end
 
+When(/^I go to subdomain to "(.*?)"$/) do |url|
+  MainController.any_instance.stub(:subdomain) { "skol" }
+  visit url
+end
+
 And(/^I click on "(.*?)"$/) do |elem|
   page.find('span', text: elem).click
   sleep(2)
