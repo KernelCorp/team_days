@@ -1,3 +1,23 @@
+- if @subdomain.nil?
+  .modal.ui
+    i.close.icon
+    .header Выберете город
+    .content
+      .city.ui.selection.dropdown
+        input type='hidden' name='city'
+        .text Город
+        i.dropdown.icon
+        .menu
+          - @cities.each do |city|
+            .item data-value=city.subdomain class=('active' if city.name ==@item.city)
+              = city.name
+    .actions
+      - if @item.partner.nil?
+        a.ui.button.to_sub.close Выбрать
+      - else
+        a.ui.button.to_sub href="//#{@item.partner.city_subdomain}.#{Rails.application.config.host}" Выбрать
+
+
 h1 Это главная страница
 p
   | Ваш город -
@@ -14,3 +34,9 @@ a href="//nsk.#{Rails.application.config.host}" Посмотреть в ново
 
       .extra
         = "Цена: #{service.price}"
+javascript:
+  $('.ui.modal').modal('show');
+  $('.ui.dropdown').dropdown({onChange: function (val) {
+    $('.to_sub').attr('href', "//"+val+"."+window.location.host)
+      }
+    });
