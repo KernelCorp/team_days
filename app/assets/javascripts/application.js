@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require semantic-ui
+//= require_tree ./vendor/inputmask-multi
+//= require_tree ./lib
 //= require_self
 
 

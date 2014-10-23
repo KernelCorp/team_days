@@ -10,6 +10,10 @@ class PaymentsController < ApplicationController
     respond_with @payments, serializer: PaginationSerializer
   end
 
+  def new
+
+  end
+
   def show
     respond_with @payment
   end
