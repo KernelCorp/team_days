@@ -1,7 +1,6 @@
 class Order
   include Mongoid::Document
   include Mongoid::Timestamps
-  include Mongoid::Attributes::Dynamic
 
   STATUSES = %w(new in_progress close)
 
