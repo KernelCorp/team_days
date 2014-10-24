@@ -6,6 +6,7 @@
 #= require ember-data
 #= require_self
 #= require ./partners/team_days
+#= require semantic-ui
 # Date Picker
 #= require datepicker/ember-date-picker.js
 #= require datepicker/ember-spin-box
