@@ -1,5 +1,6 @@
+//=require_tree
 $(function(){
-    $('input[name="order[client_phone]"]').each(function(){
+    $('input[name="order[client_info][phone]"]').each(function(){
         $(this)
             .inputmasks({
                 inputmask: {
@@ -15,7 +16,7 @@ $(function(){
                 },
                 match: /[0-9]/,
                 replace: '#',
-                list: $.masksSort($.masksLoad("/assets/vendor/inputmask-multi/dev/phone-codes.json"), ['#'], /[0-9]|#/, "mask"),
+                list: $.masksSort($.masksLoad("/assets/inputmask/dev/phone-codes.json"), ['#'], /[0-9]|#/, "mask"),
                 listKey: "mask"
             })
             .on('focusin', function(){

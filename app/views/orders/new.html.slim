@@ -11,7 +11,7 @@
         = c.email_field :email, placeholder: 'Ваш Email', required: true
     .field
       .input
-        = c.text_field :phone, placeholder: 'Ваш телефон', required: true, pattern: '^(\D*\d\D*){11,}$'
+        = c.text_field :phone, placeholder: 'Ваш телефон', required: true, pattern: '^(\D*\d\D*){11,}$', maxlength: 30
   .field
     .ui.checkbox
       input name='order[with_payment]' type="checkbox"
