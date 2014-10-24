@@ -20,6 +20,7 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find(params[:id])
     respond_with @order
   end
 
@@ -27,7 +28,7 @@ class OrdersController < ApplicationController
     @order = Order.new(order_public_params)
 
     if @order.save
-      if params[:order][:with_payment]
+      if params[:order][:with_payment] == 'on'
         redirect_to new_payment_path
       else
         redirect_to @order, notice: 'Order was successfully created.'

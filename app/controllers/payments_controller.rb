@@ -1,7 +1,7 @@
 class PaymentsController < ApplicationController
-  before_action :authenticate_partner!
+  before_action :authenticate_partner!, except: [:new]
 
-  load_and_authorize_resource through: :current_partner
+  load_and_authorize_resource through: :current_partner,  except: [:new]
 
   respond_to :json
 

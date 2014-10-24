@@ -12,4 +12,13 @@
     .field
       .input
         = c.text_field :phone, placeholder: 'Ваш телефон', required: true, pattern: '^(\D*\d\D*){11,}$'
+  .field
+    .ui.checkbox
+      input name='order[with_payment]' type="checkbox"
+      label Оплата через сайт
   = f.submit 'Сделать заказ', class: 'ui green submit button'
+
+javascript:
+  $('.checkbox').checkbox();
+
+

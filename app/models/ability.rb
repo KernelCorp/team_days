@@ -3,7 +3,7 @@ class Ability
 
   def initialize(user)
     can :create, :new,  Order
-    can :show,  Order
+    can :read,  Order
     if user.is_a? User::Partner
       can :manage, AvailableService
       can :manage, Order
