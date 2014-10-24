@@ -21,6 +21,7 @@ Feature: Payment managing
   @javascript
   Scenario: filter by dates
     When I go to "/partner"
+     And I show sidebar
      And I click to "a", "Платежи"
      And I select filter by "date_begin", "1-09-2014"
      And I select filter by "date_end", "30-09-2014"

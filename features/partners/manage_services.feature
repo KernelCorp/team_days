@@ -10,6 +10,7 @@ Feature: Service managing
       And I signed in as partner with email "partner@example.com"
     When I go to "/partner"
      And I click on "Управление услугами"
+     And I show sidebar
      And I disable service "Поизлучать излучение Хоккинга"
      And I go to subdomain to "/"
     Then I should see service "Коллапсировать сверхновую звезду в черную дыру"

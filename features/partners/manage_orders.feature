@@ -18,6 +18,7 @@ Feature: Orders managing
   @javascript
   Scenario Outline:
     When I go to "/partner"
+     And I show sidebar
      And I click on "Управление заказами"
      And I select filter by "<filter_name>" with "<filter_value>"
     Then I should see orders from: "<visible_orders>"
