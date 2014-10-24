@@ -1,6 +1,7 @@
 class Order
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::Attributes::Dynamic
 
   STATUSES = %w(new in_progress close)
 
@@ -18,6 +19,7 @@ class Order
 
   validates_presence_of :service, :client_info
   validate :ordered_services_is_supported_by_partner
+  after_initialize :init_client_info
 
   before_create :update_cost
 
@@ -38,6 +40,12 @@ class Order
   def ordered_services_is_supported_by_partner
     if partner.present? && !partner.support_service?(service)
       errors.add :service, I18n.t('service_not_supported')
+    end
+  end
+
+  def init_client_info
+    if client_info.nil?
+      build_client_info
     end
   end
 end

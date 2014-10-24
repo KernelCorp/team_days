@@ -46,13 +46,13 @@ h3.ui.header Платежи
           label
             | Дата от
         .field.date_begin
-          date-picker-input controls="my-datepicker-gt" valueBinding='params.created_at_gt'
+          date-picker-input controls="my-datepicker-gt" valueBinding='params.created_at_gt' name='input' class='ui input'
           date-picker-controls id="my-datepicker-gt" i18n=translation_params
-        .inline.date_end
+        .inline
           label
             | Дата до
-        .field
-          date-picker-input controls="my-datepicker-lt" valueBinding='params.created_at_lt' class='ui input'
+        .field.date_end
+          date-picker-input controls="my-datepicker-lt" valueBinding='params.created_at_lt' class='ui input'  name='input'
           date-picker-controls id="my-datepicker-lt" i18n=translation_params
         .ui.green.button{action 'search' this}
           i.filter.icon

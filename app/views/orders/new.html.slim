@@ -1,0 +1,24 @@
+= form_for @order, action: :create,  html: {class: 'ui form segment'} do |f|
+  = f.fields_for :client_info  do |c|
+    .field
+      .input
+        = f.hidden_field :service_id, value: @order.service.id
+    .field
+      .input
+        = c.text_field :name, placeholder: 'Ваше имя', required: true
+    .field
+      .input
+        = c.email_field :email, placeholder: 'Ваш Email', required: true
+    .field
+      .input
+        = c.text_field :phone, placeholder: 'Ваш телефон', required: true, pattern: '^(\D*\d\D*){11,}$', maxlength: 30
+  .field
+    .ui.checkbox
+      input name='order[with_payment]' type="checkbox"
+      label Оплата через сайт
+  = f.submit 'Сделать заказ', class: 'ui green submit button'
+
+javascript:
+  $('.checkbox').checkbox();
+
+

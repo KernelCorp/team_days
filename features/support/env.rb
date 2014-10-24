@@ -8,6 +8,9 @@ require 'cucumber/rails'
 require 'rspec/mocks'
 World(RSpec::Mocks::ExampleMethods)
 
+require_relative '../../app/controllers/orders_controller'
+require_relative '../../app/serializers/order_serializer'
+
 Before do
   RSpec::Mocks.setup
 end

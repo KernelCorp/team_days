@@ -1,9 +1,9 @@
 class OrdersController < ApplicationController
   include Subdomainable
 
-  before_action :authenticate_partner!
+  before_action :authenticate_partner!, except: [:new, :create, :show]
 
-  load_and_authorize_resource through: :current_partner
+  load_and_authorize_resource through: :current_partner, except: [:new, :create, :show]
 
   respond_to :json
   respond_to :html, only: :show
@@ -20,6 +20,7 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find(params[:id])
     respond_with @order
   end
 
@@ -27,7 +28,11 @@ class OrdersController < ApplicationController
     @order = Order.new(order_public_params)
 
     if @order.save
-      redirect_to @order, notice: 'Order was successfully created.'
+      if params[:order][:with_payment] == 'on'
+        redirect_to new_payment_path
+      else
+        redirect_to @order, notice: 'Order was successfully created.'
+      end
     else
       render action: 'new'
     end
@@ -58,6 +63,6 @@ class OrdersController < ApplicationController
     end
 
     def order_public_params
-      params.require(:order).permit(:service_id, :partner_id)
+      params.require(:order).permit(:service_id, :partner_id, client_info: [:email, :name, :phone])
     end
 end

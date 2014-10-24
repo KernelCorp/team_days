@@ -1,13 +1,17 @@
 class PaymentsController < ApplicationController
-  before_action :authenticate_partner!
+  before_action :authenticate_partner!, except: [:new]
 
-  load_and_authorize_resource through: :current_partner
+  load_and_authorize_resource through: :current_partner,  except: [:new]
 
   respond_to :json
 
   def index
     @payments = @payments.search(params[:q]).result.paginate(per_page: 10, page: params[:page])
     respond_with @payments, serializer: PaginationSerializer
+  end
+
+  def new
+
   end
 
   def show

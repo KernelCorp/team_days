@@ -1,0 +1,21 @@
+.ui.header Ваш заказ принят
+table.ui.table.segment
+  thead
+    tr
+      th Услуга
+      th Ваш Email
+      th Ваше Имя
+      th Стоимость
+      th Состояние оплаты
+  tbody
+    tr
+      td
+        = @order.service.name
+      td
+        = @order.client_email
+      td
+        = @order.client_name
+      td
+        = @order.cost
+      td
+        = @order.payment_success? ? 'Оплачен' : 'В ожидании оплаты'
