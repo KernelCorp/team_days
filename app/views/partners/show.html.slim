@@ -1,15 +1,13 @@
 #partners
 script type='text/x-handlebars'
+  .ui.black.huge.launch.right.attached.button style='width: 50px;' onclick="$('.ui.sidebar').sidebar('toggle')"
+    i.icon.list.layout
+    span.text style='display:none'
+      | Меню
+  .ui.orange.vertical.floating.sidebar.menu
+    | {{partial 'navigation'}}
   .container
-    .ui.grid
-      .four.wide.column
-        .ui.vertical.green.menu
-          | {{partial 'navigation'}}
-
-
-      .twelve.wide.column
-        | {{ outlet }}
-
+    | {{ outlet }}
 
 javascript:
   window.myId = "#{@partner.id.to_s}";
