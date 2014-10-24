@@ -1,0 +1,3 @@
+.category_show
+  - @category.posts.each do |post|
+    = link_to post.name, post_path(post), class: 'title'

@@ -1,0 +1,6 @@
+.show_post
+  .title = @post.name
+  .text = @post.text
+  .tags
+    - @post.tags.each do |tag|
+      = link_to tag.name, tag_path(tag)

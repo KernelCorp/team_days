@@ -3,6 +3,6 @@ class Post
   include ActsAsPage
 
   belongs_to :category
-  has_and_belongs_to_many :post
+  has_and_belongs_to_many :tags
 
 end
