@@ -5,6 +5,9 @@ gem 'rails', '~>4.0.8'
 
 gem 'mongoid', '~>4.0.0'
 
+gem "mongoid-paperclip", :require => "mongoid_paperclip"
+gem 'aws-sdk', '~> 1.3.4'
+
 gem 'ransack', github: 'Zhomart/ransack', branch: 'mongoid'
 
 gem 'rails_admin'
