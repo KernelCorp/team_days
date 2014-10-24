@@ -8,6 +8,10 @@ gem 'mongoid', '~>4.0.0'
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem 'aws-sdk', '~> 1.3.4'
 
+gem 'mongoid_slug'
+gem 'mongoid_orderable'
+gem 'mongoid_acts_as_page', '~>0.5.4'
+
 gem 'ransack', github: 'Zhomart/ransack', branch: 'mongoid'
 
 gem 'rails_admin'
