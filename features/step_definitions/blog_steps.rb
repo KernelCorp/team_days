@@ -42,10 +42,14 @@ And(/^I click on tag "(.*?)"$/) do |name|
   sleep(1)
 end
 
-Given(/^an email "(.*?)" has subscription on new posts in category "(.*?)"$/) do |arg1, arg2|
-  pending # express the regexp above with the code you wish you had
+Given(/^an email "(.*?)" has subscription on new posts in category "(.*?)"$/) do |email, category_name|
+  category = Blog::Category.find_by name: category_name
+  subscription = FactoryGirl.create :subscription, email: email
+  subscription.categories << category
+  subscription.save
 end
 
-When(/^a new post in category "(.*?)" was created$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+When(/^a new post in category "(.*?)" was created$/) do |category_name|
+  category = Blog::Category.find_by name: category_name
+  category.posts.create name: "post_#{SecureRandom.hex(5)}"
 end

@@ -6,5 +6,12 @@ module Blog
     belongs_to :category, class_name: 'Blog::Category'
     has_and_belongs_to_many :tags, class_name: 'Blog::Tag'
 
+    after_create :send_mail
+
+    private
+    def send_mail
+      PostsMailer.new_post(category).deliver
+    end
+
   end
 end

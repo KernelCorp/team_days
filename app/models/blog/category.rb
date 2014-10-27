@@ -9,6 +9,7 @@ module Blog
     orderable
 
     has_many :posts, class_name: 'Blog::Post'
+    has_and_belongs_to_many :subscriptions
 
   end
 end
