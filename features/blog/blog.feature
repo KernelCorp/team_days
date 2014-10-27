@@ -13,7 +13,7 @@ Feature: Blog
       Then I should see post with title "Два вегетарианца съели кусок мяса"
        But I shouldn't see post with title "Две рыбы съели кусок вегетарианца"
        And I shouldn't see post with title "Две рыбы съели кусок мяса"
-    @javascript
+
     Scenario: Search by tags
       When I visit post with title "Два вегетарианца съели кусок мяса"
        And I click on tag "жесть"

@@ -8,7 +8,7 @@ describe TagsController, type: :controller do
     subject {get :show, id: 'cats'}
 
     it 'expect collection' do
-      expect{subject}.to change{assigns(:tag)}.to(Tag)
+      expect{subject}.to change{assigns(:tag)}.to(Blog::Tag)
     end
   end
 

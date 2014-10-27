@@ -20,7 +20,7 @@ RSpec.describe CategoriesController, type: :controller do
       FactoryGirl.create :category, name: 'cat_two'
     end
     it 'expect collection' do
-      expect{subject}.to change{assigns(:category)}.to(Category)
+      expect{subject}.to change{assigns(:category)}.to(Blog::Category)
     end
   end
 

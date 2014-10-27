@@ -8,7 +8,7 @@ describe PostsController, type: :controller do
     subject {get :show, id: post.to_param}
 
     it 'expect collection' do
-      expect{subject}.to change{assigns(:post)}.to(Post)
+      expect{subject}.to change{assigns(:post)}.to(Blog::Post)
     end
   end
 

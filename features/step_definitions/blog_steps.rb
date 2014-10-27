@@ -4,10 +4,10 @@ Given(/^a category "(.*?)"$/) do |name|
 end
 
 And(/^a post in the category "(.*?)" with title "(.*?)" with tags: "(.*?)"$/) do |category_name, post_name, tags_string|
-  category = Category.find_by name: category_name
+  category = Blog::Category.find_by name: category_name
   post = FactoryGirl.create :post, name: post_name, category: category
   tags_string.split(',').each do |tag|
-    new_tag = Tag.where(name: tag).first
+    new_tag = Blog::Tag.where(name: tag).first
     if new_tag.nil?
       new_tag = FactoryGirl.create :tag, name: tag
     end
@@ -32,7 +32,7 @@ Then(/^I shouldn't see post with title "(.*?)"$/) do |name|
 end
 
 When(/^I visit post with title "(.*?)"$/) do |name|
-  post = Post.find_by name: name
+  post = Blog::Post.find_by name: name
   visit post_path(post)
 end
 
@@ -40,4 +40,12 @@ end
 And(/^I click on tag "(.*?)"$/) do |name|
   page.find('a', text: name).click
   sleep(1)
+end
+
+Given(/^an email "(.*?)" has subscription on new posts in category "(.*?)"$/) do |arg1, arg2|
+  pending # express the regexp above with the code you wish you had
+end
+
+When(/^a new post in category "(.*?)" was created$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
 end

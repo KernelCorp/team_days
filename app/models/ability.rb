@@ -4,9 +4,9 @@ class Ability
   def initialize(user)
     can :create, :new,  Order
     can :read,  Order
-    can :read, Category
-    can :read, Post
-    can :read, Tag
+    can :read, Blog::Category
+    can :read, Blog::Post
+    can :read, Blog::Tag
     if user.is_a? User::Partner
       can :manage, AvailableService
       can :manage, Order
