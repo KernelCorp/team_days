@@ -1,7 +1,10 @@
 .ui.inverted.orange.menu
   .container
     = link_to '/', class: 'item' do
-      | Home
+      | Главная
       i.home.icon
+    = link_to '/blog', class: 'item' do
+      | Блог
+
     .right.menu
       = render 'partners/login_links'
