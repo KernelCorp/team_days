@@ -5,6 +5,9 @@
         = f.hidden_field :service_id, value: @order.service.id
     .field
       .input
+        = f.hidden_field :partner_id, value: @order.partner.id
+    .field
+      .input
         = c.text_field :name, placeholder: 'Ваше имя', required: true
     .field
       .input

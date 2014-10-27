@@ -20,6 +20,8 @@ TeamDays::Application.routes.draw do
   get 'blog', to: 'categories#index'
   resources :posts, only: [:show]
   resources :tags, only: [:show]
+
+  resources :subscriptions, only: [:show, :create, :new]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
