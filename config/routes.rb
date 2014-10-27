@@ -16,8 +16,10 @@ TeamDays::Application.routes.draw do
   resources :partners, only: [:show, :update]
   resource :partner, only: [:show]
 
-  resources :categories, only: [:index, :show ]
+  resources :categories, only: [:show ]
+  get 'blog', to: 'categories#index'
   resources :posts, only: [:show]
+  resources :tags, only: [:show]
 
   resources :subscriptions, only: [:show, :create, :new]
   # The priority is based upon order of creation: first created -> highest priority.

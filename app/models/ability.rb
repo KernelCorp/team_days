@@ -6,6 +6,7 @@ class Ability
     can :read,  Order
     can :read, Category
     can :read, Post
+    can :read, Tag
     if user.is_a? User::Partner
       can :manage, AvailableService
       can :manage, Order
