@@ -1,0 +1,10 @@
+= form_for @subscription do |f|
+  - f.fields_for 'categories' do |cat_fielfs|
+    = f.email_field :email, placeholder: 'email'
+    - @categories.each_with_index do | cat, index|
+      = fields_for "subscription[category_attributes][#{index}]", @subscription.categories.find_or_initialize_by(id: cat.id) do |cat_field|
+        = cat_field.hidden_field :id
+        = cat_field.check_box :_destroy, {:checked => cat_field.object.new_record? ? false: true}, "0", "1"
+        = cat_field.label :_destroy, cat.name + " #{}"
+    = f.submit
+

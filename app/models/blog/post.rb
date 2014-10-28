@@ -10,6 +10,7 @@ module Blog
 
     private
     def send_mail
+      category = self.category
       PostsMailer.new_post(category).deliver
     end
 
