@@ -1,11 +1,12 @@
 Given(/^a service with name "(.*?)"$/) do |name|
-  Service.create name: name
+  Service.create name: name, price: 100
 end
 
-And(/^a services box "(.*?)" with services: "(.*?)", "(.*?)"$/) do |name, service_one, service_two|
+And(/^a services box "(.*?)" with services: "(.*?)"$/) do |name, services_str|
   box = ServicesBox.create name: name
-  box.services << Service.where(name: service_one).first
-  box.services << Service.where(name: service_two).first
+  services_str.split(', ').each do |service_name|
+    box.services << Service.where(name: service_name).first
+  end
   box.save
 end
 
@@ -58,3 +59,28 @@ But(/^I shouldn't see service "(.*?)"$/) do |name|
   expect(page).not_to have_css('.name', text: name)
 end
 
+
+Then(/^I should see the service "(.*?)"$/) do |name|
+  expect(page).to have_css('.item .name', text: name)
+end
+
+But(/^I shouldn't the service "(.*?)"$/) do |name|
+  expect(page).not_to have_css('.item .name', text: name)
+end
+
+And(/^I select the service "(.*?)"$/) do |name|
+  page.find('.item .name', text: name).click
+  sleep(1)
+end
+
+Then(/^I should see "(.*?)", "(.*?)"$/) do |css, text|
+  expect(page).to have_css(css, text: text)
+end
+
+And(/^I check checkbox$/) do
+  page.find('.checkbox').click
+end
+
+Then(/^I should see be redirected to paid system$/) do
+  current_path.should match(/^\/payments\//)
+end

@@ -4,6 +4,17 @@ And(/^I fill up input "(.*?)" in the form "(.*?) as "(.*?)"$/) do |name, form, v
   end
 end
 
+And(/^I fill up with keyboard input "(.*?)" in the form "(.*?) as "(.*?)"$/) do |name, form, value|
+  input = page.all("form")[0].find( :field, name )
+  input.click()
+
+  begin
+    input.native.send_keys value
+  rescue
+    fill_in name, with: value
+  end
+end
+
 And(/^I click to "(.*?)", "(.*?)"$/) do |elem, text|
   page.find(elem, text: text).click
   sleep(1)
@@ -16,7 +27,7 @@ end
 
 And(/^I submit the form "(.*?)"$/) do  |form|
   within "##{form}" do
-    find("button").click
+    find(".button").click
   end
   sleep(1)
 end

@@ -28,6 +28,8 @@ class OrdersController < ApplicationController
     @order = Order.new(order_public_params)
 
     if @order.save
+       OrderMailer.to_partner(get_partner, @order).deliver
+       OrderMailer.to_client(@order).deliver
       if params[:order][:with_payment] == 'on'
         redirect_to new_payment_path
       else

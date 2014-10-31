@@ -8,6 +8,11 @@ Given(/^I am in "(.*?)"$/) do |city_name|
   partner = User::Partner.where(city: city).first
   MainFacade.any_instance.stub(:city).and_return(city_name)
   MainFacade.any_instance.stub(:partner).and_return(partner)
+  MainFacade.any_instance.stub(:services).and_return(partner.available_services.active)
+  MainController.any_instance.stub(:get_subdomain) do
+    city.subdomain
+  end
+  OrdersController.any_instance.stub(:get_partner).and_return(partner)
 end
 
 Then(/^I should see modal windows with text "(.*?)"$/) do |text|

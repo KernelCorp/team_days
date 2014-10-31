@@ -3,7 +3,7 @@ Feature: Payment managing
   Background:
     Given a service with name "Коллапсировать сверхновую звезду в черную дыру"
     And a service with name "Поизлучать излучение Хоккинга"
-    And a services box "Юный астроном" with services: "Коллапсировать сверхновую звезду в черную дыру", "Поизлучать излучение Хоккинга"
+    And a services box "Юный астроном" with services: "Коллапсировать сверхновую звезду в черную дыру, Поизлучать излучение Хоккинга"
     And a partner from "Сколково" with email: "partner@example.com"
     And a services box "Юный астроном" available for partner "partner@example.com"
 
