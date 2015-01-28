@@ -54,6 +54,7 @@ GEM
       barber (>= 0.4.1)
       emblem-source
     bcrypt (3.1.7)
+    bcrypt (3.1.7-x86-mingw32)
     bson (2.3.0)
     builder (3.1.4)
     cancancan (1.9.2)
@@ -141,10 +142,13 @@ GEM
       factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
     ffi (1.9.5)
+    ffi (1.9.5-x86-mingw32)
     font-awesome-rails (4.2.0.0)
       railties (>= 3.2, < 5.0)
     geocoder (1.2.5)
     gherkin (2.12.2)
+      multi_json (~> 1.3)
+    gherkin (2.12.2-x86-mingw32)
       multi_json (~> 1.3)
     haml (4.0.5)
       tilt
@@ -214,6 +218,8 @@ GEM
     nginx-config (0.8.2)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
+    nokogiri (1.6.3.1-x86-mingw32)
+      mini_portile (= 0.6.0)
     optionable (0.2.0)
     origin (2.1.1)
     orm_adapter (0.5.0)
@@ -266,6 +272,10 @@ GEM
       json (~> 1.4)
     remotipart (1.2.1)
     rest-client (1.7.2)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
+    rest-client (1.7.2-x86-mingw32)
+      ffi (~> 1.9)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
     rspec-core (3.0.4)
@@ -362,6 +372,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
   active_model_serializers
