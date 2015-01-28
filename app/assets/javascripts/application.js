@@ -17,6 +17,7 @@
 //= require semantic-ui
 //= require inputmask/inputmask
 //= require_self
+//= require yandex_metrika
 
 
 
