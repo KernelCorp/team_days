@@ -219,10 +219,11 @@ body
     background: url("land/60min.png") no-repeat
     background-size: 100%
     margin: 0 auto
+
     .text
-      float: left
+
       //height: inherit
-      //display: inline-block
+      display: inline-block
       width: 50%
       p.main
         display: block
@@ -246,11 +247,51 @@ body
 
         text-align: left
     .form
-      float: left
       //height: inherit
-      //display: inline-block
+      display: inline-block
       width: 50%
       margin-top: 50px
+  .all_services
+    width: 960px
+    margin: 0 auto
+    text-align: center
+    overflow: hidden
+    .content
+      width: 960px
+      .service
+        width: 320px
+        height: 200px
+        //display: inline-block
+        float: left
+        position: relative
+        margin-bottom: 10px
+        &:hover
+          cursor: pointer
+
+        img
+          width: inherit
+          height: inherit
+        .transparent
+          width: inherit
+          height: 80px
+          opacity: 0.6
+          bottom: 0
+          position: absolute
+          background-color: #ffffff
+        p
+          font-family: Intro
+          color:  #1b1c1c
+          font-size: 14px
+          font-weight: 900
+          text-transform: uppercase
+          position: absolute
+          left: 25px
+          text-align: left
+          top: 140px
+          right: 50px
+
+
+
 
   .make_happy
     width: 960px

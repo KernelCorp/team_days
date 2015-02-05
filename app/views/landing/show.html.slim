@@ -90,6 +90,15 @@
             .input
               = c.email_field :email, placeholder: 'Ваш Email', required: true, class: 'input_text'
         = f.submit 'Сделать заказ', class: 'submit_button'
+  .all_services
+    = image_tag 'land/all_service.png'
+    .content
+      - @services.each do |sr|
+        .service
+          = image_tag sr.image.url
+          .transparent
+          p =sr.name
+
   .make_happy
     p
       |Team Days делает Ваших сотрудников<br>
@@ -108,7 +117,7 @@
     .block
       .content
         .img
-         = image_tag 'land/exp_world_comp.png'
+          = image_tag 'land/exp_world_comp.png'
         p
           |используем опыт мировых<br>
             компаний
@@ -125,23 +134,25 @@
     .block
       .content
         .img
-         = image_tag 'land/surprise.png'
+          = image_tag 'land/surprise.png'
         p сюрпризы любят все
       .content
         .img
-         = image_tag 'land/wide.png'
+          = image_tag 'land/wide.png'
         p
           |широкий ассортимент услуг<br>
            на любой вкус
       .content
         .img
-         = image_tag 'land/attantion.png'
+          = image_tag 'land/attantion.png'
         p внимание всегда приятно
     .back_money
       p
         |мы вернем деньги, если услуга<br>
           вам не понравится! *
     p.figa * - тут мелкий текст про то, что хрен кто чего вернет. И вообще все будет ок.
+
+
 
 
 /#top_slider_container
