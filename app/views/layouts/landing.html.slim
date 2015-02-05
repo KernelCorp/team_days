@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title MyGenetics
+    = stylesheet_link_tag 'landing'
+    = javascript_include_tag 'landing'
+    = csrf_meta_tags
+
+    /= javascript_include_tag 'http://maps.api.2gis.ru/1.0'
+    /= javascript_include_tag 'http://vk.com/js/api/openapi.js'
+
+    /= content_for :head
+
+= yield
