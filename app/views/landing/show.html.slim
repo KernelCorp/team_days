@@ -1,0 +1,155 @@
+#wrap
+  .head_contact_us
+    .head_contact_us-logo
+      a href='#'
+        = image_tag 'land/logo.png'
+    .head_contact_us-phone
+      .city
+        p
+          | Выберите город:
+          span Новосибирск
+      .phone
+        p 227 77 86
+      a href='#'
+        .call
+          p заказать обратный звонок
+  .efficiency
+    p
+      | Повысим эффективность труда Ваших сотрудников<br>
+      span за 60 минут
+  .team_days
+    .wrap
+      .team_days_logo
+      .team_days_text
+        p
+          |это короткие, яркие, эмоциональные<br>
+            мероприятия по мотивации<br>
+            персонала
+  .benefit
+    p
+      |Заказывая услуги Team Days для своей команды<br>
+       Вы эффективно решаете следующие задачи
+    .block
+      .content
+        .check
+        .text
+          p
+            |уменьшаете текучесть<br>
+              кадров
+      .content
+        .check
+        .text
+          p
+            |улучшаете микроклимат<br>
+              в коллективе
+      .content
+        .check
+        .text
+          p
+            |увеличиваете рост ценности<br>
+              компании на рынке труда
+    .block
+      .content
+        .check
+        .text
+          p
+            |увеличиваете лояльность<br>
+              персонала
+      .content
+        .check
+        .text
+          p
+            |повышаете<br>
+              мотивацию сотрудников
+      .content
+        .check
+        .text
+          p
+            |поднимаете<br>
+              эффективность труда
+  .leave_application
+    .text
+      p.main
+        |Хотите узнать больше о услугах<br>
+          Team Days и о том, какие<br>
+          задачи они решают
+      p
+        |Оставьте заявку и мы вышлем<br>
+          вам коммерческое<br>
+          предложение по сотрудничеству
+    .form
+      = form_for Order.new, action: :create, html: {class: 'ii'} do |f|
+        = f.fields_for :client_info do |c|
+          .field
+            .input
+              = c.text_field :name, placeholder: 'Ваше имя', required: true, class: 'input_text'
+          .field
+            .input
+              = c.text_field :phone, placeholder: 'Ваш телефон', required: true, pattern: '^(\D*\d\D*){11,}$', maxlength: 30, class: 'input_text'
+          .field
+            .input
+              = c.email_field :email, placeholder: 'Ваш Email', required: true, class: 'input_text'
+        = f.submit 'Сделать заказ', class: 'submit_button'
+  .make_happy
+    p
+      |Team Days делает Ваших сотрудников<br>
+        довольными
+    .happy_employees
+      p.left рад приходить на работу
+      p.right ценит свою работу
+      p.left более ответственный
+      p.right счастлив
+      p.left лоялен к руководству
+      p.right ладит с коллегами
+  .because_we_are
+    .head
+      = image_tag 'land/result.png'
+      p потому, что мы
+    .block
+      .content
+        .img
+         = image_tag 'land/exp_world_comp.png'
+        p
+          |используем опыт мировых<br>
+            компаний
+      .content
+        .img
+          = image_tag 'land/no_analog.png'
+        p
+          |предлагаем услугу<br>
+            не имеющую аналогов
+      .content
+        .img
+          = image_tag 'land/gift.png'
+        p дарим яркие эмоции
+    .block
+      .content
+        .img
+         = image_tag 'land/surprise.png'
+        p сюрпризы любят все
+      .content
+        .img
+         = image_tag 'land/wide.png'
+        p
+          |широкий ассортимент услуг<br>
+           на любой вкус
+      .content
+        .img
+         = image_tag 'land/attantion.png'
+        p внимание всегда приятно
+    .back_money
+      p
+        |мы вернем деньги, если услуга<br>
+          вам не понравится! *
+    p.figa * - тут мелкий текст про то, что хрен кто чего вернет. И вообще все будет ок.
+
+
+/#top_slider_container
+/  = image_tag 'land/imgo.jpg'
+/  = image_tag 'land/imgo.jpg'
+/  = image_tag 'land/imgo.jpg'
+/
+/  javascript:
+//    $('#top_slider_container').bxSlider({
+//      prevText: '', nextText: '', auto: true, pause: 6000
+//    });
