@@ -26,6 +26,8 @@ gem 'semantic-ui-sass'
 
 gem 'slim-rails'
 
+gem 'fancybox-rails'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
 

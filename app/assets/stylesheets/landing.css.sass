@@ -1,3 +1,8 @@
+/*
+  *= require fancybox
+/*
+
+
 /* Eric Meyer's CSS Reset */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -43,6 +48,41 @@ table
   border-spacing: 0
 
 /* End of Eric Meyer's CSS Reset */
+.bx-pager
+  display: none
+.bx-wrapper
+  position: relative
+  height: inherit
+  .bx-controls
+    //height: 560px
+    width: 1020px
+    height: 100%
+    //position: absolute
+    top: 0
+    .bx-controls-direction
+      .bx-next, .bx-prev
+
+        top: 50%
+        margin-bottom: 30px
+        width: 40px
+        height: 40px
+
+        position: absolute
+        display: block
+      .bx-next
+        right: -49px
+        background: url('land/bx_next_inactive.png')
+        &:link
+          //@include transform(rotate(180deg))
+        &:hover
+          background: url('land/bx_next.png')
+          //@include transform(rotate(0deg))
+      .bx-prev
+        left: -49px
+        background: url('land/bx_next_inactive.png')
+        &:hover
+          background: url('land/bx_next.png')
+          //@include transform(rotate(180deg))
 
 .input_text
   background-color:  #ffffff
@@ -251,6 +291,110 @@ body
       display: inline-block
       width: 50%
       margin-top: 50px
+
+  .showcase_services
+    width: 1079px
+    height: 786px
+    margin: 0 auto
+    text-align: center
+    .content
+      margin: 0 auto
+      width: 1020px
+      height: 416px
+      .service
+        width: 1020px
+        height: 416px
+        position: relative
+        p.name
+          display: block
+          position: absolute
+          bottom: 50px
+          left: 50px
+          text-transform: uppercase
+          font-family: Intro
+          color: #1b1c1c
+          font-size: 14px
+          font-weight: 900
+        .button
+          width: 230px
+          height: 40px
+          display: block
+          position: absolute
+          bottom: 40px
+          right: 50px
+          &:hover
+            cursor: pointer
+          p
+            background-color:  #8d0a8c
+            text-transform: lowercase
+            font-family: Solomon
+            color:  #ffffff
+            line-height: 40px
+            text-align: center
+        img
+          width: 100%
+          height: 100%
+        .transparent
+          width: 1020px
+          height: 123px
+          opacity: 0.6
+          position: absolute
+          bottom: 0
+          background-color: #ffffff
+      .description
+        background-color: #ffffff
+        overflow: hidden
+        .text
+          width: 60%
+          float: left
+          p
+            margin-top: 30px
+            margin-left: 50px
+            font-family: Solomon
+            color:  #1b1c1c
+            font-size: 14px
+            font-weight: 400
+            line-height: 16px
+            text-align: left
+        .info
+          width: 100%
+          float: left
+          .more, .watch_video
+            width: 35%
+            float: left
+            a, img
+              display: inline-block
+              vertical-align: middle
+              margin-bottom: 43px
+            a
+              margin-left: 15px
+              font-family: Solomon
+              color:  #1b1c1c
+              font-size: 14px
+              font-weight: 700
+              line-height: 16px
+        .prop
+          width: 40%
+          line-height: 50px
+          float: right
+          .prop_text
+            width: 50%
+            float: left
+            text-align: right
+            margin-right: 20px
+            p
+              font-family: Solomon
+              color:  #1b1c1c
+              font-size: 14px
+              font-weight: 700
+              text-transform: uppercase
+          .prop_stars
+            width: 45%
+            float: right
+            text-align: left
+            img
+              margin-left: 10px
+
   .all_services
     width: 960px
     margin: 0 auto
@@ -265,8 +409,14 @@ body
         float: left
         position: relative
         margin-bottom: 10px
-        &:hover
-          cursor: pointer
+        a
+          height: 100%
+          width: 100%
+          display: block
+          position: absolute
+          top: 0
+          &:hover
+            background: url("land/magnifier.png")
 
         img
           width: inherit
@@ -290,7 +440,21 @@ body
           top: 140px
           right: 50px
 
-
+  .services_look_like
+    width: 1079px
+    margin: 0 auto
+    p
+      font-family: Intro
+      color:  #1b1c1c
+      font-size: 18px
+      font-weight: 900
+      line-height: 19px
+      text-align: center
+      text-transform: uppercase
+    .content
+      margin: 0 auto
+      width: 1020px
+      height: 574px
 
 
   .make_happy
@@ -392,6 +556,27 @@ body
       font-weight: 400
       line-height: 12px
       text-align: center
+  .how_we_work
+    width: 938px
+    margin: 0 auto
+    text-align: center
+    .text
+      text-align: left
+      p
+        font-family: Solomon
+        color: #333333
+        font-size: 12px
+        font-weight: 700
+        width: 170px
+        //text-align: left
+        text-transform: uppercase
+        //display: inline-block
+        float: left
+        margin-right: 57px
+        &:last-child
+          margin-right: 0
+
+
 
 
 

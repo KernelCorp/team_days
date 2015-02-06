@@ -6,3 +6,4 @@
 #= require libs/jquery.bxslider
 #= require inputmask/inputmask
 #= require yandex_metrika
+#= require fancybox

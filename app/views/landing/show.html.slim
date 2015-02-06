@@ -90,15 +90,71 @@
             .input
               = c.email_field :email, placeholder: 'Ваш Email', required: true, class: 'input_text'
         = f.submit 'Сделать заказ', class: 'submit_button'
+
+  .showcase_services
+    = image_tag 'land/showcase_services.png'
+    .content
+      .slider
+        - @services.each do |sr|
+          .slide
+            .service
+              = image_tag sr.image.url
+              .transparent
+              p.name = sr.name
+              .button
+                p заказать услугу
+            .description
+              .text
+                p = sr.description
+              .prop
+                .prop_text
+                  p радость
+                  p здоровье
+                  p лояльность
+                  p мотивация
+                .prop_stars
+                  - sr.joy.times do
+                    = image_tag 'land/star.png'
+                  br
+                  - sr.health.times do
+                    = image_tag 'land/star.png'
+                  br
+                  - sr.loyalty.times do
+                    = image_tag 'land/star.png'
+                  br
+                  - sr.motivation.times do
+                    = image_tag 'land/star.png'
+              .info
+                .more
+                  = image_tag 'land/more_information.png'
+                  = link_to 'узнать подробности', '#'
+                .watch_video
+                  = image_tag 'land/watch_video.png'
+                  = link_to 'посмотреть видео', '#'
+
+
   .all_services
     = image_tag 'land/all_service.png'
     .content
       - @services.each do |sr|
+        /= link_to "", "#"
         .service
           = image_tag sr.image.url
           .transparent
           p =sr.name
-
+          a.fancybox href=sr.image.url
+  .services_look_like
+    p
+      |Как выглядят наши услуги?<br>
+        Посмотрите видео
+    .content
+      .video
+        .slide
+          embed width="1020" height="574" src="https://www.youtube.com/embed/BYW_GSnctLs" frameborder="0" allowfullscreen="true"
+        .slide
+          embed width="1020" height="574" src="https://www.youtube.com/embed/JXc_HkWgjuA" frameborder="0" allowfullscreen="true"
+        .slide
+          embed width="1020" height="574" src="https://www.youtube.com/embed/Ac5Ei5SkxRU" frameborder="0" allowfullscreen="true"
   .make_happy
     p
       |Team Days делает Ваших сотрудников<br>
@@ -151,9 +207,33 @@
         |мы вернем деньги, если услуга<br>
           вам не понравится! *
     p.figa * - тут мелкий текст про то, что хрен кто чего вернет. И вообще все будет ок.
+  .how_we_work
+    = image_tag 'land/how_we_work.png'
+    = image_tag 'land/work_process.png'
+    .text
+      p
+        |оставьте заявку<br>
+          на сайте
+      p
+        |на менеджер приедет<br>
+          к вам на встречу
+      p
+        |в условленное время<br>
+          команда Team Days<br>
+          устроит праздник<br>
+          у вас в офисе
+      p
+        |ваши сотрудники<br>
+          довольны
 
 
-
+javascript:
+  $("a.fancybox").fancybox();
+  $('.slider').bxSlider({
+     prevText: '', nextText: '', auto: true, pause: 600000})
+  $('.video').bxSlider({
+    prevText: '', nextText: '', auto: true, pause: 6000
+  })
 
 /#top_slider_container
 /  = image_tag 'land/imgo.jpg'
