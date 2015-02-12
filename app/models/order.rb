@@ -13,17 +13,20 @@ class Order
 
   has_many :payments
 
-  delegate :name, to: :service, prefix: :service
+  delegate :name, to: :service, prefix: true, allow_nil: true
   delegate :name, :email, :phone, to: :client_info, prefix: :client
 
-  validates_presence_of :service, :client_info
+  # validates_presence_of :service, :client_info
+  validates_presence_of :client_info
   validate :ordered_services_is_supported_by_partner
   after_initialize :init_client_info
 
   before_create :update_cost
 
   def update_cost
-    self.cost = partner.present? ? partner.available_services.where(service: service).first.price : service.price
+    if service.present?
+      self.cost = partner.present? ? partner.available_services.where(service: service).first.price : service.price
+    end
   end
 
   def payment_status

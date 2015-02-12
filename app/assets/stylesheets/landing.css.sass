@@ -3,6 +3,13 @@
 /*
 
 
+
+@import "compass"
+@import "libs/*"
+
+
+
+
 /* Eric Meyer's CSS Reset */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -48,6 +55,30 @@ table
   border-spacing: 0
 
 /* End of Eric Meyer's CSS Reset */
+//.shadow_block
+//  //width: 100%
+//  //height: 100%
+//  position: relative
+//  //background: url("land/team_days.png") repeat-y
+//  //margin-top: 50px
+//  &:before
+//    content: ''
+//    display: block
+//    position: absolute
+//    background: url("land/shadow_top.png") no-repeat
+//    background-position: center
+//    width: 100%
+//    height: 22px
+//    top: 0
+//  &:after
+//    content: ''
+//    display: block
+//    position: absolute
+//    background: url("land/shadow_bottom.png") no-repeat
+//    background-position: center
+//    width: 100%
+//    height: 22px
+//    bottom: 0
 .bx-pager
   display: none
 .bx-wrapper
@@ -56,7 +87,7 @@ table
   .bx-controls
     //height: 560px
     width: 1020px
-    height: 100%
+    //height: 100%
     //position: absolute
     top: 0
     .bx-controls-direction
@@ -72,22 +103,24 @@ table
       .bx-next
         right: -49px
         background: url('land/bx_next_inactive.png')
+        //@include transform(rotate(180deg))
         &:link
           //@include transform(rotate(180deg))
         &:hover
           background: url('land/bx_next.png')
-          //@include transform(rotate(0deg))
+          @include transform(rotate(180deg))
       .bx-prev
         left: -49px
         background: url('land/bx_next_inactive.png')
+        @include transform(rotate(180deg))
         &:hover
           background: url('land/bx_next.png')
-          //@include transform(rotate(180deg))
+          @include transform(rotate(0deg))
 
 .input_text
   background-color:  #ffffff
   width: 430px
-  height: 30px
+  height: 40px
   font-size: 18px
   border: none
   padding-left: 20px
@@ -98,14 +131,44 @@ table
   height: 40px
   background-color: #8d0a8c
   border: solid 3px #ffffff
-  font-family: Solomon
+  font-family: 'Solomon'
   color:  #ffffff
   font-size: 16px
-  font-weight: 700
+  font-weight: bold
   float: right
   margin-right: 30px
   &:hover
     cursor: pointer
+
+.call_button
+  background-color:  #e1e1e1
+  width: 230px
+  height: 40px
+  font-family: 'Solomon'
+  color:  #000000
+  font-size: 16px /* Approximation due to font substitution */
+  font-weight: 700
+  text-align: center
+  line-height: 40px
+  &:hover
+    cursor: pointer
+
+
+.more, .watch_video, .watch_full_review
+  width: 35%
+  float: left
+  display: inline-block
+  a, img
+    display: inline-block
+    vertical-align: middle
+    margin-bottom: 43px
+  a
+    margin-left: 15px
+    font-family: 'Solomon'
+    color:  #1b1c1c
+    font-size: 14px
+    font-weight: 700
+    line-height: 16px
 
 body
   background: url("land_backgraund.png") repeat
@@ -114,42 +177,59 @@ body
   position: relative
   //background-color: red
   width: 1100px
-  height: 600px
+  //height: 600px
   margin: 0 auto
   .head_contact_us
-    margin-bottom: 22px
-    overflow: hidden
+    width: 1096px
+    margin: 0 auto
+    background: url("land/team_days.png")
+
+    //background-size: 100% 100%
+    //margin-bottom: 22px
+    //overflow: hidden
     .head_contact_us-logo
-      float: left
+      display: inline-block
+      margin-bottom: 25px
       a
-        position: relative
-        top: 34px
-        left: 98px
+        //position: relative
+        margin-top: 34px
+        margin-left: 98px
+
 
     .head_contact_us-phone
-      position: relative
-      float: right
-      right: 77px
+      //position: relative
+      //float: right
+      display: inline-block
+      margin-left: 445px
       .city
         margin-top: 10px
         margin-bottom: 15px
         p
-          font-family: Solomon
+          display: inline-block
+          font-family: 'Solomon'
           color:  #d3d3d3
           font-size: 16px /* Approximation due to font substitution */
           font-weight: 700
-          text-align: left
-          span
-            padding-left: 23px
-            font-family: Solomon
-            color:  #000000
-            font-size: 16px /* Approximation due to font substitution */
-            font-weight: 300
-            text-align: left
-            //&:before
-            //  background: url("land/arrow_down.png") no-repeat
-            //  //background-color: #2c2543
-            //  content: '1'
+          //text-align: left
+        img
+          display: inline-block
+          margin-left: 10px
+          &:hover
+            cursor: pointer
+        span
+          margin-left: 5px
+          font-family: 'Solomon'
+          color:  #000000
+          font-size: 16px /* Approximation due to font substitution */
+          font-weight: 300
+          display: inline-block
+          &:hover
+            cursor: pointer
+          //text-align: left
+          //&:before
+          //  background: url("land/arrow_down.png") no-repeat
+          //  //background-color: #2c2543
+          //  content: '1'
       .phone
         margin-bottom: 15px
         p
@@ -158,27 +238,24 @@ body
           font-size: 48px /* Approximation due to font substitution */
           font-weight: bold
           text-align: right
-          &:before
-            background: url("land/phone.png") no-repeat
-            content: ''
+          display: inline-block
+          margin-left: 23px
+          //&:before
+          //  background: url("land/phone.png") no-repeat
+          //  content: ''
+          img
+            display: inline-block
+      .call_button
+        margin-left: auto
       a
         text-decoration: none
-        .call
-          background-color:  #e1e1e1
-          width: 230px
-          height: 40px
-        p
-          font-family: Solomon
-          color:  #000000
-          font-size: 16px /* Approximation due to font substitution */
-          font-weight: 700
-          text-align: center
-          line-height: 40px
+
+
   .efficiency
     width: 961px
     height: 155px
     margin: 0 auto
-    background: url("land/60min.png") no-repeat 100%
+    background: url("land/60min.png")100%
     padding-top: 85px
     p
       text-transform: uppercase
@@ -197,12 +274,39 @@ body
         font-weight: 900
         text-align: left
         transform: scaleY(1.0181)
+
+
+  #static_slider
+    width: 1020px
+    height: 416px
+    margin: 30px auto
+    img
+      width: 1020px
+      height: 416px
+    .button
+      width: 230px
+      height: 40px
+      display: block
+      position: absolute
+      bottom: 40px
+      right: 50px
+      background-color:  #8d0a8c
+      color:  #ffffff
+      text-align: center
+      line-height: 40px
+      text-transform: lowercase
+      font-weight: bold
+      &:hover
+        cursor: pointer
+
   .team_days
+    background: url("land/team_days_background.png") no-repeat
+    padding-top: 70px
     width: 1096px
     height: 128px
-    background: url("land/team_days.png") no-repeat 100%
     margin: 0 auto
-    padding-top: 70px
+    //margin: 0 auto
+
     .wrap
       margin: 0 auto
       height: 50px
@@ -218,11 +322,14 @@ body
         font-family: Intro
         color: #1b1c1c
         font-size: 17px
-        font-weight: 900
+        font-weight: bold
   .benefit
     margin: 0 auto
+    margin-top: 66px
+    margin-bottom: 72px
+
     width: 900px
-    p
+    p.head
       font-family: Intro
       color:  #1b1c1c
       font-size: 18px /* Approximation due to font substitution */
@@ -230,49 +337,55 @@ body
       line-height: 19px /* Approximation due to font substitution */
       text-align: center
       text-transform: uppercase
+      margin-bottom: 66px
     .block
       display: inline-block
       width: 50%
       height: 60px
       .content
-        width: 60%
-        margin: 34px auto
+        width: 70%
+        margin: 0 auto
+        margin-bottom: 34px
         .check
           width: 20px
           height: 20px
           display: inline-block
+          vertical-align: middle
           background: url("land/check_box.png") no-repeat
           margin-right: 20px
         .text
           display: inline-block
+          vertical-align: middle
           p
-            text-transform: uppercase
-            font-family: Solomon
+            text-transform: lowercase
+            font-family: 'Solomon'
             color:  #1b1c1c
-            font-size: 11px /* Approximation due to font substitution */
-            font-weight: 600
+            font-size: 16px /* Approximation due to font substitution */
+            font-weight: normal
             line-height: 14px /* Approximation due to font substitution */
             text-align: left
   .leave_application
     width: 961px
-    height: 273px
+    height: 265px
     background: url("land/60min.png") no-repeat
-    background-size: 100%
+    background-size: 100% 100%
     margin: 0 auto
+
 
     .text
 
       //height: inherit
       display: inline-block
       width: 50%
+      vertical-align: top
       p.main
         display: block
         margin-top: 50px
         margin-left: 42px
         font-family: Intro
         color: #fffefe
-        font-size: 17.96px
-        font-weight: 900
+        font-size: 18px
+        font-weight: bold
 
         text-align: left
         text-transform: uppercase
@@ -280,39 +393,61 @@ body
         display: block
         margin-top: 34px
         margin-left: 44px
-        font-family: Solomon
+        font-family: 'Solomon'
         color: #ffffff
-        font-size: 17.08px
-        font-weight: 400
+        font-size: 17px
+        font-weight: normal
 
         text-align: left
     .form
       //height: inherit
+      vertical-align: top
       display: inline-block
       width: 50%
       margin-top: 50px
+      .submit_button
+        margin-bottom: 21px
+      ::-webkit-input-placeholder
+        color: #d3d3d3
+      :-moz-placeholder
+        color: #d3d3d3
+        opacity: 1
+      ::-moz-placeholder
+        color: #d3d3d3
+        opacity: 1
+      :-ms-input-placeholder
+        color: #d3d3d3
+
 
   .showcase_services
+    margin-top: 44px
     width: 1079px
-    height: 786px
+    height: 810px
     margin: 0 auto
     text-align: center
-    background: url("land/background_showcase.png") no-repeat
+    background: url("land/background_showcase.png") repeat-y
+
+    img.logo
+      margin-top: 55px
+      margin-bottom: 55px
     .content
       margin: 0 auto
       width: 1020px
       height: 416px
+      //position: relative
       .service
         width: 1020px
         height: 416px
         position: relative
         p.name
           display: block
+          width: 350px
           position: absolute
           bottom: 50px
           left: 50px
           text-transform: uppercase
           font-family: Intro
+          text-align: left
           color: #1b1c1c
           font-size: 14px
           font-weight: 900
@@ -323,15 +458,21 @@ body
           position: absolute
           bottom: 40px
           right: 50px
+          background-color:  #8d0a8c
+          color:  #ffffff
+          text-align: center
+          line-height: 40px
+          text-transform: lowercase
+          font-weight: bold
           &:hover
             cursor: pointer
-          p
-            background-color:  #8d0a8c
-            text-transform: lowercase
-            font-family: Solomon
-            color:  #ffffff
-            line-height: 40px
-            text-align: center
+          //p
+          //  background-color:  #8d0a8c
+          //  text-transform: lowercase
+          //  font-family: 'Solomon'
+          //  color:  #ffffff
+          //  line-height: 40px
+          //  text-align: center
         img
           width: 100%
           height: 100%
@@ -343,14 +484,15 @@ body
           bottom: 0
           background-color: #ffffff
       .description
-        overflow: hidden
+        //overflow: hidden
         .text
           width: 60%
-          float: left
+          display: inline-block
+          vertical-align: top
           p
             margin-top: 30px
             margin-left: 50px
-            font-family: Solomon
+            font-family: 'Solomon'
             color:  #1b1c1c
             font-size: 14px
             font-weight: 400
@@ -358,39 +500,26 @@ body
             text-align: left
         .info
           width: 100%
-          float: left
-          .more, .watch_video
-            width: 35%
-            float: left
-            a, img
-              display: inline-block
-              vertical-align: middle
-              margin-bottom: 43px
-            a
-              margin-left: 15px
-              font-family: Solomon
-              color:  #1b1c1c
-              font-size: 14px
-              font-weight: 700
-              line-height: 16px
+          display: inline-block
+
         .prop
           width: 40%
           line-height: 50px
-          float: right
+          display: inline-block
           .prop_text
             width: 50%
-            float: left
+            display: inline-block
             text-align: right
             margin-right: 20px
             p
-              font-family: Solomon
+              font-family: 'Solomon'
               color:  #1b1c1c
               font-size: 14px
               font-weight: 700
               text-transform: uppercase
           .prop_stars
             width: 45%
-            float: right
+            display: inline-block
             text-align: left
             img
               margin-left: 10px
@@ -398,10 +527,12 @@ body
   .all_services
     width: 960px
     margin: 0 auto
+    margin-top: 61px
     text-align: center
     overflow: hidden
     .content
       width: 960px
+      margin-top: 43px
       .service
         width: 320px
         height: 200px
@@ -441,8 +572,9 @@ body
           right: 50px
 
   .services_look_like
-    width: 1079px
+    width: 1020px
     margin: 0 auto
+    margin-top: 40px
     p
       font-family: Intro
       color:  #1b1c1c
@@ -451,56 +583,118 @@ body
       line-height: 19px
       text-align: center
       text-transform: uppercase
-    .content
+      margin-top: 32px
+      margin-bottom: 32px
+    #video_slider.content
+      height: auto
       margin: 0 auto
       width: 1020px
-      height: 574px
+      .watch_full_review
+        margin-left: 100px
+        margin-top: 36px
+      .bx-controls
+        height: 0
+        .bx-next, .bx-prev
+          top: 270px
+  #one_more_video_slider
+    height: 241px
+    margin: 0 auto
+    width: 1020px
+    margin-bottom: 38px
+    a.hover
+      position: absolute
+      top: 0
+      display: block
+      width: 100%
+      height: 100%
+      &:hover
+        background: url("land/magnifier.png") no-repeat
+        background-size: 100% 100%
+
+    .bx-wrapper
+      max-width: none
+      .bx-controls
+        height: 0
+        .bx-next, .bx-prev
+          top: 100px
+
 
 
   .make_happy
     width: 960px
+    height: 623px
     margin: 0 auto
-
-    p
+    background: url("land/happy_employee.png") no-repeat
+    background-position: center
+    p.head
+      margin-top: 51px
       text-align: center
       text-transform: uppercase
       font-family: Intro
       color:  #1b1c1c
       font-size: 18px
       font-weight: 900
-      line-height: 19px
-    .happy_employees
-      background: url("land/happy_employees.png") no-repeat
-      background-position: center
-      overflow: hidden
-      margin: 26px auto 0 auto
-      height: 477px
-      padding-top: 50px
-      p
-        font-size: 14px
-        width: 23%
-        display: block
-        margin-bottom: 95px
-      p.left
-        padding-right: 27%
-        float: left
+
+
+    .block
+      display: inline-block
+      width: 50%
+      margin-top: 110px
+      //height: 485px
+      .left
         text-align: right
-      p.right
-        padding-left: 25%
-        float: right
+        margin-right: 50%
+      .right
         text-align: left
+        margin-left: 50%
+      .left, .right
+        font-weight: 900
+        color:  #1b1c1c
+        text-transform: uppercase
+        font-size: 14px
+        margin-bottom: 100px
+        //margin-top: 100px
+    //.happy_employees
+    //  //background: url("land/happy_employees.png") no-repeat
+    //  //background-position: center
+    //  overflow: hidden
+    //  margin: 26px auto 0 auto
+    //  height: 477px
+    //  padding-top: 50px
+    //  p
+    //    font-size: 14px
+    //    width: 23%
+    //    display: block
+    //    margin-bottom: 95px
+    //  p.left
+    //    padding-right: 27%
+    //    float: left
+    //    width: 23%
+    //    text-align: right
+    //    //padding-right: 50px
+    //  p.right
+    //    padding-left: 27%
+    //    float: right
+    //    //padding-left: 50px
+    //    text-align: left
+    //    width: 23%
   .because_we_are
     width: 900px
     margin: 0 auto
+    margin-top: 61px
     .head
-      width: 553px
+      width: 584px
       margin: 0 auto 30px auto
-      overflow: hidden
+      //overflow: hidden
       img
-        float: left
+        display: inline-block
+        vertical-align: middle
+        //float: left
       p
-        float: right
-        margin-top: 20px
+        //float: right
+        display: inline-block
+        vertical-align: middle
+        //margin-top: 20px
         text-transform: uppercase
         font-family: Intro
         color:  #1b1c1c
@@ -511,6 +705,7 @@ body
       width: 50%
       display: inline-block
       height: 250px
+      vertical-align: middle
       //float: left
       //overflow: hidden
 
@@ -520,8 +715,8 @@ body
         //margin: 0 auto 30px auto
         height: 50px
         margin: 0 auto 30px auto
-        width: 70%
-
+        width: 80%
+        font-family: 'Solomon'
 
         .img
           width: 70px
@@ -532,264 +727,385 @@ body
         p
           margin-left: 20px
     .back_money
+
       display: block
       width: 373px
       height: 69px
       margin: 0 auto
       border: solid 2px red
       background-color: #ffffff
+
       p
-        font-family: Intro
+        margin-top: 14px
+        font-family: 'Intro'
         display: inline-block
         vertical-align: middle
         color:  #1b1c1c
         font-size: 18px
         font-weight: 900
-        line-height: 19px
+        //line-height: 38px
         text-align: center
         width: 100%
     p.figa
       margin-top: 26px
-      font-family: Solomon
+      font-family: 'Solomon'
       color: #1b1c1c
       font-size: 10px
       font-weight: 400
       line-height: 12px
       text-align: center
+  
+  .companies
+    width: 1096px
+    //height: 919px
+    margin: 0 auto
+    margin-top: 26px
+    background: url("land/companies_background.png") no-repeat
+    background-size: 100% 100%
+    //overflow: visible
+    p.head
+      font-family: Intro
+      //display: block
+      color:  #1b1c1c
+      font-size: 18px
+      font-weight: 900
+      text-align: center
+      padding-top: 49px
+    .logo_all_companies
+      width: inherit
+      margin: 70px auto 60px auto
+
+      //overflow: hidden
+      .logo
+        width: 274px
+        //height: 150px
+        //float: left
+        text-align: center
+        display: inline-block
+        vertical-align: middle
+        img
+          width: 60%
+    #photo_report.content
+      height: auto
+      margin: 0 auto
+      width: 1020px
+      .bx-controls
+        height: 0
+        .bx-next, .bx-prev
+          top: 200px
+      .company
+        width: 1020px
+        height: 416px
+        position: relative
+        img.photo
+          width: inherit
+          height: inherit
+        .transparent
+          width: 1020px
+          height: 123px
+          opacity: 0.6
+          position: absolute
+          bottom: 0
+          background-color: #ffffff
+
+        p.name
+          position: absolute
+          bottom: 50px
+          left: 30px
+          font-family: Intro
+          color: #1b1c1c
+          font-size: 14px
+          font-weight: 900
+          text-transform: uppercase
+        img.logo
+          //width: 50px
+          height: 50px
+          position: absolute
+          bottom: 35px
+          right: 100px
+      .review
+        width: 1020px
+        margin: 0 auto
+
+        .employee_photo
+          display: inline-block
+          width: 20%
+          text-align: center
+          margin-top: 46px
+          img
+            width: 139px
+            height: 139px
+        .text
+          display: inline-block
+          vertical-align: top
+          width: 80%
+          margin-top: 46px
+          .company_post
+            font-weight: 900
+            margin-left: 40px
+          .full_review
+            margin-left: 40px
+            margin-top: 25px
+            line-height: 18px
+            span
+              color: #8d0a8c
+          .watch_full_review
+            margin-left: 40px
+            margin-top: 25px
+  .other_reports
+    width: 1020px
+    margin: 0 auto
+    margin-top: 14px
+    background: url("land/team_days.png") no-repeat
+    background-size: 100% 100%
+    p.head
+      padding-top: 25px
+      margin-bottom: 25px
+      font-family: Intro
+      color:  #1b1c1c
+      font-size: 18px
+      font-weight: 900
+      text-align: center
+      text-transform: uppercase
+    #other_photo_report.content
+      height: 120px
+      margin: 0 auto
+      width: 1020px
+      .slide
+        &:hover
+          .hover
+            display: block
+            //cursor: pointer
+        .hover
+          height: 120px
+          width: 255px
+          position: absolute
+          display: none
+          background: url("land/magnifier.png") no-repeat
+          background-size: 100% 100%
+        img
+          height: 120px
+          width: 255px
+          &:hover
+        a
+          position: absolute
+          height: 120px
+          width: 255px
+          display: block
+          top: 0
+
+            //cursor: pointer
+      .bx-wrapper
+        max-width: none
+        .bx-controls
+          height: 0
+          .bx-next, .bx-prev
+            top: 40px
+
   .how_we_work
     width: 938px
     margin: 0 auto
+    margin-top: 60px
+
     text-align: center
+    img.process
+      margin-top: 52px
     .text
+      margin-top: 70px
       text-align: left
       p
-        font-family: Solomon
+        font-family: 'Solomon'
         color: #333333
         font-size: 12px
         font-weight: 700
-        width: 170px
+        width: 200px
         //text-align: left
         text-transform: uppercase
-        //display: inline-block
-        float: left
-        margin-right: 57px
+        display: inline-block
+        vertical-align: top
+        //float: left
+        margin-right: 60px
         &:last-child
           margin-right: 0
+          width: 158px
+  .need_holiday
+    width: 961px
+    height: 161px
+    margin: 0 auto
+    margin-top: 60px
+    background: url("land/60min.png")
+    p.text
+      font-family: Intro
+      color: #fffefe
+      font-size: 16px
+      font-weight: 900
+      text-transform: uppercase
+      display: inline-block
+      vertical-align: top
+      margin-top: 70px
+      margin-left: 43px
+    .button
+      background-color:  #aaaaaa
+      width: 230px
+      height: 40px
+      display: inline-block
+      vertical-align: top
+      margin-top: 65px
+      margin-left: 303px
 
+      font-family: 'Solomon'
+      color:  #ffffff
+      font-size: 16px
+      font-weight: 700
+      text-align: center
+      text-transform: lowercase
+      line-height: 40px
 
+      &:hover
+        cursor: pointer
+      p
+        font-family: 'Solomon'
+        color:  #ffffff
+        font-size: 16px
+        font-weight: 700
+        text-align: center
+        text-transform: lowercase
+        line-height: 40px
 
+  .social_net
+    width: 961px
+    margin: 0 auto
+    margin-top: 48px
+    p.head
+      font-family: Intro
+      color:  #1b1c1c
+      font-size: 18px
+      font-weight: 900
+      text-transform: uppercase
+      text-align: center
+    .networks
+      width: inherit
+      margin-top: 58px
+      a
+        display: inline-block
+        margin-right: 88px
+        &:last-child
+          margin-right: 0
+        img
+          width: 174px
+          height: 48px
 
-
-
-#top_slider_container
-  widows: 100%
-  height: 800px
-  .one_slide
-    width: 100%
-    height: 100%
-    overflow: hidden
-    .gradient_shadow
-      position: absolute
-      width: 2000px
-      height: 100%
-      right: 0
-      top: 0
-    .middle
-      height: 100%
-      width: 960px
-      margin: auto
+  .questions
+    width: 1096px
+    text-align: center
+    margin: 0 auto
+    margin-top: 57px
+    background: url("land/team_days.png")
+    background-size: 100% 100%
+    vertical-align: top
+    padding-bottom: 60px
+    img
+      margin-top: 44px
+    .block_phone, .block_call
+      width: 100%
+      margin-top: 56px
+    p.call_us, .block_call p, .button_container, .phone_content
+      width: 50%
+      display: inline-block
+      //vertical-align: bottom
+    p.call_us, .block_call p
+      text-align: right
+      //padding-right: 50px
+    .phone_content
+      text-align: left
+    .phone, .call_button
+      margin-left: 60px
+    .call_us, .block_call p
+      font-family: 'Intro'
+      color:  #1b1c1c
+      font-size: 18px
+      font-weight: 900
+      line-height: 19px
+      text-transform: uppercase
+    .phone
+      font-family: Intro
+      color:  #000000
+      font-size: 48px
+      font-weight: bold
       position: relative
-      .man
+      &:before
         position: absolute
-        top: 0
-        left: 109px
-      .text_block
-        z-index: 3
-        width: 380px
-        position: absolute
-        margin-left: 592px
-        margin-top:  68px
-        h1
-          line-height: 36px
-          width: 380px
-          font-family: 'AgoraSerifMedium'
-          font-size: 38px
-          color: #fff
-          font-weight: normal
-        .quotes
-          font-family: 'PragmaticLight'
-          font-size: 16px
-          color: #fff
-          margin-left: 60px
-          margin-right: 20px
-          margin-top: 54px
-          line-height: 19px
-          position: relative
-          &:before
-            position: absolute
-            left: 0
-            top: -40px
-            height: 22px
-            width: 22px
-            background: image_url('site/root_sprite.png') -178px -44px no-repeat
-            display: block
-            content: ''
-            //@include transform(rotate(180deg))
-          &:after
-            position: absolute
-            right: -20px
-            bottom: -30px
-            height: 22px
-            width: 22px
-            background: image_url('site/root_sprite.png') -178px -44px no-repeat
-            display: block
-            content: ''
+        content: ''
+        width: 21px
+        height: 16px
+        background: url("land/phone.png")
+        left: -35px
+        top: 22px
+    .call_button, .block_call p
+      vertical-align: top
+    
 
-        .who
-          margin-top: 30px
-          font-size: 16px
-          color: #fff
-          .name
-            font-family: 'PragmaticLight Bold'
-          .person
-            font-family: 'PragmaticLight'
-
-        .big_button
-          font-size: 24px
-          width: 300px
-          padding: 0 20px 0 20px
-          font-family: 'AgoraSerifMedium'
-          margin: 34px 0px 0 58px
-  .new_root_menu
-    position: absolute
-    bottom: 0
-    width: 100%
-    height: 80px
-    background: #fff
-    opacity: 0.8
-    .container
-      position: relative
-      overflow: hidden
-      height: 80px
-      .middle
-        width: 960px
-        margin: auto
-        height: 80px
-        .menu
-          background-color: #34b3e7
-          opacity: 0.8
-          height: 100%
-          width: 2000px
-          margin-left: 272px
+#rights
+  height: 40px
+  width: 100%
+  background-color: #000000
+  color: #ffffff
+  line-height: 40px
+  padding-left: 250px
 
 
-  .sportsman
-    .gradient_shadow
-      background: image_url('site/sportsman_shadow.png')
-    .new_root_menu
-      .container
-        .middle
-          .menu
-            background-color: #21457d
-    background: image_url('site/sportsman_background.png')
+.popup-shadow
+  //display: none
+  position: fixed
+  z-index: 200
+  height: 100%
+  width: 100%
+  left: 0
+  top: 0
+  background: rgba(0, 0, 0, 0.3)
 
-  .girl
-    //.gradient_shadow
-    //  background: image_url('site/girl_shadow.png')
-    .middle
-      .text_block
-        .quotes
-          margin-top: 90px
-          &:before, &:after
-            background: image_url('site/root_sprite.png') -240px -44px no-repeat
-    .big_button.purple
-      background-color: #921d76
-      border-color: #631450
+#modal_form .content, #success-popup .content
+  //display: none
+  z-index: 300
+  position: fixed
+  top: 15%
+  left: 0
+  right: 0
 
-    //.new_root_menu
-    //  .container
-    //    .middle
-    //      .menu
-    //        background-color: #cb2666
-    background: image_url('site/girl_bg.jpg')
+#modal_form
+  display: none
 
-  .family.one_slide
-    .gradient_shadow
-      background: image_url('site/family_shadow.png')
-    background: image_url('site/family_background.png')
-    .middle
-      .text_block
-        .quotes
-          margin-top: 170px
-          &:before, &:after
-            background: image_url('site/root_sprite.png') -240px -44px no-repeat
-    .middle
-      .man
-        left: -150px
-    .big_button.purple
-      background-color: #921d76
-      border-color: #631450
+  .form
+    margin: 0 auto
+    width: 520px
+    height: 270px
+    background: url("land/60min.png") no-repeat
+    background-size: 100% 100%
+    .input_text
+      margin-left: 40px
+      margin-top: 20px
+    //.submit_button
 
-  .trifonova
-    .forbes_wrap
-      position: absolute
-      width: 300px
-      height: 100px
-      top: 65px
-      left: 15px
-      .forbes
-        width: 100%
-        height: 100%
-        background: image_url('site/forbes.png')
-      .top_6
-        color: #fff
-        font-family: 'PragmaticLight'
-        margin-left: 15px
-        .bold
-          font-family: 'PragmaticLight Bold'
-    .container
-      .middle
-        .menu
-          background-color: #2c2543
-    .gradient_shadow
-      background: image_url('site/trifonova_shadow.png')
-    .man
-      left: 75px
-      width: 1433px
-      max-width: none
-    background: image_url('site/trifonova_background.png')
+#success-popup
+  display: none
+  .success_text
 
-  .lukyanova
-    //.gradient_shadow
-    //  background: image_url('site/girl_shadow.png')
-    background: image_url('site/lukyanova_bg.jpg')
-    .middle
-      .text_block
-        .quotes
-          margin-top: 90px
-      .man
-        top: 50px
+    margin: 0 auto
+    width: 520px
+    height: 245px
+    background: url("land/60min.png") no-repeat
+    background-size: 100% 100%
+    p
+      color: #ffffff
+      text-align: center
+      font-size: 30px
+      //display: block
+      padding-top: 60px
 
 
-    .new_root_menu
-      .container
-        .middle
-          .menu
-            background-color: #2c2543
 
 
-  .voronina
-    //.gradient_shadow
-    //  background: image_url('site/girl_shadow.png')
-    background: image_url('site/voronina_bg.jpg')
-    .middle
-      .text_block
-        .quotes
-          margin-top: 70px
-          &:before, &:after
-            background: image_url('site/root_sprite.png') -240px -44px no-repeat
-      .man
-        top: 65px
-    .big_button.purple
-      background-color: #921d76
-      border-color: #631450
+
+      //display: inline-block
+      //width: 174px
+      //height: 48px

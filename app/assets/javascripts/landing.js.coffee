@@ -3,7 +3,9 @@
 #= require jquery_ujs
 #= require turbolinks
 #= require semantic-ui
-#= require libs/jquery.bxslider
+#= require_tree ./libs
 #= require inputmask/inputmask
 #= require yandex_metrika
 #= require fancybox
+
+

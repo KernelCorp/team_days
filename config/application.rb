@@ -27,5 +27,10 @@ module TeamDays
     config.ember.ember_path = "#{Rails.root}/app/assets/javascripts/partners"
     config.handlebars.templates_root = "partners/templates"
     config.autoload_paths << Rails.root.join('lib')
+    # Add the fonts path
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+    # Precompile additional assets
+    config.assets.precompile += %w( .svg .eot .woff .ttf .otf)
+
   end
 end
