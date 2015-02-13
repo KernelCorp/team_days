@@ -1,5 +1,5 @@
 And(/^I fill up input "(.*?)" in the form "(.*?) as "(.*?)"$/) do |name, form, value|
-  within "form" do
+  within form do
     fill_in name, with: value
   end
 end

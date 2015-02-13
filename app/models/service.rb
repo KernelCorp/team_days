@@ -9,6 +9,7 @@ class Service
   field :health, type: Integer, default: 1
   field :loyalty, type: Integer, default: 1
   field :motivation, type: Integer, default: 1
+  field :link_to_video, type: String
 
 
   has_mongoid_attached_file :image

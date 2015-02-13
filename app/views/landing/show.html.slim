@@ -85,18 +85,19 @@
           p
             |поднимаете<br>
               эффективность труда
+
   .leave_application
     .text
       p.main
         |Хотите узнать больше о услугах<br>
           Team Days и о том, какие<br>
-          задачи они решают
+                 задачи они решают
       p
         |Оставьте заявку и мы вышлем<br>
           вам коммерческое<br>
           предложение по сотрудничеству
     .form
-      = form_for Order.new, action: :create, remote: true do |f|
+      = form_for Order.new, action: :create, remote: true, html: {class: "first_form"} do |f|
         = f.fields_for :client_info do |c|
           .field
             .input
@@ -145,10 +146,12 @@
               /.info
               .more
                 = image_tag 'land/more_information.png'
-                = link_to 'узнать подробности', '#'
+                a.popup-link href='#' data-serviceid=sr.id узнать подробности
+                /= link_to 'узнать подробности', '#', class: 'popup-link', data-serviceid: sr.id
               .watch_video
                 = image_tag 'land/watch_video.png'
-                = link_to 'посмотреть видео', '#'
+                /= link_to 'посмотреть видео', '#'
+                a.hover.fancybox_video href='http://www.youtube.com/v/ZeStnz5c2GI?fs=1&amp;autoplay=1' посмотреть видео
 
 
   .all_services
@@ -167,33 +170,42 @@
         Посмотрите видео
     #video_slider.content
       .video
-        .slide
-          embed width="1020" height="574" src="https://www.youtube.com/embed/BYW_GSnctLs" frameborder="0" allowfullscreen="true"
-          .watch_full_review
-            = image_tag 'land/more_information.png'
-            = link_to 'узнать подробности', '#'
-        .slide
-          embed width="1020" height="574" src="https://www.youtube.com/embed/JXc_HkWgjuA" frameborder="0" allowfullscreen="true"
-          .watch_full_review
-            = image_tag 'land/more_information.png'
-            = link_to 'узнать подробности', '#'
-        .slide
-          embed width="1020" height="574" src="https://www.youtube.com/embed/Ac5Ei5SkxRU" frameborder="0" allowfullscreen="true"
-          .watch_full_review
-            = image_tag 'land/more_information.png'
-            = link_to 'узнать подробности', '#'
+        - @services.each do |service|
+          .slide
+            embed width="1020" height="574" src=service.link_to_video frameborder="0" allowfullscreen="true"
+            .watch_full_review
+              = image_tag 'land/more_information.png'
+              /= link_to 'узнать подробности', '#', class: 'popup-link'
+              a.popup-link href='#' узнать подробности
+        /.slide
+        /  embed width="1020" height="574" src="https://www.youtube.com/embed/JXc_HkWgjuA" frameborder="0" allowfullscreen="true"
+        /  .watch_full_review
+        /    = image_tag 'land/more_information.png'
+        /    a.popup-link href='#' узнать подробности
+        /    /= link_to 'узнать подробности', '#'
+        /.slide
+        /  embed width="1020" height="574" src="https://www.youtube.com/embed/Ac5Ei5SkxRU" frameborder="0" allowfullscreen="true"
+        /  .watch_full_review
+        /    = image_tag 'land/more_information.png'
+        /    a.popup-link href='#' узнать подробности
+        /    /= link_to 'узнать подробности', '#'
   #one_more_video_slider
 
     .more_video
-      .slide
-        embed width="560" height="241" src="https://www.youtube.com/embed/BYW_GSnctLs" frameborder="0" allowfullscreen="true"
-        a.hover.fancybox_video href='http://www.youtube.com/v/ZeStnz5c2GI?fs=1&amp;autoplay=1'
-      .slide.fancybox
-        embed width="560" height="241" src="https://www.youtube.com/embed/JXc_HkWgjuA" frameborder="0" allowfullscreen="true"
-        a.hover.fancybox_video href='http://www.youtube.com/v/ZeStnz5c2GI?fs=1&amp;autoplay=1'
-      .slide
-        embed width="560" height="241" src="https://www.youtube.com/embed/Ac5Ei5SkxRU" frameborder="0" allowfullscreen="true"
-        a.hover.fancybox_video href='http://www.youtube.com/v/ZeStnz5c2GI?fs=1&amp;autoplay=1'
+      - @services.each do |service|
+        .slide
+          embed width="560" height="241" src=service.link_to_video frameborder="0" allowfullscreen="true"
+          a.hover.fancybox_video href="#{service.link_to_video}?fs;autoplay=1"
+      /.slide
+      /  embed width="560" height="241" src="https://www.youtube.com/embed/BYW_GSnctLs" frameborder="0" allowfullscreen="true"
+      /  a.hover.fancybox_video href='http://www.youtube.com/v/ZeStnz5c2GI?fs=1&amp;autoplay=1'
+      /.slide.fancybox
+      /  embed width="560" height="241" src="https://www.youtube.com/embed/JXc_HkWgjuA" frameborder="0" allowfullscreen="true"
+      /  a.hover.fancybox_video href='http://www.youtube.com/v/ZeStnz5c2GI?fs=1&amp;autoplay=1'
+      /.slide
+      /  embed width="560" height="241" src="https://www.youtube.com/embed/Ac5Ei5SkxRU" frameborder="0" allowfullscreen="true"
+      /  a.hover.fancybox_video href=''
+        https://www.youtube.com/v/XK0LN8EdKnw;autoplay=1
 
   .leave_application
     .text
@@ -206,7 +218,7 @@
             вам коммерческое<br>
             предложение по сотрудничеству
     .form
-      = form_for Order.new, action: :create, remote: true do |f|
+      = form_for Order.new, action: :create, remote: true, html: {class: "second_form"} do |f|
         = f.fields_for :client_info do |c|
           .field
             .input
@@ -290,7 +302,7 @@
 
     #photo_report.content
       .slider_all_companies
-        - @photoreports.each do |report|
+        - @photoreports.each_with_index do |report, i|
           .slide
             .company
               /= image_tag report.photos.first.attach_image.url, class: 'photo'
@@ -302,14 +314,14 @@
               .employee_photo
                 = image_tag report.employee_photo.url
               .text
-                p.company_post = "#{report.company.name} / #{report.employee_name}"
+                p.company_post = "#{report.employee_name} / #{report.employee_post}"
                 p.full_review
                   span &laquo;
                   = report.review
                   span &raquo;
                 .watch_full_review
                   = image_tag 'land/eye.png'
-                  = link_to 'узнать подробности', '#'
+                  = link_to 'посмотреть отчет полностью', '#', class: 'fancybox_gallary', rel: "gallery0#{i}"
   .other_reports
     p.head другие фотоотчеты
     #other_photo_report.content
@@ -436,7 +448,7 @@ javascript:
         'title': this.title,
         'width': 640,
         'height': 385,
-        'href': this.href.replace(new RegExp("watch\\?v=", "i"), 'v/'),
+        'href': this.href.replace("embed/", 'v/'),
         'type': 'swf',
         'swf': {
           'wmode': 'transparent',
@@ -458,3 +470,4 @@ javascript:
 //    $('#top_slider_container').bxSlider({
 //      prevText: '', nextText: '', auto: true, pause: 6000
 //    });
+   'href': this.href.replace(new RegExp("watch\\?v=", "i"), 'v/'),
