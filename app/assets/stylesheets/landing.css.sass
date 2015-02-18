@@ -79,6 +79,10 @@ table
 //    width: 100%
 //    height: 22px
 //    bottom: 0
+.call_button, .submit_button, .button
+  &:hover
+    opacity: 0.9
+
 .bx-pager
   display: none
 .bx-wrapper
@@ -277,11 +281,11 @@ body
 
 
   #static_slider
-    width: 1020px
+    width: 960px
     height: 416px
     margin: 30px auto
     img
-      width: 1020px
+      width: 960px
       height: 416px
     .button
       width: 230px
@@ -295,9 +299,14 @@ body
       text-align: center
       line-height: 40px
       text-transform: lowercase
+      font-family: 'Solomon'
       font-weight: bold
       &:hover
         cursor: pointer
+    .bx-controls
+      height: 0
+      .bx-next, .bx-prev
+        top: 188px
 
   .team_days
     background: url("land/team_days_background.png") no-repeat
@@ -432,11 +441,11 @@ body
       margin-bottom: 55px
     .content
       margin: 0 auto
-      width: 1020px
+      width: 960px
       height: 416px
       //position: relative
       .service
-        width: 1020px
+        width: 960px
         height: 416px
         position: relative
         p.name
@@ -477,7 +486,7 @@ body
           width: 100%
           height: 100%
         .transparent
-          width: 1020px
+          width: 100%
           height: 123px
           opacity: 0.6
           position: absolute
@@ -486,7 +495,7 @@ body
       .description
         //overflow: hidden
         .text
-          width: 60%
+          width: 50%
           display: inline-block
           vertical-align: top
           p
@@ -503,7 +512,7 @@ body
           display: inline-block
 
         .prop
-          width: 40%
+          width: 50%
           line-height: 50px
           display: inline-block
           .prop_text
@@ -547,7 +556,8 @@ body
           position: absolute
           top: 0
           &:hover
-            background: url("land/magnifier.png")
+            background: url("land/zoom1.png")
+            opacity: 0.6
 
         img
           width: inherit
@@ -572,7 +582,7 @@ body
           right: 50px
 
   .services_look_like
-    width: 1020px
+    width: 960px
     margin: 0 auto
     margin-top: 40px
     p
@@ -588,7 +598,7 @@ body
     #video_slider.content
       height: auto
       margin: 0 auto
-      width: 1020px
+      width: 960px
       .watch_full_review
         margin-left: 100px
         margin-top: 36px
@@ -599,16 +609,17 @@ body
   #one_more_video_slider
     height: 241px
     margin: 0 auto
-    width: 1020px
+    width: 960px
     margin-bottom: 38px
     a.hover
       position: absolute
       top: 0
       display: block
-      width: 560px
+      width: 480px
       height: 241px
       &:hover
-        background: url("land/magnifier.png") no-repeat
+        background: url("land/zoom2.png") no-repeat
+        opacity: 0.6
         background-size: 100% 100%
 
     .bx-wrapper
@@ -648,7 +659,8 @@ body
         text-align: left
         margin-left: 49%
       .left, .right
-        font-weight: 900
+        font-family: 'Intro'
+        font-weight: bold
         color:  #1b1c1c
         text-transform: uppercase
         font-size: 13px
@@ -757,7 +769,7 @@ body
       text-align: center
   
   .companies
-    width: 1096px
+    width: 960px
     //height: 919px
     margin: 0 auto
     margin-top: 26px
@@ -778,7 +790,7 @@ body
 
       //overflow: hidden
       .logo
-        width: 274px
+        width: 240px
         //height: 150px
         //float: left
         text-align: center
@@ -789,20 +801,20 @@ body
     #photo_report.content
       height: auto
       margin: 0 auto
-      width: 1020px
+      width: 960px
       .bx-controls
         height: 0
         .bx-next, .bx-prev
           top: 200px
       .company
-        width: 1020px
+        width: 960px
         height: 416px
         position: relative
         img.photo
           width: inherit
           height: inherit
         .transparent
-          width: 1020px
+          width: 960px
           height: 123px
           opacity: 0.6
           position: absolute
@@ -825,7 +837,7 @@ body
           bottom: 35px
           right: 100px
       .review
-        width: 1020px
+        width: 960px
         margin: 0 auto
 
         .employee_photo
@@ -854,7 +866,7 @@ body
             margin-left: 40px
             margin-top: 25px
   .other_reports
-    width: 1020px
+    width: 960px
     margin: 0 auto
     margin-top: 14px
     background: url("land/team_days.png") no-repeat
@@ -871,7 +883,7 @@ body
     #other_photo_report.content
       height: 120px
       margin: 0 auto
-      width: 1020px
+      width: 960px
       .slide
         &:hover
           .hover
@@ -882,7 +894,8 @@ body
           width: 255px
           position: absolute
           display: none
-          background: url("land/magnifier.png") no-repeat
+          background: url("land/zoom3.png") no-repeat
+          opacity: 0.6
           background-size: 100% 100%
         img
           height: 120px
@@ -912,7 +925,7 @@ body
     img.process
       margin-top: 52px
     .text
-      margin-top: 70px
+      margin-top: 50px
       text-align: left
       p
         font-family: 'Solomon'
@@ -921,7 +934,7 @@ body
         font-weight: 700
         width: 200px
         //text-align: left
-        text-transform: uppercase
+        //text-transform: lowercase
         display: inline-block
         vertical-align: top
         //float: left
@@ -1049,10 +1062,12 @@ body
 #rights
   height: 40px
   width: 100%
-  background-color: #000000
+  background-color: #1b1b1b
   color: #ffffff
   line-height: 40px
   padding-left: 250px
+  font-family: 'Arial'
+  font-size: 10px
 
 
 .popup-shadow
@@ -1072,7 +1087,8 @@ body
   top: 15%
   left: 0
   right: 0
-
+  width: 520px
+  margin: auto
 #modal_form
   display: none
 

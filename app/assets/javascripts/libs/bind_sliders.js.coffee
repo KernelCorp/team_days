@@ -38,7 +38,7 @@ class @Binding_Sliders
       pause: 600000,
       minSlides: 2,
       maxSlides: 2,
-      slideWidth: 560,
+      slideWidth: 480,
       slideMargin: 0
 
     })

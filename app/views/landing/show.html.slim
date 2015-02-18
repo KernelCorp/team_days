@@ -172,7 +172,7 @@
       .video
         - @services.each do |service|
           .slide
-            embed width="1020" height="574" src=service.link_to_video frameborder="0" allowfullscreen="true"
+            embed width="960" height="574" src=service.link_to_video frameborder="0" allowfullscreen="true"
             .watch_full_review
               = image_tag 'land/more_information.png'
               /= link_to 'узнать подробности', '#', class: 'popup-link'
@@ -194,7 +194,7 @@
     .more_video
       - @services.each do |service|
         .slide
-          embed width="560" height="241" src=service.link_to_video frameborder="0" allowfullscreen="true"
+          embed width="480" height="241" src=service.link_to_video frameborder="0" allowfullscreen="true"
           a.hover.fancybox_video href="#{service.link_to_video}?fs;autoplay=1"
       /.slide
       /  embed width="560" height="241" src="https://www.youtube.com/embed/BYW_GSnctLs" frameborder="0" allowfullscreen="true"
@@ -403,7 +403,7 @@
     /  .button
     /    p заказать обратный звонок
 #rights
-  |C Copyright 2014 | Genetic-test Company. All rights reserved
+  |&#169; Copyright 2014 | Genetic-test Company. All rights reserved
 
 
 #modal_form
