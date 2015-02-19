@@ -11,19 +11,19 @@ class @Binding_Sliders
     })
 
     $('.services_static_slider').bxSlider({
-      prevText: '', nextText: '', auto: true, pause: 600000})
+      prevText: '', nextText: '', auto: true, pause: 6000})
 
     $('.slider').bxSlider({
-      prevText: '', nextText: '', auto: true, pause: 600000})
+      prevText: '', nextText: '', auto: true, pause: 6000})
     $('.slider_all_companies').bxSlider({
-      prevText: '', nextText: '', auto: true, pause: 600000})
+      prevText: '', nextText: '', auto: true, pause: 6000})
     $('.video').bxSlider({
-      prevText: '', nextText: '', auto: true, pause: 600000})
+      prevText: '', nextText: '', auto: true, pause: 6000})
     $('.slider_other_photo_reports').bxSlider({
       prevText: '',
       nextText: '',
       auto: true,
-      pause: 600000,
+      pause: 6000,
       minSlides: 4,
       maxSlides: 4,
       slideWidth: 255,
@@ -35,7 +35,7 @@ class @Binding_Sliders
       prevText: '',
       nextText: '',
       auto: true,
-      pause: 600000,
+      pause: 6000,
       minSlides: 2,
       maxSlides: 2,
       slideWidth: 480,
