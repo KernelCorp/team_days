@@ -437,28 +437,30 @@ javascript:
   new Binding_Sliders
   new LandingPopupController
 
-  jQuery(document).ready(function () {
-
-    $(".fancybox_video").click(function () {
-      $.fancybox({
-        'padding': 0,
-        'autoScale': false,
-        'transitionIn': 'none',
-        'transitionOut': 'none',
-        'title': this.title,
-        'width': 640,
-        'height': 385,
-        'href': this.href.replace("embed/", 'v/'),
-        'type': 'swf',
-        'swf': {
-          'wmode': 'transparent',
-          'allowfullscreen': 'true'
-        }
-      });
-
-      return false;
+  $(".fancybox_video").click(function () {
+    $.fancybox({
+      'padding': 0,
+      'autoScale': false,
+      'transitionIn': 'none',
+      'transitionOut': 'none',
+      'title': this.title,
+      'width': 640,
+      'height': 385,
+      'href': this.href.replace("embed/", 'v/'),
+      'type': 'swf',
+      'swf': {
+        'wmode': 'transparent',
+        'allowfullscreen': 'true'
+      }
     });
+
+    return false;
   });
+
+//  jQuery(document).ready(function () {
+
+
+//  });
 
 
 /#top_slider_container
