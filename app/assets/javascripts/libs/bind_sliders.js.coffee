@@ -31,6 +31,10 @@ class @Binding_Sliders
       onSliderLoad: @on_other_photos_loaded
 
     })
+
+    $('.popup_slider_all_services').bxSlider({
+      prevText: '', nextText: '', auto: true, pause: 600000})
+
     $('.more_video').bxSlider({
       prevText: '',
       nextText: '',

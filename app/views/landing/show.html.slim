@@ -14,7 +14,7 @@
         = image_tag 'land/phone.png'
         p 227 77 86
       /a href='#'
-      .call_button.popup-link
+      .call_button.popup-link_call
         |заказать обратный звонок
   .efficiency
     p
@@ -24,15 +24,15 @@
     .services_static_slider
       .slide
         = image_tag 'http://lorempixel.com/400/200/sports/'
-        .button.popup-link data-serviceid=1
+        .button.popup-link_service data-serviceid=1
           | заказать услугу
       .slide
         = image_tag 'http://lorempixel.com/400/200/technics/'
-        .button.popup-link data-serviceid=2
+        .button.popup-link_service data-serviceid=2
           | заказать услугу
       .slide
         = image_tag 'http://lorempixel.com/400/200/food/'
-        .button.popup-link data-serviceid=3
+        .button.popup-link_service data-serviceid=3
           | заказать услугу
 
   .team_days
@@ -97,7 +97,7 @@
           вам коммерческое<br>
           предложение по сотрудничеству
     .form
-      = form_for Order.new, action: :create, remote: true, html: {class: "first_form"} do |f|
+      = form_for Order.new, action: :create, remote: true, html: {id: "first_form"} do |f|
         = f.fields_for :client_info do |c|
           .field
             .input
@@ -120,7 +120,7 @@
               = image_tag sr.image.url
               .transparent
               p.name = sr.name
-              .button.popup-link data-serviceid=sr.id
+              .button.popup-link_service data-serviceid=sr.id
                 | заказать услугу
             .description
               .text
@@ -146,12 +146,12 @@
               /.info
               .more
                 = image_tag 'land/more_information.png'
-                a.popup-link href='#' data-serviceid=sr.id узнать подробности
-                /= link_to 'узнать подробности', '#', class: 'popup-link', data-serviceid: sr.id
+                p.more_about_services узнать подробности
+
               .watch_video
                 = image_tag 'land/watch_video.png'
                 /= link_to 'посмотреть видео', '#'
-                a.hover.fancybox_video href='http://www.youtube.com/v/ZeStnz5c2GI?fs=1&amp;autoplay=1' посмотреть видео
+                a.hover.fancybox_video href="#{sr.link_to_video}?fs;autoplay=1" посмотреть видео
 
 
   .all_services
@@ -172,7 +172,7 @@
       .video
         - @services.each do |service|
           .slide
-            embed width="960" height="574" src=service.link_to_video frameborder="0" allowfullscreen="true"
+            embed width="960" height="574" src=service.link_to_video.gsub('http://youtu.be/','http://www.youtube.com/embed/') frameborder="0" allowfullscreen="true"
             .watch_full_review
               = image_tag 'land/more_information.png'
               /= link_to 'узнать подробности', '#', class: 'popup-link'
@@ -194,7 +194,7 @@
     .more_video
       - @services.each do |service|
         .slide
-          embed width="480" height="241" src=service.link_to_video frameborder="0" allowfullscreen="true"
+          embed width="480" height="241" src=service.link_to_video.gsub('http://youtu.be/','http://www.youtube.com/embed/') frameborder="0" allowfullscreen="true"
           a.hover.fancybox_video href="#{service.link_to_video}?fs;autoplay=1"
       /.slide
       /  embed width="560" height="241" src="https://www.youtube.com/embed/BYW_GSnctLs" frameborder="0" allowfullscreen="true"
@@ -218,7 +218,7 @@
             вам коммерческое<br>
             предложение по сотрудничеству
     .form
-      = form_for Order.new, action: :create, remote: true, html: {class: "second_form"} do |f|
+      = form_for Order.new, action: :create, remote: true, html: {id: "second_form"} do |f|
         = f.fields_for :client_info do |c|
           .field
             .input
@@ -361,7 +361,7 @@
   .need_holiday
     p.text Хотите что бы Ваши сотрудники<br>
             то же были довольны?
-    .button.popup-link
+    .button.popup-link_order
       |заказать праздник
   .social_net
     p.head мы в социальных сетях
@@ -382,7 +382,7 @@
               и мы обязательно вам<br>
               перезвоним
       .button_container
-        .call_button.popup-link
+        .call_button.popup-link_call
           |заказать обратный звонок
     /.block
     /  p.text позвоните нам:
@@ -406,31 +406,210 @@
   |&#169; Copyright 2014 | Genetic-test Company. All rights reserved
 
 
+#more_about_services-popup
+  .popup-shadow
+  .content
+    .popup_slider_all_services
+      - @services.each do |sr|
+        .slide
+          p.head = sr.name
+          = image_tag sr.image.url, class: 'img_slide'
+          .description
+            p = sr.description
+          .more_description
+            .prop_text
+              p радость
+              p здоровье
+              p лояльность
+              p мотивация
+            .prop_stars
+              - sr.joy.times do
+                = image_tag 'land/star.png'
+              br
+              - sr.health.times do
+                = image_tag 'land/star.png'
+              br
+              - sr.loyalty.times do
+                = image_tag 'land/star.png'
+              br
+              - sr.motivation.times do
+                = image_tag 'land/star.png'
+            .watch_video
+              /= link_to 'посмотреть видео', '#'
+              a.hover.fancybox_video href="#{sr.link_to_video}?fs;autoplay=1" посмотреть видео
+              = image_tag 'land/watch_video.png'
+            .button.popup-link_service data-serviceid=sr.id
+              | заказать услугу
+          .prev_next_button
+            .prev
+              /.watch_video
+                /= link_to 'посмотреть видео', '#'
+
+              = image_tag 'land/watch_video.png'
+              a посмотреть видео
+            .next
+              /.watch_video
+                /= link_to 'посмотреть видео', '#'
+              a посмотреть видео
+              = image_tag 'land/watch_video.png'
+          /.service
+          /  = image_tag sr.image.url
+          /  .transparent
+          /  p.name = sr.name
+          /  .button.popup-link_service data-serviceid=sr.id
+          /    | заказать услугу
+          /.description
+          /  .text
+          /    p = sr.description
+          /  .prop
+          /    .prop_text
+          /      p радость
+          /      p здоровье
+          /      p лояльность
+          /      p мотивация
+          /    .prop_stars
+          /      - sr.joy.times do
+          /        = image_tag 'land/star.png'
+          /      br
+          /      - sr.health.times do
+          /        = image_tag 'land/star.png'
+          /      br
+          /      - sr.loyalty.times do
+          /        = image_tag 'land/star.png'
+          /      br
+          /      - sr.motivation.times do
+          /        = image_tag 'land/star.png'
+          /  /.info
+          /  .more
+          /    = image_tag 'land/more_information.png'
+          /    p.more_about_services узнать подробности
+          /
+          /  .watch_video
+          /    = image_tag 'land/watch_video.png'
+          /    /= link_to 'посмотреть видео', '#'
+          /    a.hover.fancybox_video href="#{sr.link_to_video}?fs;autoplay=1" посмотреть видео
+
+
 #modal_form
   .popup-shadow
   .content
+    .cross_button
     .form
-      = form_for Order.new, action: :create, remote: true do |f|
-        = f.fields_for :client_info do |c|
+      .form_content
+        p.header Заявка на обратный звонок
+        p.text Заполните форму обратной связи<br>
+                и ближайшее время наш менеджер<br>
+                  с вами свяжется
+        = form_for Order.new, action: :create, remote: true do |f|
+          = f.fields_for :client_info do |c|
+            .field
+              .input
+                = f.hidden_field :service_id, value: nil
+            .field
+              .input
+                = c.text_field :name, placeholder: 'Ваше имя', required: true, class: 'input_text'
+            .field
+              .input
+                = c.text_field :phone, placeholder: 'Ваш телефон', required: true, pattern: '^(\D*\d\D*){11,}$', maxlength: 30, class: 'input_text'
+            /.field
+            /  .input
+            /    = c.email_field :email, placeholder: 'Ваш Email', required: true, class: 'input_text'
+          = f.submit 'Сделать заказ', class: 'submit_button'
+
+#modal_form_service
+  .popup-shadow
+  .content
+    .cross_button
+    .form
+      .form_content
+        p.header заказ услуги
+        p.text Заполните форму заказа услуги и ближайшее<br>
+                время наш менеджер с вами свяжется
+        = form_for Order.new, action: :create, remote: true do |f|
+          = f.fields_for :client_info do |c|
+            .field
+              .input
+                = f.hidden_field :service_id, value: nil
+            .field
+              .input
+                = c.text_field :name, placeholder: 'Ваше имя', required: true, class: 'input_text'
+            .field
+              .input
+                = c.text_field :phone, placeholder: 'Ваш телефон', required: true, pattern: '^(\D*\d\D*){11,}$', maxlength: 30, class: 'input_text'
           .field
             .input
-              = f.hidden_field :service_id, value: nil
-          .field
-            .input
-              = c.text_field :name, placeholder: 'Ваше имя', required: true, class: 'input_text'
-          .field
-            .input
-              = c.text_field :phone, placeholder: 'Ваш телефон', required: true, pattern: '^(\D*\d\D*){11,}$', maxlength: 30, class: 'input_text'
-          .field
-            .input
-              = c.email_field :email, placeholder: 'Ваш Email', required: true, class: 'input_text'
-        = f.submit 'Сделать заказ', class: 'submit_button'
+              = f.text_field :company, placeholder: 'Компания', required: true, class: 'input_text'
+          = f.submit 'Сделать заказ', class: 'submit_button'
+
+
+#success-popup_service
+  .popup-shadow
+  .content
+    .cross_button
+    .success_text
+      .form_content
+        p.header Спасибо!
+        p.text благодарим за проявленный интерес<br>
+                <br>
+                в ближайшее время наш менеджер <br>
+                с вами свяжется
+        p.close_button Закрыть
+
+#modal_form_order
+  .popup-shadow
+  .content
+    .cross_button
+    .form
+      .form_content
+        p.header узнаЙТЕ больше о услугах Team Days<br>
+                  и о том, какие задачи они решают
+        p.text Заполните заявку и мы вышлем вам коммерческое <br>
+                предложение по сотрудничеству
+        = form_for Order.new, action: :create, remote: true do |f|
+          = f.fields_for :client_info do |c|
+            .field
+              .input
+                = f.hidden_field :service_id, value: nil
+            .field
+              .input
+                = c.text_field :name, placeholder: 'Ваше имя', required: true, class: 'input_text'
+            .field
+              .input
+                = c.text_field :phone, placeholder: 'Ваш телефон', required: true, pattern: '^(\D*\d\D*){11,}$', maxlength: 30, class: 'input_text'
+            .field
+              .input
+                = c.email_field :email, placeholder: 'Ваш Email', required: true, class: 'input_text'
+          = f.submit 'Сделать заказ', class: 'submit_button'
+
+
+#success-popup_order
+  .popup-shadow
+  .content
+    .cross_button
+    .success_text
+      .form_content
+        p.header Спасибо!
+        p.text благодарим за проявленный интерес<br>
+                      <br>
+                в ближайшее время проверьте<br>
+                указанный e-mail<br>
+                <br>
+                на него мы выслали подробное коммерческое<br>
+                предложение по сотрудничеству<br>
+        p.close_button Закрыть
 
 #success-popup
   .popup-shadow
   .content
+    .cross_button
     .success_text
-      p Ваш заказ принят!
+      .form_content
+        p.header Спасибо!
+        p.text В ближайшее время наш менеджер<br>
+                с вами свяжется
+        p.close_button Закрыть
+
+
 
 javascript:
 
@@ -446,7 +625,7 @@ javascript:
       'title': this.title,
       'width': 640,
       'height': 385,
-      'href': this.href.replace("embed/", 'v/'),
+      'href': this.href.replace("youtu.be", 'www.youtube.com/v'),
       'type': 'swf',
       'swf': {
         'wmode': 'transparent',
