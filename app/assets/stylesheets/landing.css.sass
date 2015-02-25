@@ -162,17 +162,19 @@ table
   width: 35%
   float: left
   display: inline-block
-  a, img
+  a, img, p
     display: inline-block
     vertical-align: middle
     margin-bottom: 43px
-  a
+  a, p
     margin-left: 15px
     font-family: 'Solomon'
     color:  #1b1c1c
     font-size: 14px
     font-weight: 700
     line-height: 16px
+    text-decoration: underline
+    cursor: pointer
 
 body
   background: asset-url("land/land_backgraund.png") repeat
@@ -1074,56 +1076,204 @@ body
 .popup-shadow
   //display: none
   position: fixed
-  z-index: 200
+  z-index: 300
   height: 100%
   width: 100%
   left: 0
   top: 0
   background: rgba(0, 0, 0, 0.3)
 
-#modal_form .content, #success-popup .content
-  //display: none
-  z-index: 300
-  position: fixed
-  top: 15%
-  left: 0
-  right: 0
-  width: 520px
-  margin: auto
-#modal_form
+
+
+
+.cross_button
+  display: block
+  cursor: pointer
+  width: 11px
+  height: 9px
+  position: absolute
+  right: 16px
+  top: 17px
+  background: image_url("land/cross.png") no-repeat
+  background-size: 100% 100%
+
+#modal_form, #success-popup, #modal_form_service, #success-popup_service, #modal_form_order, #success-popup_order
+  p.header
+    //display: block
+    padding-top: 65px
+    font-family: 'Intro'
+    color: #212121
+    font-size: 18px
+    font-weight: bold
+    text-transform: uppercase
+  p.text
+    padding-top: 42px
+    font-family: 'Solomon'
+    color: #212121
+    font-size: 16px
+    font-weight: bold
+  .form_content
+    width: 50%
+    margin-left: 50%
+
+
+#modal_form, #success-popup, #modal_form_service, #success-popup_service, #modal_form_order, #success-popup_order
+  .content
+    z-index: 300
+    position: fixed
+    top: 15%
+    left: 0
+    right: 0
+    width: 960px
+    margin: auto
+#modal_form, #modal_form_service, #modal_form_order
   display: none
 
   .form
+
+    form
+      width: 100%
+      margin-top: 47px
+    //line-height: 8.405px
+    //text-align: left
+    //transform: scaleY(1.0181)
     margin: 0 auto
-    width: 520px
-    height: 280px
-    background: image_url("land/60min.png") no-repeat
+    width: 960px
+    height: 490px
+    background: image_url("land/girl_background.png") no-repeat
     background-size: 100% 100%
-    .input_text
-      margin-left: 40px
-      margin-top: 20px
+    background-color:  #ebeff2
+    -webkit-border-radius: 10px
+    -moz-border-radius: 10px
+    border-radius: 10px
+    //.input_text
+    //  margin-left: 40px
+    //  margin-top: 20px
     //.submit_button
 
-#success-popup
+#success-popup, #success-popup_service, #success-popup_order
   display: none
   .success_text
 
     margin: 0 auto
-    width: 520px
-    height: 245px
-    background: image_url("land/60min.png") no-repeat
+    width: 960px
+    height: 490px
+    background: image_url("land/girl_ok_background.png") no-repeat
     background-size: 100% 100%
+    p.close_button
+      font-family: 'Solomon'
+      color: #8f8f8f
+      font-size: 16px
+      font-weight: normal
+      text-decoration: underline
+      margin-top: 90px
+      cursor: pointer
+
+
+#more_about_services-popup
+  .content
+    z-index: 300
+    position: absolute
+    top: 15%
+    left: 0
+    right: 0
+    width: 960px
+    //height: 1070px
+    margin: auto
+    //background-color: red
+    background: image_url("land/more_about_services_background.png") no-repeat
+
+#more_about_services-popup
+
+  .bx-wrapper
+    max-width: none
+    .bx-controls
+      height: 0
+      .bx-next, .bx-prev
+        top: 290px
+  p.head
+    font-family: 'Intro'
+    margin-left: 109px
+    color: #1b1c1c
+    font-size: 24px
+    font-weight: bold
+    line-height: 100px
+    text-transform: uppercase
+  img.img_slide
+    width: 960px
+    height: 416px
+  .description, .more_description
+    display: inline-block
+    vertical-align: top
+  .description
+    width: 630px
     p
-      color: #ffffff
+      margin-top: 37px
+      margin-left: 71px
+      width: 500px
+  .more_description
+    width: 330px
+    line-height: 27px
+    padding-top: 20px
+    .watch_video
+      width: 100%
+      margin-left: 120px
+      margin-top: 81px
+    img
+      margin-left: 15px
+    .button
+      margin-top: 210px
+      width: 230px
+      height: 40px
+      display: block
+      position: relative
+      //bottom: 40px
+      //right: 50px
+      margin-left: 50px
+      background-color:  #8d0a8c
+      color:  #ffffff
       text-align: center
-      font-size: 30px
-      //display: block
-      padding-top: 60px
+      line-height: 40px
+      text-transform: lowercase
+      font-family: 'Solomon'
+      font-weight: bold
+      &:hover
+        cursor: pointer
+    .prop_text
+      width: 45%
+      display: inline-block
+      text-align: right
+      margin-right: 20px
+      p
+        font-family: 'Solomon'
+        color:  #1b1c1c
+        font-size: 14px
+        font-weight: 700
+        text-transform: uppercase
+    .prop_stars
+      width: 45%
+      display: inline-block
+      text-align: left
+      img
+        margin-left: 10px
+  //.watch_video
+  //  //width: 50%
+  //  //margin-left: 120px
+  //  margin-top: 30px
+  //  img
+  //    margin-left: 15px
+  .prev_next_button
+    width: 100%
 
-
-
-
-
-      //display: inline-block
-      //width: 174px
-      //height: 48px
+    .next, .prev
+      width: auto
+      a, img
+        display: inline-block
+        vertical-align: middle
+      //margin-left: 300px
+      //float: right
+      //width: 300px
+    //.prev
+    //  float: left
+    //.next
+    //  float: right

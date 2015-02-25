@@ -65,6 +65,6 @@ class OrdersController < ApplicationController
     end
 
     def order_public_params
-      params.require(:order).permit(:service_id, :partner_id, client_info: [:email, :name, :phone])
+      params.require(:order).permit(:service_id, :partner_id, :company, client_info: [:email, :name, :phone])
     end
 end

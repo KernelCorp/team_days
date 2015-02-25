@@ -6,6 +6,8 @@ class Order
 
   field :cost, type: Float
   field :status, type: String
+  field :company, type: String
+
 
   embeds_one :client_info
   belongs_to :service
