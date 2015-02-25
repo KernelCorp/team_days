@@ -24,23 +24,23 @@
     .services_static_slider
       .slide
         = image_tag 'land/marketing.jpg'
-        .button.popup-link data-serviceid=1
+        .button.popup-link_service data-serviceid=1
           | заказать услугу
       .slide
         = image_tag 'land/buh.jpg'
-        .button.popup-link data-serviceid=2
+        .button.popup-link_service data-serviceid=2
           | заказать услугу
       .slide
         = image_tag 'land/production.jpg'
-        .button.popup-link data-serviceid=3
+        .button.popup-link_service data-serviceid=3
           | заказать услугу
       .slide
         = image_tag 'land/sales.jpg'
-        .button.popup-link data-serviceid=4
+        .button.popup-link_service data-serviceid=4
           | заказать услугу
       .slide
         = image_tag 'land/it.jpg'
-        .button.popup-link data-serviceid=5
+        .button.popup-link_service data-serviceid=5
           | заказать услугу
 
   .team_days
@@ -154,7 +154,7 @@
               /.info
               .more
                 = image_tag 'land/more_information.png'
-                p.more_about_services узнать подробности
+                p узнать подробности
 
               .watch_video
                 = image_tag 'land/watch_video.png'
@@ -181,22 +181,11 @@
         - @services.each do |service|
           .slide
             embed width="960" height="574" src=service.link_to_video.gsub('http://youtu.be/','http://www.youtube.com/embed/') frameborder="0" allowfullscreen="true"
-            .watch_full_review
-              = image_tag 'land/more_information.png'
-              /= link_to 'узнать подробности', '#', class: 'popup-link'
-              a.popup-link href='#' узнать подробности
-        /.slide
-        /  embed width="1020" height="574" src="https://www.youtube.com/embed/JXc_HkWgjuA" frameborder="0" allowfullscreen="true"
-        /  .watch_full_review
-        /    = image_tag 'land/more_information.png'
-        /    a.popup-link href='#' узнать подробности
-        /    /= link_to 'узнать подробности', '#'
-        /.slide
-        /  embed width="1020" height="574" src="https://www.youtube.com/embed/Ac5Ei5SkxRU" frameborder="0" allowfullscreen="true"
-        /  .watch_full_review
-        /    = image_tag 'land/more_information.png'
-        /    a.popup-link href='#' узнать подробности
-        /    /= link_to 'узнать подробности', '#'
+      .watch_full_review
+        = image_tag 'land/more_information.png'
+        /= link_to 'узнать подробности', '#', class: 'popup-link'
+        a.popup-link_more_about_service href='#' узнать подробности
+
   #one_more_video_slider
 
     .more_video
@@ -204,16 +193,7 @@
         .slide
           embed width="480" height="241" src=service.link_to_video.gsub('http://youtu.be/','http://www.youtube.com/embed/') frameborder="0" allowfullscreen="true"
           a.hover.fancybox_video href="#{service.link_to_video}?fs;autoplay=1"
-      /.slide
-      /  embed width="560" height="241" src="https://www.youtube.com/embed/BYW_GSnctLs" frameborder="0" allowfullscreen="true"
-      /  a.hover.fancybox_video href='http://www.youtube.com/v/ZeStnz5c2GI?fs=1&amp;autoplay=1'
-      /.slide.fancybox
-      /  embed width="560" height="241" src="https://www.youtube.com/embed/JXc_HkWgjuA" frameborder="0" allowfullscreen="true"
-      /  a.hover.fancybox_video href='http://www.youtube.com/v/ZeStnz5c2GI?fs=1&amp;autoplay=1'
-      /.slide
-      /  embed width="560" height="241" src="https://www.youtube.com/embed/Ac5Ei5SkxRU" frameborder="0" allowfullscreen="true"
-      /  a.hover.fancybox_video href=''
-        https://www.youtube.com/v/XK0LN8EdKnw;autoplay=1
+
 
   .leave_application
     .text
@@ -333,6 +313,7 @@
   .other_reports
     p.head другие фотоотчеты
     #other_photo_report.content
+
       .slider_other_photo_reports
         - @photoreports.offset(0).each_with_index do |rp, i|
           .slide
@@ -341,11 +322,41 @@
             /a.fancybox_gallary href="http://placekitten.com/g/300/200" rel="gallery1"
             /- rp.photos.each do |ph|
             /  a.fancybox_gallary href="http://placekitten.com/g/300/200" style="display: none" rel="gallery1"
-            a.fancybox_gallary href=rp.company.logo.url rel="gallery#{i}"
-              /- rp.photos.each do |ph|
-              - rp.photos.each do
-                a.fancybox_gallary href=rp.company.logo.url style="display: none" rel="gallery#{i}"
+            /a.fancybox_gallary href=rp.company.logo.url rel="gallery#{i}"
+            /  /- rp.photos.each do |ph|
+            /  - rp.photos.each do
+            /    a.fancybox_gallary href=rp.company.logo.url style="display: none" rel="gallery#{i}"
             /= image_tag rp.photos.first.attach_image.url
+            a.a_other_photos rel = '#{i}'
+          /.hide_div
+      #hide_slider
+        - @photoreports.offset(0).each_with_index do |rp, i|
+          .container_for_hide_slider rel = "#{i}"
+            .content_for_hide_slider
+              .popup-shadow_report
+              /p asdkjfasdlkfdas
+
+              #slider_other_photos
+                - rp.photos.each do
+                  .slide
+
+                    /= image_tag 'land/close_button_other_reports.png', class: 'close_btn'
+                    = image_tag rp.company.logo.url
+              .custom_thumb
+                - rp.photos.each_with_index do |p, i|
+                  a href='' data-slide-index = "#{i}"
+                    = image_tag rp.company.logo.url
+              .close_btn
+            /<div id="bx-pager">
+            /  <a data-slide-index="0" href=""><img src="/images/thumbs/tree_root.jpg" /></a>
+            /  <a data-slide-index="1" href=""><img src="/images/thumbs/houses.jpg" /></a>
+            /  <a data-slide-index="2" href=""><img src="/images/thumbs/hill_fence.jpg" /></a>
+            /</div>
+
+          /.hide_div
+          /  - rp.photos.each do
+          /    a.fancybox-thumb href=rp.company.logo.url rel="fancybox-thumb"
+          /      = image_tag rp.company.logo.url
 
 
   .how_we_work
@@ -400,7 +411,6 @@
 #more_about_services-popup
   .popup-shadow
   .content
-    .cross_button
     .popup_slider_all_services
       - @services.each do |sr|
         .slide
@@ -444,6 +454,7 @@
           /= link_to 'посмотреть видео', '#'
         p следующая услуга
         = image_tag 'land/next_service.png'
+    .cross_button
 
 
 #modal_form
@@ -565,12 +576,32 @@
                 с вами свяжется
         p.close_button Закрыть
 
-
+/.sdf
+/  a.fancybox-thumb href='#{@photoreports.first.company.logo.url}' rel='fancybox-thumb' title='asdf'
+/    = image_tag @photoreports.first.company.logo.url, alt: ''
+/  a.fancybox-thumb href='#{@photoreports.first.company.logo.url}' rel='fancybox-thumb' title='asdf'
+/    = image_tag @photoreports.first.company.logo.url, alt: ''
+/  a.fancybox-thumb href='#{@photoreports.first.company.logo.url}' rel='fancybox-thumb' title='asdf'
+/    = image_tag @photoreports.first.company.logo.url, alt: ''
 
 javascript:
 
   new Binding_Sliders
   new LandingPopupController
+
+//  $(".fancybox-thumb").fancybox({
+//    prevEffect: 'none',
+//    nextEffect: 'none',
+//    helpers: {
+//      title: {
+//        type: 'outside'
+//      },
+//      thumbs: {
+//        width: 50,
+//        height: 50
+//      }
+//    }
+//  });
 
   $(".fancybox_video").click(function () {
     $.fancybox({

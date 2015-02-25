@@ -6,6 +6,9 @@ class @LandingPopupController
     $('.popup-link_call').click @show_popup
     $('.popup-link_service').click @show_popup_service
     $('.popup-link_order').click @show_popup_order
+    $('.popup-link_more_about_service').click @show_popup_order_more_about_service
+
+
 #    $('#modal_form .content').click @hide_popup
 
     $('#modal_form form').bind 'ajax:success', @form_success
@@ -22,6 +25,8 @@ class @LandingPopupController
 
     $('#second_form').bind 'ajax:success', @form_success_order
     $('#second_form').bind 'ajax:error', @form_error_second
+
+  check = false
 
   show_popup: (e) ->
     e.preventDefault()
@@ -41,6 +46,26 @@ class @LandingPopupController
     service_id = $(e.target).attr('data-serviceid')
     $('#modal_form_order form input[name="order[service_id]"]').val service_id
 
+  show_popup_order_more_about_service: (e) ->
+#    slide_all_services
+#    slide_all_services.destroySlider()
+    e.preventDefault()
+    $('#more_about_services-popup').fadeIn('slow')
+    if check == false
+      check = true
+      slide_all_services = $('.popup_slider_all_services').bxSlider({
+        prevText: '', nextText: '', auto: true, pause: 600000})
+
+      $('#more_about_services-popup .prev').click ->
+        slide_all_services.goToPrevSlide()
+        false
+      $('#more_about_services-popup .next').click ->
+        slide_all_services.goToNextSlide()
+        false
+
+#    service_id = $(e.target).attr('data-serviceid')
+#    $('#modal_form_order form input[name="order[service_id]"]').val service_id
+
   hide_popup: (e) ->
     $('#modal_form').hide()
     $('#modal_form_service').hide()
@@ -49,6 +74,9 @@ class @LandingPopupController
     $('#success-popup_service').hide()
     $('#success-popup_order').hide()
     $('#more_about_services-popup').hide()
+
+#    slide_all_services = $('.bxslider').bxSlider();
+
 
 
   form_success: ->
@@ -73,21 +101,7 @@ class @LandingPopupController
     #    $('#success-popup').fadeIn('slow')
     $('#success-popup_order').fadeIn('fast')
     #        $('#success-popup_order').fadeIn('slow')
-#  form_success_first: ->
-##    $('#modal_form').hide()
-##    $('#modal_form_order').hide()
-#    #        $('#modal_form_order').hide()
-#    #    $('#success-popup').fadeIn('slow')
-#    $('#success-popup_order').fadeIn('fast')
-#    #        $('#success-popup_order').fadeIn('slow')
-#
-#  form_success_second: ->
-##    $('#modal_form').hide()
-##    $('#modal_form_order').hide()
-#    #        $('#modal_form_order').hide()
-#    #    $('#success-popup').fadeIn('slow')
-#    $('#success-popup_order').fadeIn('fast')
-#    #        $('#success-popup_order').fadeIn('slow')
+
 
     return false
 

@@ -1,14 +1,15 @@
 class @Binding_Sliders
   constructor: ->
-    $("a.fancybox").fancybox();
+    $("a.fancybox").fancybox()
+
+    $('.a_other_photos').click @bind_slider
+
+    $('#hide_slider .popup-shadow_report').click @hide_popup_slider
+    $('#hide_slider .close_btn').click @hide_popup_slider
 
 
 
-    $("a.fancybox_gallary").fancybox({
-      openEffect	: 'none',
-      closeEffect	: 'none',
-      transitionIn: 'elastic'
-    })
+
 
     $('.services_static_slider').bxSlider({
       prevText: '', nextText: '', auto: true, pause: 6000})
@@ -32,15 +33,6 @@ class @Binding_Sliders
 
     })
 
-    slide_all_services = $('.popup_slider_all_services').bxSlider({
-      prevText: '', nextText: '', auto: true, pause: 600000})
-
-    $('#more_about_services-popup .prev').click ->
-      slide_all_services.goToPrevSlide()
-      false
-    $('#more_about_services-popup .next').click ->
-      slide_all_services.goToNextSlide()
-      false
 
 
     $('.more_video').bxSlider({
@@ -55,8 +47,38 @@ class @Binding_Sliders
 
     })
 #    console.log('not loaded!!!');
+  slider = null
+  slider_num = -1
 
   on_other_photos_loaded: (arg)->
 #    console.log('loaded!!!')
     if $("#other_photo_report .slide").length <= 12
       $("#other_photo_report .bx-controls-direction").hide()
+
+
+
+  bind_slider: (e) ->
+    e.preventDefault()
+    slider_num = $(e.target).attr('rel')
+#    console.log(slider_num)
+    sl = $('#other_photo_report').find(".container_for_hide_slider[rel='" + slider_num + "']").find('.content_for_hide_slider').fadeIn('fast')
+    $('#other_photo_report').find(".container_for_hide_slider[rel='" + slider_num + "']").find('.custom_thumb').fadeIn('fast')
+    $('#other_photo_report').find(".container_for_hide_slider[rel='" + slider_num + "']").find('.popup-shadow_report').fadeIn('fast')
+    slider = sl.find('#slider_other_photos')
+    slider.bxSlider({
+      prevText: '',
+      nextText: '',
+      auto: true,
+      pause: 6000
+      pagerCustom: '.custom_thumb'
+    })
+
+  hide_popup_slider: (e) ->
+    $('#other_photo_report').find(".container_for_hide_slider[rel='" + slider_num + "']").find('.custom_thumb').fadeOut('fast')
+    $('#other_photo_report').find(".container_for_hide_slider[rel='" + slider_num + "']").find('.popup-shadow_report').fadeOut('fast')
+#    slider.destroySlider()
+    $('#other_photo_report').find(".container_for_hide_slider[rel='" + slider_num + "']").find('.content_for_hide_slider').fadeOut('fast')
+
+
+
+#    $("ul").find("[data-slide='" + current + "']");

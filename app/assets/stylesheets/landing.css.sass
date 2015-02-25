@@ -602,14 +602,15 @@ body
       height: auto
       margin: 0 auto
       width: 960px
-      .watch_full_review
-        margin-left: 100px
-        margin-top: 36px
+    .watch_full_review
+      margin-left: 100px
+      margin-top: 36px
       .bx-controls
         height: 0
         .bx-next, .bx-prev
           top: 270px
   #one_more_video_slider
+    clear: both
     height: 241px
     margin: 0 auto
     width: 960px
@@ -887,7 +888,30 @@ body
       height: 120px
       margin: 0 auto
       width: 960px
+      #hide_slider
+        z-index: 600
+        .bx-next, .bx-prev
+          top: 300px
+      .content_for_hide_slider
+
+        position: fixed
+        top: 100px
+        display: none
+
+      .close_btn
+        position: absolute
+        top: 0
+        right: 0
+        width: 40px
+        height: 40px
+        background: image_url("land/close_button_other_reports.png") no-repeat
+        cursor: pointer
+      .custom_thumb
+        display: none
+        z-index: 400
+
       .slide
+
         &:hover
           .hover
             display: block
@@ -918,6 +942,23 @@ body
           height: 0
           .bx-next, .bx-prev
             top: 40px
+      #hide_slider
+        .content_for_hide_slider
+          width: 960px
+          height: 641px
+
+        img
+          width: 960px
+          height: 641px
+        .custom_thumb
+          img
+            width: 128px
+            height: 85px
+            float: left
+            margin-top: 11px
+            margin-right: 9px
+          &:last-child
+            margin-right: 0px
 
   .how_we_work
     width: 938px
@@ -1064,7 +1105,7 @@ body
 
 #rights
   height: 40px
-  width: 100%
+  //width: 100%
   background-color: #1b1b1b
   color: #ffffff
   line-height: 40px
@@ -1076,7 +1117,17 @@ body
 .popup-shadow
   //display: none
   position: fixed
-  z-index: 300
+  //z-index: -1000
+  height: 100%
+  width: 100%
+  left: 0
+  top: 0
+  background: rgba(0, 0, 0, 0.3)
+
+.popup-shadow_report
+  //display: none
+  position: fixed
+  z-index: -1000
   height: 100%
   width: 100%
   left: 0
@@ -1173,8 +1224,9 @@ body
 #more_about_services-popup
   .content
     z-index: 300
-    position: absolute
-    top: 15%
+    position: fixed
+    //top: 3200px
+    top: 20px
     left: 0
     right: 0
     width: 960px
