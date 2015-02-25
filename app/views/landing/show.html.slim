@@ -186,6 +186,25 @@
         /= link_to 'узнать подробности', '#', class: 'popup-link'
         a.popup-link_more_about_service href='#' узнать подробности
 
+          - if service.link_to_video.present?
+            .slide
+              embed width="960" height="574" src=service.link_to_video.gsub('http://youtu.be/','http://www.youtube.com/embed/') frameborder="0" allowfullscreen="true"
+              .watch_full_review
+                = image_tag 'land/more_information.png'
+                /= link_to 'узнать подробности', '#', class: 'popup-link'
+                a.popup-link href='#' узнать подробности
+        /.slide
+        /  embed width="1020" height="574" src="https://www.youtube.com/embed/JXc_HkWgjuA" frameborder="0" allowfullscreen="true"
+        /  .watch_full_review
+        /    = image_tag 'land/more_information.png'
+        /    a.popup-link href='#' узнать подробности
+        /    /= link_to 'узнать подробности', '#'
+        /.slide
+        /  embed width="1020" height="574" src="https://www.youtube.com/embed/Ac5Ei5SkxRU" frameborder="0" allowfullscreen="true"
+        /  .watch_full_review
+        /    = image_tag 'land/more_information.png'
+        /    a.popup-link href='#' узнать подробности
+        /    /= link_to 'узнать подробности', '#'
   #one_more_video_slider
 
     .more_video
@@ -193,6 +212,20 @@
         .slide
           embed width="480" height="241" src=service.link_to_video.gsub('http://youtu.be/','http://www.youtube.com/embed/') frameborder="0" allowfullscreen="true"
           a.hover.fancybox_video href="#{service.link_to_video}?fs;autoplay=1"
+        - if service.link_to_video.present?
+          .slide
+            embed width="480" height="241" src=service.link_to_video.gsub('http://youtu.be/','http://www.youtube.com/embed/') frameborder="0" allowfullscreen="true"
+            a.hover.fancybox_video href="#{service.link_to_video}?fs;autoplay=1"
+      /.slide
+      /  embed width="560" height="241" src="https://www.youtube.com/embed/BYW_GSnctLs" frameborder="0" allowfullscreen="true"
+      /  a.hover.fancybox_video href='http://www.youtube.com/v/ZeStnz5c2GI?fs=1&amp;autoplay=1'
+      /.slide.fancybox
+      /  embed width="560" height="241" src="https://www.youtube.com/embed/JXc_HkWgjuA" frameborder="0" allowfullscreen="true"
+      /  a.hover.fancybox_video href='http://www.youtube.com/v/ZeStnz5c2GI?fs=1&amp;autoplay=1'
+      /.slide
+      /  embed width="560" height="241" src="https://www.youtube.com/embed/Ac5Ei5SkxRU" frameborder="0" allowfullscreen="true"
+      /  a.hover.fancybox_video href=''
+        https://www.youtube.com/v/XK0LN8EdKnw;autoplay=1
 
 
   .leave_application
