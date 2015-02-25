@@ -48,6 +48,7 @@ class @LandingPopupController
     $('#success-popup').hide()
     $('#success-popup_service').hide()
     $('#success-popup_order').hide()
+    $('#more_about_services-popup').hide()
 
 
   form_success: ->

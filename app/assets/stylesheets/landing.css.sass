@@ -1184,6 +1184,11 @@ body
     background: image_url("land/more_about_services_background.png") no-repeat
 
 #more_about_services-popup
+  display: none
+  .content
+    -webkit-border-radius: 10px
+    -moz-border-radius: 10px
+    border-radius: 10px
 
   .bx-wrapper
     max-width: none
@@ -1256,24 +1261,28 @@ body
       text-align: left
       img
         margin-left: 10px
-  //.watch_video
-  //  //width: 50%
-  //  //margin-left: 120px
-  //  margin-top: 30px
-  //  img
-  //    margin-left: 15px
+
   .prev_next_button
     width: 100%
+    margin: 20px 0
 
     .next, .prev
-      width: auto
-      a, img
+      //width: auto
+      display: inline-block
+      margin: 10px 20px
+      p, img
+        cursor: pointer
+        margin: 0 10px
         display: inline-block
         vertical-align: middle
-      //margin-left: 300px
-      //float: right
-      //width: 300px
-    //.prev
-    //  float: left
-    //.next
-    //  float: right
+      p
+        font-family: Solomon
+        color:  #1b1c1c
+        font-size: 14px /* Approximation due to font substitution */
+        font-weight: bold
+        text-decoration: underline
+
+    .prev img
+      @include transform(rotate(180deg))
+    .next
+      float: right

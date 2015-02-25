@@ -32,8 +32,16 @@ class @Binding_Sliders
 
     })
 
-    $('.popup_slider_all_services').bxSlider({
+    slide_all_services = $('.popup_slider_all_services').bxSlider({
       prevText: '', nextText: '', auto: true, pause: 600000})
+
+    $('#more_about_services-popup .prev').click ->
+      slide_all_services.goToPrevSlide()
+      false
+    $('#more_about_services-popup .next').click ->
+      slide_all_services.goToNextSlide()
+      false
+
 
     $('.more_video').bxSlider({
       prevText: '',

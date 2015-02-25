@@ -392,24 +392,7 @@
       .button_container
         .call_button.popup-link_call
           |заказать обратный звонок
-    /.block
-    /  p.text позвоните нам:
-    /  p.text или закажите обратный звонок<br>
-    /          и мы обязательно вам<br>
-    /          перезвоним
-    /.block
-    /  p.phone 227 77 86
-    /  .call_button
-    /    |заказать обратный звонок
-    /.phone_container
-    /  p.text позвоните нам:
-    /  p.phone 227 77 86
-    /.order_container
-    /  p.text или закажите обратный звонок<br>
-    /          и мы обязательно вам<br>
-    /          перезвоним
-    /  .button
-    /    p заказать обратный звонок
+
 #rights
   |&#169; Copyright 2014 | Genetic-test Company. All rights reserved
 
@@ -417,6 +400,7 @@
 #more_about_services-popup
   .popup-shadow
   .content
+    .cross_button
     .popup_slider_all_services
       - @services.each do |sr|
         .slide
@@ -448,54 +432,18 @@
               = image_tag 'land/watch_video.png'
             .button.popup-link_service data-serviceid=sr.id
               | заказать услугу
-          .prev_next_button
-            .prev
-              /.watch_video
-                /= link_to 'посмотреть видео', '#'
+    .prev_next_button
+      .prev
+        /.watch_video
+          /= link_to 'посмотреть видео', '#'
 
-              = image_tag 'land/watch_video.png'
-              a посмотреть видео
-            .next
-              /.watch_video
-                /= link_to 'посмотреть видео', '#'
-              a посмотреть видео
-              = image_tag 'land/watch_video.png'
-          /.service
-          /  = image_tag sr.image.url
-          /  .transparent
-          /  p.name = sr.name
-          /  .button.popup-link_service data-serviceid=sr.id
-          /    | заказать услугу
-          /.description
-          /  .text
-          /    p = sr.description
-          /  .prop
-          /    .prop_text
-          /      p радость
-          /      p здоровье
-          /      p лояльность
-          /      p мотивация
-          /    .prop_stars
-          /      - sr.joy.times do
-          /        = image_tag 'land/star.png'
-          /      br
-          /      - sr.health.times do
-          /        = image_tag 'land/star.png'
-          /      br
-          /      - sr.loyalty.times do
-          /        = image_tag 'land/star.png'
-          /      br
-          /      - sr.motivation.times do
-          /        = image_tag 'land/star.png'
-          /  /.info
-          /  .more
-          /    = image_tag 'land/more_information.png'
-          /    p.more_about_services узнать подробности
-          /
-          /  .watch_video
-          /    = image_tag 'land/watch_video.png'
-          /    /= link_to 'посмотреть видео', '#'
-          /    a.hover.fancybox_video href="#{sr.link_to_video}?fs;autoplay=1" посмотреть видео
+        = image_tag 'land/next_service.png'
+        p предыдущая услуга
+      .next
+        /.watch_video
+          /= link_to 'посмотреть видео', '#'
+        p следующая услуга
+        = image_tag 'land/next_service.png'
 
 
 #modal_form
