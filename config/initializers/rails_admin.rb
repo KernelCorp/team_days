@@ -31,4 +31,18 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+
+  # config.model 'Team' do
+  #   list do
+  #     field :name
+  #     field :created_at
+  #   end
+  # end
+
+  config.model Order do
+    field :client_name
+    field :client_phone
+    field :client_email
+    include_all_fields
+  end
 end

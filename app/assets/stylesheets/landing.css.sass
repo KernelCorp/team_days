@@ -38,6 +38,7 @@ footer, header, hgroup, menu, nav, section
 
 body
   line-height: 1
+  z-index: -2000
 
 ol, ul
   list-style: none
@@ -238,7 +239,7 @@ body
           //  content: '1'
       .phone
         margin-bottom: 15px
-        p
+        a
           font-family: Intro
           color:  #000000
           font-size: 48px /* Approximation due to font substitution */
@@ -246,6 +247,7 @@ body
           text-align: right
           display: inline-block
           margin-left: 23px
+          text-decoration: none
           //&:before
           //  background: image_url("land/phone.png") no-repeat
           //  content: ''
@@ -538,13 +540,14 @@ body
 
   .all_services
     width: 960px
-    margin: 0 auto
-    margin-top: 61px
+    margin: 61px auto 0 auto
+    //margin-top: 61px
     text-align: center
     overflow: hidden
     .content
       width: 960px
       margin-top: 43px
+      text-align: left
       .service
         width: 320px
         height: 200px
@@ -552,6 +555,7 @@ body
         float: left
         position: relative
         margin-bottom: 10px
+        overflow: hidden
         a
           height: 100%
           width: 100%
@@ -563,7 +567,7 @@ body
             opacity: 0.6
 
         img
-          width: inherit
+          //width: inherit
           height: inherit
         .transparent
           width: inherit
@@ -853,6 +857,7 @@ body
             width: 139px
             height: 139px
         .text
+          font-family: 'Solomon'
           display: inline-block
           vertical-align: top
           width: 80%
@@ -915,7 +920,7 @@ body
         &:hover
           .hover
             display: block
-            //cursor: pointer
+
         .hover
           height: 120px
           width: 255px
@@ -924,6 +929,7 @@ body
           background: image_url("land/zoom3.png") no-repeat
           opacity: 0.6
           background-size: 100% 100%
+
         img
           height: 120px
           width: 255px
@@ -934,7 +940,7 @@ body
           width: 255px
           display: block
           top: 0
-
+          cursor: pointer
             //cursor: pointer
       .bx-wrapper
         max-width: none
@@ -1091,6 +1097,7 @@ body
       font-size: 48px
       font-weight: bold
       position: relative
+      text-decoration: none
       &:before
         position: absolute
         content: ''
@@ -1105,19 +1112,23 @@ body
 
 #rights
   height: 40px
-  //width: 100%
+  width: 100%
   background-color: #1b1b1b
-  color: #ffffff
-  line-height: 40px
-  padding-left: 250px
-  font-family: 'Arial'
-  font-size: 10px
+  .content
+    width: 960px
+    margin: 0 auto
+    p
+      color: #ffffff
+      line-height: 40px
+      //padding-left: 250px
+      font-family: 'Arial'
+      font-size: 10px
 
 
 .popup-shadow
   //display: none
   position: fixed
-  //z-index: -1000
+  z-index: 300
   height: 100%
   width: 100%
   left: 0
@@ -1127,7 +1138,7 @@ body
 .popup-shadow_report
   //display: none
   position: fixed
-  z-index: -1000
+  z-index: -10
   height: 100%
   width: 100%
   left: 0
@@ -1237,6 +1248,8 @@ body
 
 #more_about_services-popup
   display: none
+  .popup-shadow_report
+    z-index: 0
   .content
     -webkit-border-radius: 10px
     -moz-border-radius: 10px
@@ -1263,6 +1276,7 @@ body
     display: inline-block
     vertical-align: top
   .description
+    font-family: 'Solomon'
     width: 630px
     p
       margin-top: 37px
@@ -1279,7 +1293,7 @@ body
     img
       margin-left: 15px
     .button
-      margin-top: 210px
+      margin-top: 150px
       width: 230px
       height: 40px
       display: block

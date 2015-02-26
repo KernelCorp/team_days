@@ -49,6 +49,7 @@ class @LandingPopupController
   show_popup_order_more_about_service: (e) ->
 #    slide_all_services
 #    slide_all_services.destroySlider()
+    $('#more_about_services-popup .popup-shadow_report').fadeIn('slow')
     e.preventDefault()
     $('#more_about_services-popup').fadeIn('slow')
     if check == false
@@ -73,7 +74,7 @@ class @LandingPopupController
     $('#success-popup').hide()
     $('#success-popup_service').hide()
     $('#success-popup_order').hide()
-    $('#more_about_services-popup').hide()
+#    $('#more_about_services-popup').hide()
 
 #    slide_all_services = $('.bxslider').bxSlider();
 

@@ -4,8 +4,9 @@ class @Binding_Sliders
 
     $('.a_other_photos').click @bind_slider
 
-    $('#hide_slider .popup-shadow_report').click @hide_popup_slider
-    $('#hide_slider .close_btn').click @hide_popup_slider
+    $('.popup-shadow_report').click @hide_popup_slider
+    $('.close_btn').click @hide_popup_slider
+    $('#more_about_services-popup .cross_button').click @hide_popup_slider
 
 
 
@@ -19,7 +20,7 @@ class @Binding_Sliders
     $('.slider_all_companies').bxSlider({
       prevText: '', nextText: '', auto: true, pause: 6000})
     $('.video').bxSlider({
-      prevText: '', nextText: '', auto: true, pause: 6000})
+      prevText: '', nextText: '', auto: true, pause: 6000, video: true})
     $('.slider_other_photo_reports').bxSlider({
       prevText: '',
       nextText: '',
@@ -79,6 +80,11 @@ class @Binding_Sliders
 #    slider.destroySlider()
     $('#other_photo_report').find(".container_for_hide_slider[rel='" + slider_num + "']").find('.content_for_hide_slider').fadeOut('fast')
 
+#
+    $('.popup-shadow_report').hide()
 
+    $('#more_about_services-popup').hide()
+
+#    console.log('slider_num')
 
 #    $("ul").find("[data-slide='" + current + "']");

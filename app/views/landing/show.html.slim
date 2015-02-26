@@ -12,7 +12,7 @@
         span Новосибирск
       .phone
         = image_tag 'land/phone.png'
-        p 227 77 86
+        a href='tel: 227 77 86' 227 77 86
       /a href='#'
       .call_button.popup-link_call
         |заказать обратный звонок
@@ -135,26 +135,47 @@
                 p = sr.description
               .prop
                 .prop_text
-                  p радость
-                  p здоровье
-                  p лояльность
-                  p мотивация
+                  - if sr.joy != 0
+                    p радость
+                  - if sr.health != 0
+                    p здоровье
+                  - if sr.loyalty != 0
+                    p лояльность
+                  - if sr.motivation != 0
+                    p мотивация
+                  - if sr.stress_tolerance != 0
+                    p стрессоустойчивость
+                  - if sr.rallying != 0
+                    p сплочение
                 .prop_stars
-                  - sr.joy.times do
-                    = image_tag 'land/star.png'
-                  br
-                  - sr.health.times do
-                    = image_tag 'land/star.png'
-                  br
-                  - sr.loyalty.times do
-                    = image_tag 'land/star.png'
-                  br
-                  - sr.motivation.times do
-                    = image_tag 'land/star.png'
+                  - if sr.joy != 0
+                    - sr.joy.times do
+                      = image_tag 'land/star.png'
+                    br
+                  - if sr.health != 0
+                    - sr.health.times do
+                      = image_tag 'land/star.png'
+                    br
+                  - if sr.loyalty != 0
+                    - sr.loyalty.times do
+                      = image_tag 'land/star.png'
+                    br
+                  - if sr.motivation != 0
+                    - sr.motivation.times do
+                      = image_tag 'land/star.png'
+                    br
+                  - if sr.stress_tolerance != 0
+                    - sr.stress_tolerance.times do
+                      = image_tag 'land/star.png'
+                    br
+                  - if sr.rallying != 0
+                    - sr.rallying.times do
+                      = image_tag 'land/star.png'
+                    br
               /.info
               .more
                 = image_tag 'land/more_information.png'
-                p узнать подробности
+                p.popup-link_more_about_service узнать подробности
 
               .watch_video
                 = image_tag 'land/watch_video.png'
@@ -171,7 +192,7 @@
           = image_tag sr.image.url
           .transparent
           p = sr.name
-          a.fancybox href=sr.image.url
+          a.popup-link_more_about_service href='#'
   .services_look_like
     p
       |Как выглядят наши услуги?<br>
@@ -182,22 +203,11 @@
           - if service.link_to_video.present?
             .slide
               embed width="960" height="574" src=service.link_to_video.gsub('http://youtu.be/','http://www.youtube.com/embed/') frameborder="0" allowfullscreen="true"
-              .watch_full_review
-                = image_tag 'land/more_information.png'
-                /= link_to 'узнать подробности', '#', class: 'popup-link'
-                a.popup-link href='#' узнать подробности
-        /.slide
-        /  embed width="1020" height="574" src="https://www.youtube.com/embed/JXc_HkWgjuA" frameborder="0" allowfullscreen="true"
-        /  .watch_full_review
-        /    = image_tag 'land/more_information.png'
-        /    a.popup-link href='#' узнать подробности
-        /    /= link_to 'узнать подробности', '#'
-        /.slide
-        /  embed width="1020" height="574" src="https://www.youtube.com/embed/Ac5Ei5SkxRU" frameborder="0" allowfullscreen="true"
-        /  .watch_full_review
-        /    = image_tag 'land/more_information.png'
-        /    a.popup-link href='#' узнать подробности
-        /    /= link_to 'узнать подробности', '#'
+    .watch_full_review
+      = image_tag 'land/more_information.png'
+      /= link_to 'узнать подробности', '#', class: 'popup-link'
+      a.popup-link_more_about_service href='#' узнать подробности
+
   #one_more_video_slider
 
     .more_video
@@ -314,25 +324,27 @@
     #photo_report.content
       .slider_all_companies
         - @photoreports.each_with_index do |report, i|
-          .slide
-            .company
-              /= image_tag report.photos.first.attach_image.url, class: 'photo'
-              = image_tag 'http://lorempixel.com/400/200/cats', class: 'photo'
-              .transparent
-              p.name  = report.company.name
-              = image_tag report.company.logo.url, class: 'logo'
-            .review
-              .employee_photo
-                = image_tag report.employee_photo.url
-              .text
-                p.company_post = "#{report.employee_name} / #{report.employee_post}"
-                p.full_review
-                  span &laquo;
-                  = report.review
-                  span &raquo;
-                .watch_full_review
-                  = image_tag 'land/eye.png'
-                  = link_to 'посмотреть отчет полностью', '#', class: 'fancybox_gallary', rel: "gallery0#{i}"
+          - if report.company.present?
+            .slide
+              .company
+                = image_tag report.photos.first.attach_image.url, class: 'photo'
+                /= image_tag 'http://lorempixel.com/400/200/cats', class: 'photo'
+                .transparent
+                p.name  = report.company.name
+                = image_tag report.company.logo.url, class: 'logo'
+              .review
+                .employee_photo
+                  = image_tag report.employee_photo.url
+                .text
+                  p.company_post = "#{report.employee_name} / #{report.employee_post}"
+                  p.full_review
+                    span &laquo;
+                    = report.review
+                    span &raquo;
+                  .watch_full_review
+                    = image_tag 'land/eye.png'
+                    a.a_other_photos  rel = '#{i}' посмотреть отчет полностью
+                    /= link_to 'посмотреть отчет полностью', '#', class: 'fancybox_gallary', rel: "gallery0#{i}"
   .other_reports
     p.head другие фотоотчеты
     #other_photo_report.content
@@ -341,7 +353,8 @@
         - @photoreports.offset(0).each_with_index do |rp, i|
           .slide
             .hover
-            = image_tag 'http://lorempixel.com/400/200/cats'
+            /= image_tag 'http://lorempixel.com/400/200/cats'
+            = image_tag rp.photos.first.attach_image.url
             /a.fancybox_gallary href="http://placekitten.com/g/300/200" rel="gallery1"
             /- rp.photos.each do |ph|
             /  a.fancybox_gallary href="http://placekitten.com/g/300/200" style="display: none" rel="gallery1"
@@ -360,15 +373,15 @@
               /p asdkjfasdlkfdas
 
               #slider_other_photos
-                - rp.photos.each do
+                - rp.photos.each do |p|
                   .slide
-
+                    = image_tag p.attach_image.url
                     /= image_tag 'land/close_button_other_reports.png', class: 'close_btn'
-                    = image_tag rp.company.logo.url
+                    /= image_tag rp.company.logo.url
               .custom_thumb
                 - rp.photos.each_with_index do |p, i|
                   a href='' data-slide-index = "#{i}"
-                    = image_tag rp.company.logo.url
+                    = image_tag p.attach_image.url
               .close_btn
             /<div id="bx-pager">
             /  <a data-slide-index="0" href=""><img src="/images/thumbs/tree_root.jpg" /></a>
@@ -408,17 +421,21 @@
   .social_net
     p.head мы в социальных сетях
     .networks
-      a href='#' = image_tag 'land/instagram.png'
-      a href='#' = image_tag 'land/vk.png'
-      a href='#' = image_tag 'land/YouTube.png'
-      a href='#' = image_tag 'land/facebook.png'
+      = link_to 'http://instagram.com/team_days/', target: '_blank'
+        = image_tag 'land/instagram.png'
+      = link_to 'http://vk.com/club81412540', target: '_blank'
+        = image_tag 'land/vk.png'
+      = link_to 'https://www.youtube.com/channel/UCPXWs79ssGB4M8zqnIafGOA', target: '_blank'
+        = image_tag 'land/YouTube.png'
+      = link_to 'https://www.facebook.com/profile.php?id=100005924479371&fref=tl_fr_box&pnref=lhc.friends', target: '_blank'
+        = image_tag 'land/facebook.png'
 
   .questions
     = image_tag 'land/questions.png'
     .block_phone
       p.call_us позвоните нам:
       .phone_content
-        .phone 227 77 86
+        a.phone href='tel: 227 77 86' 227 77 86
     .block_call
       p или закажите обратный звонок<br>
               и мы обязательно вам<br>
@@ -428,11 +445,12 @@
           |заказать обратный звонок
 
 #rights
-  |&#169; Copyright 2014 | Genetic-test Company. All rights reserved
+  .content
+    p &#169; Copyright 2014 | Genetic-test Company. All rights reserved
 
 
 #more_about_services-popup
-  .popup-shadow
+  .popup-shadow_report
   .content
     .popup_slider_all_services
       - @services.each do |sr|
@@ -442,23 +460,45 @@
           .description
             p = sr.description
           .more_description
-            .prop_text
-              p радость
-              p здоровье
-              p лояльность
-              p мотивация
-            .prop_stars
-              - sr.joy.times do
-                = image_tag 'land/star.png'
-              br
-              - sr.health.times do
-                = image_tag 'land/star.png'
-              br
-              - sr.loyalty.times do
-                = image_tag 'land/star.png'
-              br
-              - sr.motivation.times do
-                = image_tag 'land/star.png'
+            .prop
+              .prop_text
+                - if sr.joy != 0
+                  p радость
+                - if sr.health != 0
+                  p здоровье
+                - if sr.loyalty != 0
+                  p лояльность
+                - if sr.motivation != 0
+                  p мотивация
+                - if sr.stress_tolerance != 0
+                  p стрессоустойчивость
+                - if sr.rallying != 0
+                  p сплочение
+              .prop_stars
+                - if sr.joy != 0
+                  - sr.joy.times do
+                    = image_tag 'land/star.png'
+                  br
+                - if sr.health != 0
+                  - sr.health.times do
+                    = image_tag 'land/star.png'
+                  br
+                - if sr.loyalty != 0
+                  - sr.loyalty.times do
+                    = image_tag 'land/star.png'
+                  br
+                - if sr.motivation != 0
+                  - sr.motivation.times do
+                    = image_tag 'land/star.png'
+                  br
+                - if sr.stress_tolerance != 0
+                  - sr.stress_tolerance.times do
+                    = image_tag 'land/star.png'
+                  br
+                - if sr.rallying != 0
+                  - sr.rallying.times do
+                    = image_tag 'land/star.png'
+                  br
             .watch_video
               /= link_to 'посмотреть видео', '#'
               a.hover.fancybox_video href="#{sr.link_to_video}?fs;autoplay=1" посмотреть видео
@@ -612,20 +652,6 @@ javascript:
   new Binding_Sliders
   new LandingPopupController
 
-//  $(".fancybox-thumb").fancybox({
-//    prevEffect: 'none',
-//    nextEffect: 'none',
-//    helpers: {
-//      title: {
-//        type: 'outside'
-//      },
-//      thumbs: {
-//        width: 50,
-//        height: 50
-//      }
-//    }
-//  });
-
   $(".fancybox_video").click(function () {
     $.fancybox({
       'padding': 0,
@@ -645,6 +671,22 @@ javascript:
 
     return false;
   });
+
+//  $(".fancybox-thumb").fancybox({
+//    prevEffect: 'none',
+//    nextEffect: 'none',
+//    helpers: {
+//      title: {
+//        type: 'outside'
+//      },
+//      thumbs: {
+//        width: 50,
+//        height: 50
+//      }
+//    }
+//  });
+
+
 
 //  jQuery(document).ready(function () {
 
