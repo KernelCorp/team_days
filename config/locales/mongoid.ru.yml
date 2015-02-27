@@ -1,0 +1,76 @@
+ru:
+  mongoid:
+    models:
+      service:
+        one:   Услуга
+        few:   Услуги
+        many:  Услуг
+        other: Услуги
+      photo_report:
+        one:   Фотоотчет
+        few:   Фотоотчета
+        many:  Фотоотчетов
+        other: Фотоотчеты
+      order:
+        one:   Заказ
+        few:   Заказа
+        many:  Заказов
+        other: Заказы
+      company:
+        one:   Компания
+        few:   Компании
+        many:  Компаний
+        other: Компании
+      client_info:
+        one:   Информация о клиенте
+        few:   Информации о клиенте
+        many:  Информаций о клиенте
+        other: Информации о клиенте
+
+    attributes:
+
+      created_at: Создан
+      updated_at: Обнавлен
+      first_name: Имя
+      last_name: Фамилия
+      middle_name: Отчество
+
+      service:
+        name: Название
+        price: Цена
+        description: Описание
+        joy: Радость
+        health: Здоровье
+        loyalty: Лояльность
+        motivation: Мотивация
+        rallying: Сплочение
+        stress_tolerance: Стрессоустойчивость
+        link_to_video: Ссылка на видео
+      photo_report:
+        employee_name: Имя сотрудника
+        employee_post: Должность сотрудника
+        mini_review: Краткий отзыв
+        review: Отзыв
+        company: Компания
+        employee_photo: Фото сотрудника
+        photos: Фотографии
+      order:
+        cost: Стоимость
+        status: Статус
+        company: Название компании
+        service_name: Название услуги
+        client_name: Имя клиента
+        client_email: Email клиента
+        client_phone: Телефон клиента
+        service: Услуга
+        partner: Партнер
+        payments: Способы оплаты
+        client_info: Информация о клиенте
+      company:
+        name: Название компании
+        logo: Логотип
+        photo_reports: Фотоотчет
+      client_info:
+        name: Имя клиента
+        phone: Email клиента
+        email: Телефон клиента

@@ -74,11 +74,15 @@ class @LandingPopupController
     $('#success-popup').hide()
     $('#success-popup_service').hide()
     $('#success-popup_order').hide()
-#    $('#more_about_services-popup').hide()
+    $('.pupup_video').hide()
+#    document.querySelector("video").pause()
+#    $('.pupup_video .embed_video').stopVideo()
+#    $('.embed_video0').stopVideo()
+    #    $('#more_about_services-popup').hide()
 
 #    slide_all_services = $('.bxslider').bxSlider();
 
-
+#    console.log('popup_video')
 
   form_success: ->
     $('#modal_form').hide()

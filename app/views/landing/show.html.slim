@@ -211,21 +211,17 @@
   #one_more_video_slider
 
     .more_video
-      - @services.each do |service|
+      - @services.each_with_index do |service, i|
         - if service.link_to_video.present?
           .slide
             embed width="480" height="241" src=service.link_to_video.gsub('http://youtu.be/','http://www.youtube.com/embed/') frameborder="0" allowfullscreen="true"
-            a.hover.fancybox_video href="#{service.link_to_video}?fs;autoplay=1"
-      /.slide
-      /  embed width="560" height="241" src="https://www.youtube.com/embed/BYW_GSnctLs" frameborder="0" allowfullscreen="true"
-      /  a.hover.fancybox_video href='http://www.youtube.com/v/ZeStnz5c2GI?fs=1&amp;autoplay=1'
-      /.slide.fancybox
-      /  embed width="560" height="241" src="https://www.youtube.com/embed/JXc_HkWgjuA" frameborder="0" allowfullscreen="true"
-      /  a.hover.fancybox_video href='http://www.youtube.com/v/ZeStnz5c2GI?fs=1&amp;autoplay=1'
-      /.slide
-      /  embed width="560" height="241" src="https://www.youtube.com/embed/Ac5Ei5SkxRU" frameborder="0" allowfullscreen="true"
-      /  a.hover.fancybox_video href=''
-        https://www.youtube.com/v/XK0LN8EdKnw;autoplay=1
+            a.hover href="#{service.link_to_video}?fs;autoplay=1" rel='#{i}' data-youtube="#{service.link_to_video.gsub('http://youtu.be/','http://www.youtube.com/embed/')}"
+    - @services.each_with_index do |service, i|
+      - if service.link_to_video.present?
+        .pupup_video rel='#{i}'
+          .popup-shadow
+          .content
+            embed width="600" height="350" src="#{service.link_to_video.gsub('http://youtu.be/','http://www.youtube.com/embed/')}" frameborder="0" allowfullscreen="true"
 
 
   .leave_application
@@ -501,7 +497,7 @@
                   br
             .watch_video
               /= link_to 'посмотреть видео', '#'
-              a.hover.fancybox_video href="#{sr.link_to_video}?fs;autoplay=1" посмотреть видео
+              a.hover href="#{sr.link_to_video}?fs;autoplay=1" посмотреть видео
               = image_tag 'land/watch_video.png'
             .button.popup-link_service data-serviceid=sr.id
               | заказать услугу

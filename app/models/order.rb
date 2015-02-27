@@ -22,7 +22,7 @@ class Order
   validates_presence_of :client_info
   validate :ordered_services_is_supported_by_partner
   after_initialize :init_client_info
-
+  accepts_nested_attributes_for :client_info
   before_create :update_cost
 
   def update_cost
