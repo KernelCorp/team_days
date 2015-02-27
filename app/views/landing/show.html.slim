@@ -122,7 +122,7 @@
     = image_tag 'land/showcase_services.png', class: 'logo'
     .content
       .slider
-        - @services.each do |sr|
+        - @services.each_with_index do |sr, i|
           .slide
             .service
               = image_tag sr.image.url
@@ -175,7 +175,10 @@
               /.info
               .more
                 = image_tag 'land/more_information.png'
-                p.popup-link_more_about_service узнать подробности
+                - if sr.link_to_video.present?
+                  p.popup-link_more_about_service rel='#{i}' узнать подробности
+                - else
+                  p.popup-link_more_about_service rel='-1' узнать подробности
 
               .watch_video
                 = image_tag 'land/watch_video.png'
@@ -186,27 +189,34 @@
   .all_services
     = image_tag 'land/all_service.png'
     .content
-      - @services.each do |sr|
+      - @services.each_with_index do |sr, i|
         /= link_to "", "#"
         .service
           = image_tag sr.image.url
           .transparent
           p = sr.name
-          a.popup-link_more_about_service href='#'
+          - if sr.link_to_video.present?
+            a.popup-link_more_about_service href='#' rel='#{i}'
+          - else
+            a.popup-link_more_about_service href='#' rel='-1'
+          /a.popup-link_more_about_service href='#'
   .services_look_like
     p
       |Как выглядят наши услуги?<br>
         Посмотрите видео
     #video_slider.content
       .video
-        - @services.each do |service|
+        - @services.each_with_index do |service, i|
           - if service.link_to_video.present?
             .slide
               embed width="960" height="574" src=service.link_to_video.gsub('http://youtu.be/','http://www.youtube.com/embed/') frameborder="0" allowfullscreen="true"
-    .watch_full_review
-      = image_tag 'land/more_information.png'
-      /= link_to 'узнать подробности', '#', class: 'popup-link'
-      a.popup-link_more_about_service href='#' узнать подробности
+              .watch_full_review
+                = image_tag 'land/more_information.png'
+                /- if service.link_to_video.present?
+                a.popup-link_more_about_service href='#' rel='#{i}' узнать подробности
+              /- else
+              /  a.popup-link_more_about_service href='#' rel='-1' узнать подробности
+            /a.popup-link_more_about_service href='#' узнать подробности
 
   #one_more_video_slider
 
@@ -221,7 +231,7 @@
         .pupup_video rel='#{i}'
           .popup-shadow
           .content
-            embed width="600" height="350" src="#{service.link_to_video.gsub('http://youtu.be/','http://www.youtube.com/embed/')}" frameborder="0" allowfullscreen="true"
+            embed width="960" height="482" src="#{service.link_to_video.gsub('http://youtu.be/','http://www.youtube.com/embed/')}" frameborder="0" allowfullscreen="true"
 
 
   .leave_application

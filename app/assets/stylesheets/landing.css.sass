@@ -611,30 +611,16 @@ body
     .watch_full_review
       margin-left: 100px
       margin-top: 36px
-      .bx-controls
-        height: 0
-        .bx-next, .bx-prev
-          top: 270px
+    .bx-controls
+      height: 0
+      .bx-next, .bx-prev
+        top: 267px
   #one_more_video_slider
     clear: both
     height: 241px
     margin: 0 auto
     width: 960px
     margin-bottom: 38px
-    .pupup_video
-      display: none
-      //position: fixed
-      .popup-shadow
-        z-index: 0
-      .content
-        position: fixed
-        width: 600px
-        height: 350px
-        right: 0
-        left: 0
-        top: 120px
-        margin: 0 auto
-        //background-color: #ff0000
 
 
     a.hover
@@ -1413,3 +1399,19 @@ body
       @include transform(rotate(180deg))
     .next
       float: right
+
+#one_more_video_slider, #more_about_services-popup
+  .pupup_video
+    display: none
+    //position: fixed
+    .popup-shadow
+      z-index: 0
+    .content
+      position: fixed
+      width: 960px
+      height: 482px
+      right: 0
+      left: 0
+      top: 120px
+      margin: 0 auto
+//background-color: #ff0000

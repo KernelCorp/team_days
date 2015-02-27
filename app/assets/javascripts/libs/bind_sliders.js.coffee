@@ -10,6 +10,8 @@ class @Binding_Sliders
 
     $('#one_more_video_slider .hover').click @show_popup_video
 
+#    $('#more_about_services-popup .hover').click @show_popup_video
+
 
 
 

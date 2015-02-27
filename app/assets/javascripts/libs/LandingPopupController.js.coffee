@@ -27,6 +27,7 @@ class @LandingPopupController
     $('#second_form').bind 'ajax:error', @form_error_second
 
   check = false
+  slide_all_services = null
 
   show_popup: (e) ->
     e.preventDefault()
@@ -51,6 +52,8 @@ class @LandingPopupController
 #    slide_all_services.destroySlider()
     $('#more_about_services-popup .popup-shadow_report').fadeIn('slow')
     e.preventDefault()
+    slide_num = $(e.target).attr('rel')
+#    console.log(slide_num)
     $('#more_about_services-popup').fadeIn('slow')
     if check == false
       check = true
@@ -63,7 +66,7 @@ class @LandingPopupController
       $('#more_about_services-popup .next').click ->
         slide_all_services.goToNextSlide()
         false
-
+    slide_all_services.goToSlide(slide_num)
 #    service_id = $(e.target).attr('data-serviceid')
 #    $('#modal_form_order form input[name="order[service_id]"]').val service_id
 
