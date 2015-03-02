@@ -823,8 +823,9 @@ body
         width: 960px
         height: 416px
         position: relative
+        overflow: hidden
         img.photo
-          width: inherit
+          //width: inherit
           height: inherit
         .transparent
           width: 960px
@@ -914,14 +915,14 @@ body
         z-index: 400
 
       .slide
-
+        overflow: hidden
         &:hover
           .hover
             display: block
 
         .hover
           height: 120px
-          width: 255px
+          width: 240px
           position: absolute
           display: none
           background: image_url("land/zoom3.png") no-repeat
@@ -930,7 +931,7 @@ body
 
         img
           height: 120px
-          width: 255px
+          //width: 255px
           &:hover
         a
           position: absolute
