@@ -629,6 +629,7 @@ body
       display: block
       width: 480px
       height: 241px
+      cursor: pointer
       &:hover
         background: image_url("land/zoom2.png") no-repeat
         opacity: 0.6
@@ -1174,6 +1175,15 @@ body
   background: rgba(0, 0, 0, 0.9)
 
 
+//.popup-shadow-ts
+//  //display: none
+//  position: fixed
+//  z-index: 500
+//  height: 100%
+//  width: 100%
+//  left: 0
+//  top: 0
+//  background: rgba(0, 0, 0, 0.9)
 
 
 
@@ -1400,12 +1410,14 @@ body
     .next
       float: right
 
-#one_more_video_slider, #more_about_services-popup
+//#one_more_video_slider, #more_about_services-popup
+#popup_youtube_video
   .pupup_video
     display: none
+    z-index: 401
     //position: fixed
     .popup-shadow
-      z-index: 0
+      z-index: 400
     .content
       position: fixed
       width: 960px
@@ -1414,4 +1426,5 @@ body
       left: 0
       top: 120px
       margin: 0 auto
+      z-index: 402
 //background-color: #ff0000

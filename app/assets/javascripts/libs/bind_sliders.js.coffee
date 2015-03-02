@@ -8,28 +8,29 @@ class @Binding_Sliders
     $('.close_btn').click @hide_popup_slider
     $('#more_about_services-popup .cross_button').click @hide_popup_slider
 
-    $('#one_more_video_slider .hover').click @show_popup_video
-
+#    $('#one_more_video_slider .hover').click @show_popup_video
+    $('#one_more_video_slider .link').click @show_popup_video
 #    $('#more_about_services-popup .hover').click @show_popup_video
-
+    $('.showcase_services .link').click @show_popup_video
+    $('#more_about_services-popup .link').click @show_popup_video
 
 
 
 
     $('.services_static_slider').bxSlider({
-      prevText: '', nextText: '', auto: true, pause: 600000})
+      prevText: '', nextText: '', auto: true, pause: 6000})
 
     $('.slider').bxSlider({
-      prevText: '', nextText: '', auto: true, pause: 600000})
+      prevText: '', nextText: '', auto: true, pause: 5800})
     $('.slider_all_companies').bxSlider({
-      prevText: '', nextText: '', auto: true, pause: 600000})
+      prevText: '', nextText: '', auto: true, pause: 5500})
     $('.video').bxSlider({
-      prevText: '', nextText: '', auto: true, pause: 600000, video: true})
+      prevText: '', nextText: '', auto: true, pause: 5000, video: true})
     $('.slider_other_photo_reports').bxSlider({
       prevText: '',
       nextText: '',
       auto: true,
-      pause: 600000,
+      pause: 5300,
       minSlides: 4,
       maxSlides: 4,
       slideWidth: 255,
@@ -44,7 +45,7 @@ class @Binding_Sliders
       prevText: '',
       nextText: '',
       auto: true,
-      pause: 600000,
+      pause: 5200,
       minSlides: 2,
       maxSlides: 2,
       slideWidth: 480,
@@ -70,7 +71,7 @@ class @Binding_Sliders
 #    video = "embed class='video' width='600' height='350' src='" + src + "' frameborder='0' allowfullscreen='true''"
 #    console.log(content)
 #    content.append video
-    $('#one_more_video_slider').find(".pupup_video[rel='" + popup_video + "']").fadeIn('fast')
+    $('#popup_youtube_video').find(".pupup_video[rel='" + popup_video + "']").fadeIn('fast')
 
 
 

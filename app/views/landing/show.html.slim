@@ -183,7 +183,8 @@
               .watch_video
                 = image_tag 'land/watch_video.png'
                 /= link_to 'посмотреть видео', '#'
-                a.hover.fancybox_video href="#{sr.link_to_video}?fs;autoplay=1" посмотреть видео
+                /a.hover.link href="#{sr.link_to_video}?fs;autoplay=1" посмотреть видео
+                a.hover.link rel='#{i}' data-youtube="#{sr.link_to_video.gsub('http://youtu.be/','http://www.youtube.com/embed/')}" посмотреть видео
 
 
   .all_services
@@ -225,13 +226,7 @@
         - if service.link_to_video.present?
           .slide
             embed width="480" height="241" src=service.link_to_video.gsub('http://youtu.be/','http://www.youtube.com/embed/') frameborder="0" allowfullscreen="true"
-            a.hover href="#{service.link_to_video}?fs;autoplay=1" rel='#{i}' data-youtube="#{service.link_to_video.gsub('http://youtu.be/','http://www.youtube.com/embed/')}"
-    - @services.each_with_index do |service, i|
-      - if service.link_to_video.present?
-        .pupup_video rel='#{i}'
-          .popup-shadow
-          .content
-            embed width="960" height="482" src="#{service.link_to_video.gsub('http://youtu.be/','http://www.youtube.com/embed/')}" frameborder="0" allowfullscreen="true"
+            a.hover.link rel='#{i}' data-youtube="#{service.link_to_video.gsub('http://youtu.be/','http://www.youtube.com/embed/')}"
 
 
   .leave_application
@@ -455,11 +450,20 @@
     p &#169; Copyright 2014 | Genetic-test Company. All rights reserved
 
 
+#popup_youtube_video
+  - @services.each_with_index do |service, i|
+    - if service.link_to_video.present?
+      .pupup_video rel='#{i}'
+        .popup-shadow
+        .content
+          embed width="960" height="482" src="#{service.link_to_video.gsub('http://youtu.be/','http://www.youtube.com/embed/')}" frameborder="0" allowfullscreen="true"
+
+
 #more_about_services-popup
   .popup-shadow_report
   .content
     .popup_slider_all_services
-      - @services.each do |sr|
+      - @services.each_with_index do |sr,i|
         .slide
           p.head = sr.name
           = image_tag sr.image.url, class: 'img_slide'
@@ -505,10 +509,12 @@
                   - sr.rallying.times do
                     = image_tag 'land/star.png'
                   br
-            .watch_video
-              /= link_to 'посмотреть видео', '#'
-              a.hover href="#{sr.link_to_video}?fs;autoplay=1" посмотреть видео
-              = image_tag 'land/watch_video.png'
+            - if sr.link_to_video.present?
+              .watch_video
+                /= link_to 'посмотреть видео', '#'
+                /a.hover href="#{sr.link_to_video}?fs;autoplay=1" посмотреть видео
+                a.hover.link rel='#{i}' data-youtube="#{sr.link_to_video.gsub('http://youtu.be/','http://www.youtube.com/embed/')}" посмотреть видео
+                = image_tag 'land/watch_video.png'
             .button.popup-link_service data-serviceid=sr.id
               | заказать услугу
     .prev_next_button
