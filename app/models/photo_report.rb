@@ -9,10 +9,14 @@ class PhotoReport
 
 
   has_mongoid_attached_file :employee_photo
-  validates_attachment_content_type :employee_photo, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+
 
 
   belongs_to :company
-  embeds_many :photos
+  embeds_many :photos, cascade_callbacks: true
   accepts_nested_attributes_for :photos, allow_destroy: true
+
+  validates_attachment_content_type :employee_photo, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+  validates :photos, presence: true
+
 end
