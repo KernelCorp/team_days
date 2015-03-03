@@ -132,7 +132,7 @@
                 | заказать услугу
             .description
               .text
-                p = sr.description
+                p = raw (sr.description)
               .prop
                 .prop_text
                   - if sr.joy != 0
@@ -468,7 +468,7 @@
           p.head = sr.name
           = image_tag sr.image.url, class: 'img_slide'
           .description
-            p = sr.description
+            = raw sr.full_description
           .more_description
             .prop
               .prop_text

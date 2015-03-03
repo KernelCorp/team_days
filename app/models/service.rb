@@ -5,6 +5,7 @@ class Service
   field :name
   field :price, type: Float
   field :description, type: String
+  field :full_description, type: String
   field :joy, type: Integer, default: 0
   field :health, type: Integer, default: 0
   field :loyalty, type: Integer, default: 0
