@@ -825,8 +825,8 @@ body
         position: relative
         overflow: hidden
         img.photo
-          //width: inherit
-          height: inherit
+          width: 100%
+          //height: inherit
         .transparent
           width: 960px
           height: 123px
@@ -921,17 +921,16 @@ body
             display: block
 
         .hover
-          height: 120px
-          width: 240px
+          height: 160px
+          width: 280px
           position: absolute
           display: none
-          background: image_url("land/zoom3.png") no-repeat
+          background: image_url("land/zoom3.png") no-repeat -20px
           opacity: 0.6
           background-size: 100% 100%
 
         img
-          height: 120px
-          //width: 255px
+          width: 240px
           &:hover
         a
           position: absolute
@@ -1328,8 +1327,8 @@ body
     line-height: 100px
     text-transform: uppercase
   img.img_slide
-    width: 960px
-    height: 416px
+    width: 100%
+    //height: 416px
   .description, .more_description
     display: inline-block
     vertical-align: top
