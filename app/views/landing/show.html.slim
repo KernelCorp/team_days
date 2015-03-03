@@ -175,16 +175,16 @@
               /.info
               .more
                 = image_tag 'land/more_information.png'
-                - if sr.link_to_video.present?
-                  p.popup-link_more_about_service rel='#{i}' узнать подробности
-                - else
+                /- if sr.link_to_video.present?
+                p.popup-link_more_about_service rel='#{i}' узнать подробности
+                /- else
                   p.popup-link_more_about_service rel='-1' узнать подробности
-
-              .watch_video
-                = image_tag 'land/watch_video.png'
-                /= link_to 'посмотреть видео', '#'
-                /a.hover.link href="#{sr.link_to_video}?fs;autoplay=1" посмотреть видео
-                a.hover.link rel='#{i}' data-youtube="#{sr.link_to_video.gsub('http://youtu.be/','http://www.youtube.com/embed/')}" посмотреть видео
+              - if sr.link_to_video.present?
+                .watch_video
+                  = image_tag 'land/watch_video.png'
+                  /= link_to 'посмотреть видео', '#'
+                  /a.hover.link href="#{sr.link_to_video}?fs;autoplay=1" посмотреть видео
+                  a.hover.link rel='#{i}' data-youtube="#{sr.link_to_video.gsub('http://youtu.be/','http://www.youtube.com/embed/')}" посмотреть видео
 
 
   .all_services
@@ -196,9 +196,9 @@
           = image_tag sr.image.url
           .transparent
           p = sr.name
-          - if sr.link_to_video.present?
-            a.popup-link_more_about_service href='#' rel='#{i}'
-          - else
+          /- if sr.link_to_video.present?
+          a.popup-link_more_about_service href='#' rel='#{i}'
+          /- else
             a.popup-link_more_about_service href='#' rel='-1'
           /a.popup-link_more_about_service href='#'
   .services_look_like

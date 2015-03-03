@@ -58,7 +58,7 @@ class @Binding_Sliders
 #  content = $('#one_more_video_slider')
 
   on_other_photos_loaded: (arg)->
-    console.log($("#other_photo_report .slide").length)
+#    console.log($("#other_photo_report .slide").length)
     if $("#other_photo_report .slide").length <= 12
       $("#other_photo_report .bx-controls-direction").hide()
 
