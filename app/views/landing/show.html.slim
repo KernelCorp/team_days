@@ -475,8 +475,8 @@
         .slide
           p.head = sr.name
           .image_slide
-            img src='http://teamdays.ru/system/services/images/54ec/56e9/7072/6f7f/ca01/0000/original/bar2.jpg' class='img_slide'
-            /= image_tag sr.image.url, class: 'img_slide'
+            /img src='http://teamdays.ru/system/services/images/54ec/56e9/7072/6f7f/ca01/0000/original/bar2.jpg' class='img_slide'
+            = image_tag sr.image.url, class: 'img_slide'
           .description
             = raw sr.full_description
           .more_description
