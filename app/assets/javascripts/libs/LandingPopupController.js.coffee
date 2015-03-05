@@ -58,7 +58,7 @@ class @LandingPopupController
     if check == false
       check = true
       slide_all_services = $('.popup_slider_all_services').bxSlider({
-        prevText: '', nextText: '', auto: true, pause: 5000})
+        prevText: '', nextText: '', auto: false})
 
       $('#more_about_services-popup .prev').click ->
         slide_all_services.goToPrevSlide()
