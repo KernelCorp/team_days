@@ -914,47 +914,45 @@ body
       height: 120px
       margin: 0 auto
       width: 960px
-      #hide_slider
-        z-index: 600
-        .bx-next, .bx-prev
-          top: 300px
-      .content_for_hide_slider
-
-        position: fixed
-        top: 30px
-        display: none
-
-
-      .custom_thumb
-        display: none
-        z-index: 400
-
       .slide
+        width: 240px
+        //height: 120px
         overflow: hidden
-        &:hover
-          .hover
-            display: block
-
-        .hover
-          height: 160px
-          width: 280px
-          position: absolute
-          display: none
-          background: image_url("land/zoom3.png") no-repeat -20px
-          opacity: 0.6
-          background-size: 100% 100%
+        //&:hover
+        //  .hover
+        //    display: block
+        //
+        //
+        //.hover
+        //  height: 120px
+        //  width: 240px
+        //  position: absolute
+        //  display: none
+        //  background: image_url("land/zoom3.png") no-repeat -20px
+        //  opacity: 0.6
+        //  background-size: 100% 100%
 
         img
-          width: 240px
+          height: 120px
+          //width: 240px
           &:hover
         a
           position: absolute
           height: 120px
-          width: 255px
+          width: 240px
           display: block
           top: 0
           cursor: pointer
-            //cursor: pointer
+          &:hover
+            background: image_url("land/zoom3.png") no-repeat
+            opacity: 0.6
+            background-size: 100% 100%
+      //cursor: pointer
+      #hide_slider
+        z-index: 600
+        .bx-next, .bx-prev
+          top: 300px
+
       .bx-wrapper
         max-width: none
         .bx-controls
@@ -965,6 +963,9 @@ body
         .content_for_hide_slider
           width: 960px
           height: 641px
+          position: fixed
+          top: 30px
+          display: none
         .bx-wrapper
           max-width: none
           .bx-controls
@@ -992,6 +993,8 @@ body
           width: 960px
           height: 641px
         .custom_thumb
+          display: none
+          z-index: 400
           img
             width: 128px
             height: 85px
@@ -1357,6 +1360,8 @@ body
 
     max-width: none
     height: 560px
+    .slide
+      height: 560px
     .bx-controls
       height: 0
       .bx-next, .bx-prev

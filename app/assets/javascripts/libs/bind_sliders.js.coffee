@@ -9,7 +9,7 @@ class @Binding_Sliders
     $('#more_about_services-popup .cross_button').click @hide_popup_slider
 
 #    $('#one_more_video_slider .hover').click @show_popup_video
-    $('#one_more_video_slider .link').click @show_popup_video
+
 #    $('#more_about_services-popup .hover').click @show_popup_video
     $('.showcase_services .link').click @show_popup_video
     $('#more_about_services-popup .link').click @show_popup_video
@@ -55,24 +55,13 @@ class @Binding_Sliders
 #    console.log('not loaded!!!');
   slider = null
   slider_num = -1
+
 #  content = $('#one_more_video_slider')
 
   on_other_photos_loaded: (arg)->
 #    console.log($("#other_photo_report .slide").length)
     if $("#other_photo_report .slide").length <= 12
       $("#other_photo_report .bx-controls-direction").hide()
-
-  show_popup_video: (e) ->
-#    content.children('.video').remove()
-    e.preventDefault()
-    popup_video = $(e.target).attr('rel')
-#    src = $(e.target).attr('data-youtube')
-#    console.log(src)
-#    video = "embed class='video' width='600' height='350' src='" + src + "' frameborder='0' allowfullscreen='true''"
-#    console.log(content)
-#    content.append video
-    $('#popup_youtube_video').find(".pupup_video[rel='" + popup_video + "']").fadeIn('fast')
-
 
 
 
@@ -101,7 +90,8 @@ class @Binding_Sliders
 #
     $('.popup-shadow_report').hide()
 
-    $('.pupup_video').hide()
+#    $('.pupup_video').hide()
+#    t.remove addVideo
 #    document.querySelector("video").pause()
 
     $('#more_about_services-popup').hide()
