@@ -356,7 +356,7 @@
       .slider_other_photo_reports
         - @photoreports.offset(0).each_with_index do |rp, i|
           .slide
-            .hover
+            /.hover
             /= image_tag 'http://lorempixel.com/400/200/cats'
             = image_tag rp.photos.first.attach_image.url
             /a.fancybox_gallary href="http://placekitten.com/g/300/200" rel="gallery1"
@@ -464,7 +464,7 @@
       .pupup_video rel='#{i}'
         .popup-shadow
         .content
-          embed width="960" height="482" src="#{service.link_to_video.gsub('http://youtu.be/','http://www.youtube.com/embed/')}" frameborder="0" allowfullscreen="true"
+          /embed width="960" height="482" src="#{service.link_to_video.gsub('http://youtu.be/','http://www.youtube.com/embed/')}" frameborder="0" allowfullscreen="true"
 
 
 #more_about_services-popup
