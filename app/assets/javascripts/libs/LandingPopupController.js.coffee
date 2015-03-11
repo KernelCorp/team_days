@@ -9,6 +9,8 @@ class @LandingPopupController
     $('.popup-link_more_about_service').click @show_popup_order_more_about_service
 
     $('#one_more_video_slider .link').click @show_popup_video
+    $('#more_about_services-popup .link').click @show_popup_video
+
 
 
 #    $('#modal_form .content').click @hide_popup
@@ -40,19 +42,19 @@ class @LandingPopupController
     service_id = $(e.target).attr('data-serviceid')
     $('#modal_form form input[name="order[service_id]"]').val service_id
 
-  show_popup_service: (e) ->
+  show_popup_service: (e) =>
     e.preventDefault()
     $('#modal_form_service').fadeIn('slow')
     service_id = $(e.target).attr('data-serviceid')
     $('#modal_form_service form input[name="order[service_id]"]').val service_id
 
-  show_popup_order: (e) ->
+  show_popup_order: (e) =>
     e.preventDefault()
     $('#modal_form_order').fadeIn('slow')
     service_id = $(e.target).attr('data-serviceid')
     $('#modal_form_order form input[name="order[service_id]"]').val service_id
 
-  show_popup_order_more_about_service: (e) ->
+  show_popup_order_more_about_service: (e) =>
 #    @slide_all_services
 #    @slide_all_services.destroySlider()
     $('#more_about_services-popup .popup-shadow_report').fadeIn('slow')
@@ -65,10 +67,10 @@ class @LandingPopupController
       @slide_all_services = $('.popup_slider_all_services').bxSlider({
         prevText: '', nextText: '', auto: false})
 
-      $('#more_about_services-popup .prev').click ->
+      $('#more_about_services-popup .prev').click =>
         @slide_all_services.goToPrevSlide()
         false
-      $('#more_about_services-popup .next').click ->
+      $('#more_about_services-popup .next').click =>
         @slide_all_services.goToNextSlide()
         false
     @slide_all_services.goToSlide(slide_num)
