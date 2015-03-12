@@ -228,7 +228,7 @@
       - @services.each_with_index do |service, i|
         - if service.link_to_video.present?
           .slide
-            embed width="480" height="241" src=service.link_to_video.gsub('http://youtu.be/','http://www.youtube.com/embed/') frameborder="0" allowfullscreen="true"
+            embed width="470" height="241" src=service.link_to_video.gsub('http://youtu.be/','http://www.youtube.com/embed/') frameborder="0" allowfullscreen="true"
             a.hover.link rel='#{i}' data-youtube="#{service.link_to_video.gsub('http://youtu.be/','http://www.youtube.com/embed/')}"
 
 
@@ -641,13 +641,8 @@
     .success_text
       .form_content
         p.header Спасибо!
-        p.text благодарим за проявленный интерес<br>
-                      <br>
-                в ближайшее время проверьте<br>
-                указанный e-mail<br>
-                <br>
-                на него мы выслали подробное коммерческое<br>
-                предложение по сотрудничеству<br>
+          p.text В ближайшее время наш менеджер<br>
+                 с вами свяжется
         p.close_button Закрыть
 
 #success-popup

@@ -18,19 +18,19 @@ class @Binding_Sliders
 
 
     $('.services_static_slider').bxSlider({
-      prevText: '', nextText: '', auto: true, pause: 6000})
+      prevText: '', nextText: '', auto: true, pause: 18000})
 
     $('.slider').bxSlider({
-      prevText: '', nextText: '', auto: true, pause: 5800})
+      prevText: '', nextText: '', auto: true, pause: 17400})
     $('.slider_all_companies').bxSlider({
-      prevText: '', nextText: '', auto: true, pause: 5500})
+      prevText: '', nextText: '', auto: true, pause: 16500})
     $('.video').bxSlider({
-      prevText: '', nextText: '', auto: true, pause: 5000, video: true})
+      prevText: '', nextText: '', auto: true, pause: 15000, video: true})
     $('.slider_other_photo_reports').bxSlider({
       prevText: '',
       nextText: '',
       auto: true,
-      pause: 5300,
+      pause: 15900,
       minSlides: 4,
       maxSlides: 4,
       slideWidth: 240,
@@ -45,7 +45,7 @@ class @Binding_Sliders
       prevText: '',
       nextText: '',
       auto: true,
-      pause: 5200,
+      pause: 15600,
       minSlides: 2,
       maxSlides: 2,
       slideWidth: 480,
@@ -77,7 +77,7 @@ class @Binding_Sliders
       prevText: '',
       nextText: '',
       auto: true,
-      pause: 6000
+      pause: 18000
       pagerCustom: '.custom_thumb'
     })
 
