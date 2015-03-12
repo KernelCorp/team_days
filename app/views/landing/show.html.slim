@@ -332,7 +332,6 @@
             .slide
               .company
                 = image_tag report.photos.first.attach_image.url, class: 'photo'
-                /= image_tag 'http://lorempixel.com/400/200/cats', class: 'photo'
                 .transparent
                 p.name  = report.company.name
                 = image_tag report.company.logo.url, class: 'logo'
@@ -348,7 +347,6 @@
                   .watch_full_review
                     = image_tag 'land/eye.png'
                     a.a_other_photos  rel = '#{i}' посмотреть отчет полностью
-                    /= link_to 'посмотреть отчет полностью', '#', class: 'fancybox_gallary', rel: "gallery0#{i}"
   .other_reports
     p.head другие фотоотчеты
     #other_photo_report.content
@@ -356,48 +354,23 @@
       .slider_other_photo_reports
         - @photoreports.offset(0).each_with_index do |rp, i|
           .slide
-            /.hover
-            /= image_tag 'http://lorempixel.com/400/200/cats'
             = image_tag rp.photos.first.attach_image.url
-            /a.fancybox_gallary href="http://placekitten.com/g/300/200" rel="gallery1"
-            /- rp.photos.each do |ph|
-            /  a.fancybox_gallary href="http://placekitten.com/g/300/200" style="display: none" rel="gallery1"
-            /a.fancybox_gallary href=rp.company.logo.url rel="gallery#{i}"
-            /  /- rp.photos.each do |ph|
-            /  - rp.photos.each do
-            /    a.fancybox_gallary href=rp.company.logo.url style="display: none" rel="gallery#{i}"
-            /= image_tag rp.photos.first.attach_image.url
             a.a_other_photos rel = '#{i}'
-          /.hide_div
       #hide_slider
         - @photoreports.offset(0).each_with_index do |rp, i|
           .container_for_hide_slider rel = "#{i}"
             .content_for_hide_slider
               .popup-shadow_report
-              /p asdkjfasdlkfdas
 
               #slider_other_photos
                 - rp.photos.each do |p|
                   .slide
                     = image_tag p.attach_image.url
-                    /= image_tag 'land/close_button_other_reports.png', class: 'close_btn'
-                    /= image_tag rp.company.logo.url
               .custom_thumb
                 - rp.photos.each_with_index do |p, i|
                   a href='' data-slide-index = "#{i}"
                     = image_tag p.attach_image.url
               .close_btn
-            /<div id="bx-pager">
-            /  <a data-slide-index="0" href=""><img src="/images/thumbs/tree_root.jpg" /></a>
-            /  <a data-slide-index="1" href=""><img src="/images/thumbs/houses.jpg" /></a>
-            /  <a data-slide-index="2" href=""><img src="/images/thumbs/hill_fence.jpg" /></a>
-            /</div>
-
-          /.hide_div
-          /  - rp.photos.each do
-          /    a.fancybox-thumb href=rp.company.logo.url rel="fancybox-thumb"
-          /      = image_tag rp.company.logo.url
-
 
   .how_we_work
     = image_tag 'land/how_we_work.png'
@@ -464,8 +437,6 @@
       .pupup_video rel='#{i}'
         .popup-shadow
         .content
-          /embed width="960" height="482" src="#{service.link_to_video.gsub('http://youtu.be/','http://www.youtube.com/embed/')}" frameborder="0" allowfullscreen="true"
-
 
 #more_about_services-popup
   .popup-shadow_report
@@ -475,7 +446,6 @@
         .slide
           p.head = sr.name
           .image_slide
-            /img src='http://teamdays.ru/system/services/images/54ec/56e9/7072/6f7f/ca01/0000/original/bar2.jpg' class='img_slide'
             = image_tag sr.image.url, class: 'img_slide'
           .description
             = raw sr.full_description
